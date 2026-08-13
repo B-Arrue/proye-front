@@ -3,11 +3,17 @@
 ## Integrantes y roles (Sprint actual)
 
 | Nombre | Rol ágil |
+
 |---|---|---|---|---|---|
+
 |Asher Galván Diaz              |Product Owner|
+
 |Benjamin Ignacio Arrué Chávez  |Scrum Master |
+
 |Paula Rosalia Pastén Guerrero  | Developers  |
+
 |Benjamin Camila Baeza Pérez    | Developers  |
+
 |Diego Andrés Vásquez Contreras |QA / Tester  |
 
 
