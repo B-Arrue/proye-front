@@ -10,11 +10,11 @@
 
 |Benjamin Ignacio Arrué Chávez  |Scrum Master |
 
-|Paula Rosalia Pastén Guerrero  | Developers  |
+|Diego Andrés Vásquez Contreras  | Developers  |
 
 |Benjamin Camila Baeza Pérez    | Developers  |
 
-|Diego Andrés Vásquez Contreras |QA / Tester  |
+|Paula Rosalía Pastén Guerrero |QA / Tester  |
 
 
 ## Descripción breve
