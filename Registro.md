@@ -1,5 +1,12 @@
 Adjunto registro de la creacion de la interfaz referencial que genere con ayuda del cliente (ChatGPT) y con ayuda de la misma IA de Figma para poder tener 
 la interfaz de la forma que queriamos y que sea "funcional"
+
+
 https://www.figma.com/make/VTIfHY6yIm3LZShA7zQm4D/Interfaz-basada-en-PDF?fullscreen=1&t=5JL2gxQGmY910Sun-1&code-node-id=0-6
-(Estoy viendo como agregar la imagen de avance en clases de la misma interfaz)
+
+
+
+
+
+
 ![Mi imagen](front_clase_20.jpg)
