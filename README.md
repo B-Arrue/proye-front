@@ -48,7 +48,7 @@ npm run dev
 ## Tablero Kanban
 
 Enlace al tablero: https://trello.com/invite/b/6a8df24094a3e2de28389bb0/ATTIf2bcaccf28ab811e33c205cac65963163379A6E2/kanban
-##Tablero de registros: https://trello.com/invite/b/6a84bee572cdaf6da933fcd6/ATTI904d89c0069105f76779ad2c3ae530926526136B/mi-tablero-de-trello
+Tablero de registros: https://trello.com/invite/b/6a84bee572cdaf6da933fcd6/ATTI904d89c0069105f76779ad2c3ae530926526136B/mi-tablero-de-trello
 ## Enlace de despliegue
 
 (agregar enlace una vez desplegado)
