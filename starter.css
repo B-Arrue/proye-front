@@ -1,0 +1,60 @@
+
+.logo {
+  display: flex;
+  gap: 0.5rem;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 2ch;
+  padding: 0;
+  background-color: #f4efe6;
+}
+.logo img {
+  height: 50px;
+  gap: 0.5rem;
+  margin-right: 1rem;
+}
+header {
+background-color: #f4efe6;
+display: flex;
+color: rgb(244, 239, 230);
+}
+
+p {
+  font-size: 1.0rem;
+  color: #6b6254;
+  justify-content: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+h1 {
+  font-size: 3.3rem;
+  color: #1E3D1B;
+  font-family: Recoleta;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-family: Recoleta;
+  color: #1E3D1B;
+}
+
+h3 {
+    font-size: 0.8rem;
+    color: #6b6254;
+}
+footer {
+  background-color: #eae4d8;
+  color: #6b6254;
+  padding: 1rem;
+  text-align: center;
+  }
+
+
