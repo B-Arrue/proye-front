@@ -1,0 +1,307 @@
+/* ==========================================================================
+   1. RESETS Y ESTILOS GENERALES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+    background-color: #f8f9fa;
+}
+
+a {
+    color: #2e7d32;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
+   2. ENCABEZADO Y MENÚ DE NAVEGACIÓN (HEADER & NAV)
+   ========================================================================== */
+header {
+    background-color: #ffffff;
+    border-bottom: 2px solid #e0e0e0;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #1b5e20;
+}
+
+header img {
+    width: 40px;
+    height: 40px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    color: #333333;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   3. CONTENEDOR PRINCIPAL Y SECCIONES
+   ========================================================================== */
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+section {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #1b5e20;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #2e7d32;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #a5d6a7;
+    padding-bottom: 5px;
+}
+
+h3 {
+    font-size: 1.3rem;
+    color: #1b5e20;
+    margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   4. HERO / PORTADA
+   ========================================================================== */
+main > section:first-child {
+    text-align: center;
+    background-color: #e8f5e9;
+    border-color: #c8e6c9;
+}
+
+main > section:first-child p:first-child {
+    font-weight: bold;
+    color: #388e3c;
+    letter-spacing: 1px;
+}
+
+main > section:first-child a {
+    display: inline-block;
+    background-color: #2e7d32;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 15px 5px;
+}
+
+main > section:first-child a:hover {
+    background-color: #1b5e20;
+    text-decoration: none;
+}
+
+main > section:first-child img {
+    width: 100%;
+    max-height: 380px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+/* ==========================================================================
+   5. ZONAS TURÍSTICAS Y PANEL LATERAL (ASIDE)
+   ========================================================================== */
+#zonas-turisticas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#zonas-turisticas h2 {
+    width: 100%;
+}
+
+/* Tarjetas de zonas */
+#zonas-turisticas article {
+    flex: 1 1 calc(30% - 20px);
+    min-width: 250px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 15px;
+    background-color: #fafafa;
+}
+
+#zonas-turisticas article img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Panel Lateral (Aside) */
+aside {
+    flex: 1 1 100%;
+    background-color: #f1f8e9;
+    border: 1px solid #c8e6c9;
+    border-radius: 6px;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+aside ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+}
+
+aside ul li {
+    background-color: #ffffff;
+    border: 1px solid #a5d6a7;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+aside a {
+    display: inline-block;
+    background-color: #1b5e20;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+aside a:hover {
+    background-color: #2e7d32;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   6. SECCIÓN DE VENTAJAS
+   ========================================================================== */
+main > section:nth-of-type(3) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+main > section:nth-of-type(3) h2,
+main > section:nth-of-type(3) > p {
+    width: 100%;
+}
+
+main > section:nth-of-type(3) article {
+    flex: 1 1 calc(33.333% - 20px);
+    min-width: 250px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+/* ==========================================================================
+   7. LLAMADO A LA ACCIÓN (CONTACTO) Y PIE DE PÁGINA
+   ========================================================================== */
+main > section:last-child {
+    text-align: center;
+    background-color: #e8f5e9;
+}
+
+main > section:last-child a {
+    display: inline-block;
+    background-color: #1b5e20;
+    color: #ffffff;
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+footer {
+    background-color: #1b5e20;
+    color: #ffffff;
+    padding: 40px 5% 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+footer div {
+    flex: 1 1 200px;
+}
+
+footer img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    margin-bottom: 6px;
+}
+
+footer a {
+    color: #c8e6c9;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
