@@ -1,6 +1,4 @@
-/* ==========================================================================
-   1. ESTILOS GENERALES Y RESETS BASE
-   ========================================================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +12,6 @@ body {
     background-color: #f8f9fa;
 }
 
-/* Enlaces generales */
 a {
     color: #2e7d32;
     text-decoration: none;
@@ -24,23 +21,21 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Imágenes responsivas */
 img {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
-/* ==========================================================================
-   2. ENCABEZADO Y NAVEGACIÓN (HEADER & NAV)
-   ========================================================================== */
+
 header {
     background-color: #ffffff;
     border-bottom: 2px solid #e0e0e0;
-    padding: 15px 5%;
+    padding: 15px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; 
     align-items: center;
+    gap: 15px;
 }
 
 header a {
@@ -53,57 +48,53 @@ header a {
 }
 
 header img {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
 }
 
-/* Menú de navegación */
 nav ul {
     list-style: none;
     display: flex;
-    gap: 15px;
+    flex-wrap: wrap; /
+    justify-content: center;
+    gap: 8px;
 }
 
 nav a {
     color: #333333;
     font-weight: 500;
-    padding: 5px 10px;
+    padding: 6px 10px;
     border-radius: 4px;
+    font-size: 0.9rem;
 }
 
 nav a:hover {
     background-color: #e8f5e9;
-    color: #2e7d32;
+    color: #1b5e20;
     text-decoration: none;
 }
 
-/* ==========================================================================
-   3. CONTENIDO PRINCIPAL (MAIN & SECTIONS)
-   ========================================================================== */
 main {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 20px;
+    width: 100%;
+    padding: 15px;
 }
 
-/* Secciones generales */
 section {
-    margin-bottom: 40px;
     background-color: #ffffff;
-    padding: 25px;
-    border-radius: 8px;
     border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
-/* Encabezados */
 h1 {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     color: #1b5e20;
     margin-bottom: 10px;
 }
 
 h2 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: #2e7d32;
     margin-bottom: 15px;
     border-bottom: 2px solid #a5d6a7;
@@ -112,105 +103,121 @@ h2 {
 
 h3 {
     font-size: 1.2rem;
-    color: #333333;
-    margin-top: 10px;
-    margin-bottom: 8px;
+    color: #1b5e20;
+    margin: 8px 0;
 }
 
-p {
-    margin-bottom: 15px;
+
+main > section:first-child {
+    text-align: center;
+    background-color: #e8f5e9;
+    border-color: #c8e6c9;
 }
 
-/* ==========================================================================
-   4. GRILLA Y TARJETAS (ARTICLES EN CATÁLOGOS)
-   ========================================================================== */
-/* Contenedor flexible para alinear las tarjetas */
-#catalogo-rutas, 
+main > section:first-child p:first-child {
+    font-weight: bold;
+    color: #388e3c;
+    letter-spacing: 1px;
+}
+
+main > section:first-child img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+
 #catalogo-destinos {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column; 
     gap: 20px;
 }
 
-#catalogo-rutas h2, 
 #catalogo-destinos h2 {
     width: 100%;
 }
 
-/* Tarjeta individual */
-article {
-    background-color: #ffffff;
+#catalogo-destinos article {
+    width: 100%;
     border: 1px solid #e0e0e0;
     border-radius: 6px;
     padding: 15px;
-    flex: 1 1 calc(33.333% - 20px); /* Ocupa 3 columnas en pantallas anchas */
-    min-width: 280px;
+    background-color: #fafafa;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-article img {
-    border-radius: 4px;
-    margin-bottom: 10px;
+#catalogo-destinos article img {
     width: 100%;
     height: 180px;
     object-fit: cover;
-}
-
-article ul {
-    list-style: none;
-    margin: 10px 0;
-    padding-left: 0;
-    background-color: #f1f8e9;
-    padding: 10px;
     border-radius: 4px;
-    font-size: 0.9rem;
+    margin-bottom: 10px;
 }
 
-article ul li {
-    margin-bottom: 5px;
+#catalogo-destinos article p:nth-of-type(1) {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #388e3c;
 }
 
-/* Botones en tarjetas */
-article a, 
-section > a {
-    display: inline-block;
+#catalogo-destinos article a {
+    display: block; /
+    text-align: center;
     background-color: #2e7d32;
     color: #ffffff;
-    padding: 8px 16px;
+    padding: 10px;
     border-radius: 4px;
-    text-align: center;
-    margin-top: 10px;
     font-weight: bold;
+    margin-top: 10px;
 }
 
-article a:hover, 
-section > a:hover {
+#catalogo-destinos article a:hover {
     background-color: #1b5e20;
+    text-decoration: none;
+}
+
+main > section:last-child {
+    text-align: center;
+    background-color: #e8f5e9;
+}
+
+main > section:last-child a {
+    display: block;
+    background-color: #1b5e20;
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+main > section:last-child a:hover {
+    background-color: #2e7d32;
     text-decoration: none;
 }
 
 footer {
     background-color: #1b5e20;
     color: #ffffff;
-    padding: 40px 5% 20px;
+    padding: 30px 20px 15px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 25px;
 }
 
-footer div {
-    flex: 1 1 200px;
+footer img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
 }
 
-footer a {
-    color: #a5d6a7;
-}
-
-footer a:hover {
-    color: #ffffff;
+footer p {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
 }
 
 footer ul {
@@ -218,10 +225,77 @@ footer ul {
 }
 
 footer ul li {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
-footer p {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
+footer a {
+    color: #c8e6c9;
+    display: inline-block;
+    margin-top: 4px;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px 5%;
+    }
+
+    main {
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 0 20px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    main > section:first-child img {
+        height: 350px;
+    }
+
+
+    #catalogo-destinos {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    #catalogo-destinos article {
+        flex: 0 0 calc(33.333% - 14px); 
+    }
+
+    #catalogo-destinos article img {
+        height: 200px;
+    }
+
+    #catalogo-destinos article a {
+        display: inline-block;
+        width: auto;
+    }
+
+
+    main > section:last-child a {
+        display: inline-block;
+        width: auto;
+        margin: 10px 5px 0;
+    }
+
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    footer div {
+        flex: 1 1 200px;
+    }
 }
