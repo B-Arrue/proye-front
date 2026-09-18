@@ -357,4 +357,25 @@ footer {
   text-align: center;
   }
 
+/* Mi parte del trabajo - Benjamín Arrué */
 
+.contenedor-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+/* Para tablet */
+@media (min-width: 768px) {
+  .contenedor-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Para pc / pantalla grande */
+@media (min-width: 1024px) {
+  .contenedor-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+}
