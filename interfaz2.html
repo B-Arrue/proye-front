@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>EcoRuta Temuco - Rutas y Actividades</title>
   <link rel="stylesheet" href="starter.css"/>
 </head> 
 <body>
@@ -11,12 +11,11 @@
     <div class="logo">
       <a href="index.html">
         <img src="logo.png" alt="Logo de EcoRuta Temuco">
-        <h2>EcoRuta Temuco</h2>
-        
+        <span>EcoRuta Temuco</span>
       </a>
     </div>
 
-    <nav>
+    <nav aria-label="Menú principal">
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="destinos.html">Destinos</a></li>
@@ -29,16 +28,18 @@
       </ul>
     </nav>
   </header>
+
   <main>
-    <section> <title>EcoRuta Temuco - Rutas y Actividades</title>
+    <section>
       <p>CATÁLOGO</p>
       <h1>Rutas y Actividades</h1>
       <p>Explora todas las opciones disponibles en la región.</p>
 
       <figure>
-        <img src="banner-rutas.jpg" alt="Imagen panorámica del catálogo de rutas">
+        <img src="banner-rutas.jpg" alt="Imagen panorámica del catálogo de rutas en la Araucanía">
       </figure>
-      <nav>
+      
+      <nav aria-label="Filtros de categorías de rutas">
         <ul>
           <li><button type="button">Todas</button></li>
           <li><button type="button">Trekking</button></li>
@@ -50,18 +51,18 @@
         </ul>
       </nav>
     </section>
-    <section>
-      <div>
 
+    <section>
+      <div class="grid-rutas">
         <article>
           <figure>
-            <img src="volcan-llaima.jpg" alt="Circuito Volcán Llaima">
+            <img src="volcan-llaima.jpg" alt="Vista del Circuito Volcán Llaima">
           </figure>
           <span>Trekking</span>
           <p>Araucanía Andina</p>
           <h2>Circuito Volcán Llaima</h2>
           <ul>
-            <li><span>Alta</span></li>
+            <li><span>Alta dificultad</span></li>
             <li>2 días</li>
             <li>28 km</li>
           </ul>
@@ -69,13 +70,13 @@
 
         <article>
           <figure>
-            <img src="araucarias.jpg" alt="Sendero Araucarias Milenarias">
+            <img src="araucarias.jpg" alt="Sendero rodeado de Araucarias Milenarias">
           </figure>
           <span>Senderismo</span>
           <p>Nahuelbuta</p>
           <h2>Sendero Araucarias Milenarias</h2>
           <ul>
-            <li><span>Media</span></li>
+            <li><span>Media dificultad</span></li>
             <li>1 día</li>
             <li>12 km</li>
           </ul>
@@ -83,13 +84,13 @@
 
         <article>
           <figure>
-            <img src="ruta-lagos.jpg" alt="Ruta de los Lagos">
+            <img src="ruta-lagos.jpg" alt="Paisaje de la Ruta de los Lagos">
           </figure>
           <span>Ciclismo</span>
           <p>Araucanía Lacustre</p>
           <h2>Ruta de los Lagos</h2>
           <ul>
-            <li><span>Baja</span></li>
+            <li><span>Baja dificultad</span></li>
             <li>3 días</li>
             <li>45 km</li>
           </ul>
@@ -97,13 +98,13 @@
 
         <article>
           <figure>
-            <img src="tolten.jpg" alt="Sendero Litoral Toltén">
+            <img src="tolten.jpg" alt="Paisaje costero del Sendero Litoral Toltén">
           </figure>
           <span>Senderismo</span>
           <p>Araucanía Costera</p>
           <h2>Sendero Litoral Toltén</h2>
           <ul>
-            <li><span>Media</span></li>
+            <li><span>Media dificultad</span></li>
             <li>1 día</li>
             <li>18 km</li>
           </ul>
@@ -111,13 +112,13 @@
 
         <article>
           <figure>
-            <img src="mapuche.jpg" alt="Ruta Cultural Mapuche">
+            <img src="mapuche.jpg" alt="Elementos y comunidad de la Ruta Cultural Mapuche">
           </figure>
           <span>Cultural</span>
           <p>Temuco</p>
           <h2>Ruta Cultural Mapuche</h2>
           <ul>
-            <li><span>Baja</span></li>
+            <li><span>Baja dificultad</span></li>
             <li>4 horas</li>
             <li>8 km</li>
           </ul>
@@ -125,13 +126,13 @@
 
         <article>
           <figure>
-            <img src="lonquimay.jpg" alt="Travesía Lonquimay">
+            <img src="lonquimay.jpg" alt="Paisaje cordillerano en la Travesía Lonquimay">
           </figure>
           <span>Expedición</span>
           <p>Araucanía Andina</p>
           <h2>Travesía Lonquimay</h2>
           <ul>
-            <li><span>Alta</span></li>
+            <li><span>Alta dificultad</span></li>
             <li>3 días</li>
             <li>52 km</li>
           </ul>
@@ -139,13 +140,13 @@
 
         <article>
           <figure>
-            <img src="ensenada.jpg" alt="Bahía Ensenada">
+            <img src="ensenada.jpg" alt="Vista de la Bahía Ensenada">
           </figure>
           <span>Kayak</span>
           <p>Araucanía Lacustre</p>
           <h2>Bahía Ensenada</h2>
           <ul>
-            <li><span>Baja</span></li>
+            <li><span>Baja dificultad</span></li>
             <li>5 horas</li>
             <li>9 km</li>
           </ul>
@@ -153,22 +154,20 @@
 
         <article>
           <figure>
-            <img src="piedra-aguila.jpg" alt="Mirador Piedra del Águila">
+            <img src="piedra-aguila.jpg" alt="Mirador Piedra del Águila en la cordillera">
           </figure>
           <span>Trekking</span>
           <p>Nahuelbuta</p>
           <h2>Mirador Piedra del Águila</h2>
           <ul>
-            <li><span>Media</span></li>
+            <li><span>Media dificultad</span></li>
             <li>6 horas</li>
             <li>14 km</li>
           </ul>
         </article>
-
       </div>
     </section>
 
-    <!-- DETALLE / FICHA DE RUTA -->
     <section>
       <h2>Ficha de Ruta</h2>
 
@@ -186,7 +185,6 @@
             <p>Un recorrido de alta montaña que rodea el volcán Llaima, uno de los más activos de Sudamérica. Atraviesa paisajes de lava solidificada, bosques de araucarias y miradores únicos con vistas al Parque Nacional Conguillío.</p>
           </div>
 
-          <!-- Especificaciones Técnicas -->
           <dl>
             <div>
               <dt>Duración</dt>
@@ -198,7 +196,7 @@
             </div>
             <div>
               <dt>Desnivel</dt>
-              <dd>+1 400 m</dd>
+              <dd>+1.400 m</dd>
             </div>
             <div>
               <dt>Punto de inicio</dt>
@@ -214,15 +212,13 @@
             </div>
           </dl>
 
-          <a href="#">Reservar experiencia</a>
+          <a href="contacto.html" class="btn">Reservar experiencia</a>
         </div>
       </article>
     </section>
-
   </main>
 
-  <!-- PIE DE PÁGINA -->
-  
+  <footer>
     <div>
       <section>
         <img src="logo.png" alt="Logo EcoRuta Temuco">
@@ -230,7 +226,7 @@
         <p>Plataforma de turismo sustentable para la región de La Araucanía. Proyecto académico — ICINF1107.</p>
       </section>
 
-      <nav>
+      <nav aria-label="Navegación secundaria del pie de página">
         <h3>NAVEGACIÓN</h3>
         <ul>
           <li><a href="index.html">Inicio</a></li>
@@ -248,13 +244,13 @@
         <p>Los contenidos de este sitio —textos, imágenes y datos— son de carácter ilustrativo y pertenecen a sus respectivos autores. Su uso tiene fines exclusivamente educativos y no comerciales.</p>
       </section>
     </div>
-    <footer>
-    <div>
+    
+    <div class="footer-bottom">
       <p>© 2026 EcoRuta Temuco. Todos los derechos reservados.</p>
       <p>Desarrollado con fines académicos · Universidad · ICINF1107</p>
       <ul>
-        <li><a href="#">Política de privacidad</a></li>
-        <li><a href="#">Términos de uso</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+        <li><a href="terminos.html">Términos de uso</a></li>
       </ul>
     </div>
   </footer>
