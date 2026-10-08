@@ -1,15 +1,82 @@
-:root {
-  --primary-color: #2b5329;
-  --secondary-color: #d97706;
-  --bg-color: #f9fafb;
-  --text-color: #1f2937;
-  --white: #ffffff;
-  --gray-light: #e5e7eb;
+/* Estilos simples para mapa */
+body {
+  font-family: Arial, sans-serif;
+  background: #f4efe6;
+  color: #292d26;
+  margin: 20px;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #2b5329;
+  text-decoration: none;
+}
+
+.logo img {
+  width: 40px;
+}
+
+nav ul {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+}
+
+a {
+  color: #2b5329;
+}
+
+main {
+  max-width: 1000px;
+  margin: 30px auto;
+}
+
+h1,
+h2 {
+  color: #2b5329;
+}
+
+.mapa {
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 2px dashed #2b5329;
+}
+
+.mapa + figure img {
+  height: auto;
+}
+figure {
+  margin: 8px 0;
+}
+
+figcaption {
+  font-size: 14px;
+}
+
+footer {
+  padding: 16px;
+  text-align: center;
+  background: #eae4d8;
+}
+
+@media (max-width: 600px) {
+  header,
+  nav ul {
+    display: block;
+  }
+
+  article {
+    width: 90%;
+  }
+}

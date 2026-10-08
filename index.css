@@ -90,3 +90,12 @@ main {
     gap: 0.5rem; /*para que haya menos espacio entre los elementos del nav*/
   }
 }
+
+/* Crédito de las imágenes */
+figure {
+  margin: 16px 0;
+}
+
+figcaption {
+  font-size: 14px;
+}
