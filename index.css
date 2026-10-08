@@ -79,7 +79,7 @@ main {
 
 /*MOBILE FIRST*/
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   header {
     flex-direction: column; /*para que los elementos del header se muestren en columna*/
     align-items: flex-start; /*para que los elementos del header se alineen a la izquierda*/
