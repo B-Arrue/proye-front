@@ -1,7 +1,7 @@
 
 body {
   margin: 0;
-  padding: 20px;
+  padding: 12px;
   font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
   line-height: 1.6;
   background: #f4efe6;
@@ -99,4 +99,10 @@ footer {
   padding: 16px;
   text-align: center;
   background: #eae4d8;
+}
+
+@media (min-width: 600px) {
+  body {
+    padding: 20px;
+  }
 }
