@@ -181,7 +181,7 @@
     <section>
       <h2>Ficha de Ruta</h2>
 
-      <article>
+      <article class="detalle-ruta">
         <figure>
           <img src="Imagenes/volcan-llaima.jpg" alt="Vista en detalle del Circuito Volcán Llaima">
         </figure>
@@ -222,8 +222,29 @@
               <dd>Guardería Truful</dd>
             </div>
           </dl>
-
+<form id="Formulario">
+            <fieldset>
+              <legend>Reservar experiencia</legend>
+              <label for="nombre">Nombre:</label>
+              <input type="text" id="nombre" name="nombre" required>
+              <br>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+              <br>
+              <label for="telefono">Teléfono:</label>
+              <input type="tel" id="telefono" name="telefono" required>
+              <br>
+              <label for="Ruta">Ruta:</label>
+              <input type="text" id="Ruta" name="Ruta" required>
+              <br>
+              <label for="fecha">Fecha:</label>
+              <input type="date" id="fecha" name="fecha" required>
+              <br>
+              <button type="submit">Reservar</button>
+            </fieldset>
+          </form>
           <a href="#">Reservar experiencia</a>
+          <script src="ruta-form.js"></script>
         </div>
       </article>
     </section>
