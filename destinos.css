@@ -1,4 +1,3 @@
-/* Estilos de destinos */
 body {
   font-family: Arial, sans-serif;
   background: #f4efe6;
@@ -8,6 +7,7 @@ body {
 
 header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
@@ -26,7 +26,9 @@ header {
 
 nav ul {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
+  padding: 0;
   list-style: none;
 }
 
@@ -40,14 +42,28 @@ main {
   margin: 30px auto;
 }
 
+h1,
+h2 {
+  color: #2b5329;
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+section > h1,
+section > h1 + p,
+section > p:last-child {
+  grid-column: 1 / -1;
+}
+
 article {
-  display: inline-block;
-  vertical-align: top;
-  width: 30%;
-  margin: 8px;
-  padding: 16px;
   background: white;
-  border-radius: 8px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 .lista-destinos {
@@ -55,6 +71,10 @@ article {
   grid-template-columns: 1fr;
   gap: 16px;
   margin-block: 24px;
+}
+
+.destinos {
+  display: block;
 }
 
 .lista-destinos .tarjeta-destino {
@@ -108,13 +128,24 @@ article {
 }
 
 article img {
+  display: block;
   width: 100%;
-  height: 160px;
+  height: 180px;
   object-fit: cover;
 }
 
+figure {
+  margin: 0;
+}
+
 figcaption {
-  font-size: 14px;
+  padding: 6px 16px;
+  font-size: 13px;
+}
+
+article h2,
+article p {
+  margin: 12px 16px;
 }
 
 footer {
@@ -132,16 +163,5 @@ footer {
 @media (min-width: 900px) {
   .lista-destinos {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 600px) {
-  header,
-  nav ul {
-    display: block;
-  }
-
-  article {
-    width: 90%;
   }
 }
