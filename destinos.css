@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   background: #f4efe6;
   color: #292d26;
-  margin: 20px;
+  margin: 12px;
 }
 
 header {
@@ -10,6 +10,7 @@ header {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
 }
 
 .logo {
@@ -27,7 +28,7 @@ header {
 nav ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 8px 16px;
   padding: 0;
   list-style: none;
 }
@@ -121,6 +122,7 @@ article {
   color: #fff;
   font: inherit;
   cursor: pointer;
+  min-height: 44px;
 }
 
 .boton-reintentar:hover {
@@ -163,5 +165,11 @@ footer {
 @media (min-width: 900px) {
   .lista-destinos {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 600px) {
+  body {
+    margin: 20px;
   }
 }
