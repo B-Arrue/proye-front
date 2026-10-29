@@ -57,49 +57,16 @@
       </nav>
     </header>
     <main>
-      <section>
-        <h1>
+      <section class="destinos" aria-labelledby="titulo-destinos">
+        <h1 id="titulo-destinos">
           Destinos
         </h1>
         <p>
           Algunas zonas para comenzar a recorrer La Araucanía.
         </p>
-        <article>
-          <figure>
-            <img src="imagenes/icalma-araucarias.jpg" alt="Laguna de Icalma rodeada de araucarias">
-            <figcaption>Foto: Paula Misle, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.</figcaption>
-          </figure>
-          <h2>
-            Araucanía Lacustre
-          </h2>
-          <p>
-            Lagos, volcanes y bosques nativos. Una zona para disfrutar de la naturaleza y actividades al aire libre.
-          </p>
-        </article>
-        <article>
-          <figure>
-            <img src="imagenes/conguillio-llaima.jpg" alt="Volcán Llaima junto al lago Conguillío">
-            <figcaption>Foto: Mariomxel, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</figcaption>
-          </figure>
-          <h2>
-            Araucanía Andina
-          </h2>
-          <p>
-            Paisajes de cordillera, volcanes y lagunas de altura.
-          </p>
-        </article>
-        <article>
-          <figure>
-            <img src="imagenes/nahuelbuta-araucaria.jpg" alt="Araucaria en el Parque Nacional Nahuelbuta">
-            <figcaption>Foto: Roberto Antonio Ancavil Ñ, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>.</figcaption>
-          </figure>
-          <h2>
-            Nahuelbuta
-          </h2>
-          <p>
-            Una zona conocida por sus bosques de araucarias y senderos.
-          </p>
-        </article>
+        <p id="estado-destinos" class="estado" role="status" aria-live="polite">Cargando destinos…</p>
+        <div id="lista-destinos" class="lista-destinos" aria-busy="true"></div>
+        <button id="reintentar-destinos" class="boton-reintentar" type="button" hidden>Reintentar</button>
         <p>
           <a href="ruta.html">
             Revisa las rutas
@@ -112,5 +79,6 @@
         EcoRuta Temuco · Proyecto académico de turismo en La Araucanía.
       </p>
     </footer>
+    <script src="destinos.js" defer></script>
   </body>
 </html>
