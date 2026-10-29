@@ -66,6 +66,67 @@ article {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
+.lista-destinos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-block: 24px;
+}
+
+.destinos {
+  display: block;
+}
+
+.lista-destinos .tarjeta-destino {
+  width: auto;
+  margin: 0;
+  padding: 16px;
+}
+
+.tarjeta-destino figure {
+  margin: 0;
+}
+
+.tarjeta-destino img {
+  display: block;
+  border-radius: 6px;
+}
+
+.tarjeta-destino h2 {
+  margin-bottom: 8px;
+}
+
+.tarjeta-destino p {
+  line-height: 1.5;
+}
+
+.estado {
+  min-height: 1.5em;
+  line-height: 1.5;
+}
+
+.estado[data-state="error"] {
+  color: #8a241f;
+}
+
+.estado[data-state="success"] {
+  color: #2b5329;
+}
+
+.boton-reintentar {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 6px;
+  background: #2b5329;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.boton-reintentar:hover {
+  background: #1e3d1d;
+}
+
 article img {
   display: block;
   width: 100%;
@@ -91,4 +152,16 @@ footer {
   padding: 16px;
   text-align: center;
   background: #eae4d8;
+}
+
+@media (min-width: 600px) {
+  .lista-destinos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .lista-destinos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
