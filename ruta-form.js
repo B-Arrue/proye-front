@@ -71,7 +71,7 @@
             ruta: DATOS.ruta.value
           };
 
-          fetch("https://TU_API_AQUÍ.mockapi.io/api   /v1/recurso", {
+          fetch("https://6ae112d6be3bc8fead983c8d.mockapi.io/ruta", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
