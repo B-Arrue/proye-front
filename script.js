@@ -4,7 +4,7 @@
 // ==========================================
 
 // 1. URL de tu recurso personalizado en MockAPI 
-const API_URL = 'https://TU_API_AQUÍ.mockapi.io/api/v1/recurso';
+const API_URL = 'https://6ae112d6be3bc8fead983c8d.mockapi.io/destinos';
 
 // Capturamos los elementos del HTML para manejar los estados
 const contenedorResultados = document.getElementById('resultado-api');
