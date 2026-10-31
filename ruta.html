@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="starter.css"/>
-</head> 
+  <title>EcoRuta Temuco - Rutas y Actividades</title>
+  <link rel="stylesheet" href="ruta.css">
+</head>
 <body>
+
+  <!-- CABECERA PRINCIPAL -->
   <header>
     <div class="logo">
       <a href="index.html">
-        <img src="logo.png" alt="Logo de EcoRuta Temuco">
-        <h2>EcoRuta Temuco</h2>
-        
+        <img src="Imagenes/logo.png" alt="Logo de EcoRuta Temuco">
+        <span>EcoRuta Temuco</span>
       </a>
     </div>
 
@@ -29,15 +30,21 @@
       </ul>
     </nav>
   </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
   <main>
-    <section> <title>EcoRuta Temuco - Rutas y Actividades</title>
+
+    <!-- ENCABEZADO Y BANNER DEL CATÁLOGO -->
+    <section>
       <p>CATÁLOGO</p>
       <h1>Rutas y Actividades</h1>
       <p>Explora todas las opciones disponibles en la región.</p>
 
-      <figure>
-        <img src="banner-rutas.jpg" alt="Imagen panorámica del catálogo de rutas">
+      <figure class="banner-rutas">
+        <img src="Imagenes/Banner-rutas.jpg" alt="Imagen panorámica del catálogo de rutas">
       </figure>
+
+      <!-- Filtros de categoría -->
       <nav>
         <ul>
           <li><button type="button">Todas</button></li>
@@ -50,12 +57,14 @@
         </ul>
       </nav>
     </section>
+
+    <!-- GRILLA / LISTADO DE RUTAS -->
     <section>
       <div>
-
+<div class="grid-rutas">
         <article>
           <figure>
-            <img src="volcan-llaima.jpg" alt="Circuito Volcán Llaima">
+            <img src="Imagenes/volcan-llaima.jpg" alt="Circuito Volcán Llaima">
           </figure>
           <span>Trekking</span>
           <p>Araucanía Andina</p>
@@ -69,7 +78,7 @@
 
         <article>
           <figure>
-            <img src="araucarias.jpg" alt="Sendero Araucarias Milenarias">
+            <img src="Imagenes/araucarias.jpg" alt="Sendero Araucarias Milenarias">
           </figure>
           <span>Senderismo</span>
           <p>Nahuelbuta</p>
@@ -83,7 +92,7 @@
 
         <article>
           <figure>
-            <img src="ruta-lagos.jpg" alt="Ruta de los Lagos">
+            <img src="Imagenes/ruta-lagos.jpg" alt="Ruta de los Lagos">
           </figure>
           <span>Ciclismo</span>
           <p>Araucanía Lacustre</p>
@@ -97,7 +106,7 @@
 
         <article>
           <figure>
-            <img src="tolten.jpg" alt="Sendero Litoral Toltén">
+            <img src="Imagenes/sendero-litoral.jpeg" alt="Sendero Litoral Toltén">
           </figure>
           <span>Senderismo</span>
           <p>Araucanía Costera</p>
@@ -111,7 +120,7 @@
 
         <article>
           <figure>
-            <img src="mapuche.jpg" alt="Ruta Cultural Mapuche">
+            <img src="Imagenes/mapuche.jpeg" alt="Ruta Cultural Mapuche">
           </figure>
           <span>Cultural</span>
           <p>Temuco</p>
@@ -125,7 +134,7 @@
 
         <article>
           <figure>
-            <img src="lonquimay.jpg" alt="Travesía Lonquimay">
+            <img src="Imagenes/lonquimay.jpeg" alt="Travesía Lonquimay">
           </figure>
           <span>Expedición</span>
           <p>Araucanía Andina</p>
@@ -139,7 +148,7 @@
 
         <article>
           <figure>
-            <img src="ensenada.jpg" alt="Bahía Ensenada">
+            <img src="Imagenes/ensenada.jpeg" alt="Bahía Ensenada">
           </figure>
           <span>Kayak</span>
           <p>Araucanía Lacustre</p>
@@ -153,7 +162,7 @@
 
         <article>
           <figure>
-            <img src="piedra-aguila.jpg" alt="Mirador Piedra del Águila">
+            <img src="Imagenes/piedra-aguila.png" alt="Mirador Piedra del Águila">
           </figure>
           <span>Trekking</span>
           <p>Nahuelbuta</p>
@@ -164,7 +173,7 @@
             <li>14 km</li>
           </ul>
         </article>
-
+</div>
       </div>
     </section>
 
@@ -174,7 +183,7 @@
 
       <article>
         <figure>
-          <img src="volcan-llaima-detalle.jpg" alt="Vista en detalle del Circuito Volcán Llaima">
+          <img src="Imagenes/volcan-llaima.jpg" alt="Vista en detalle del Circuito Volcán Llaima">
         </figure>
 
         <div>
@@ -222,7 +231,7 @@
   </main>
 
   <!-- PIE DE PÁGINA -->
-  
+  <footer>
     <div>
       <section>
         <img src="logo.png" alt="Logo EcoRuta Temuco">
@@ -248,7 +257,7 @@
         <p>Los contenidos de este sitio —textos, imágenes y datos— son de carácter ilustrativo y pertenecen a sus respectivos autores. Su uso tiene fines exclusivamente educativos y no comerciales.</p>
       </section>
     </div>
-    <footer>
+
     <div>
       <p>© 2026 EcoRuta Temuco. Todos los derechos reservados.</p>
       <p>Desarrollado con fines académicos · Universidad · ICINF1107</p>

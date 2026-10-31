@@ -1,0 +1,108 @@
+
+body {
+  margin: 0;
+  padding: 12px;
+  font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  background: #f4efe6;
+  color: #292d26;
+}
+
+a {
+  color: #2b5329;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.logo img {
+  width: 40px;
+  height: auto;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  display: block;
+  padding: 8px 14px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background: #eae4d8;
+}
+
+main {
+  max-width: 1000px;
+  margin: 30px auto;
+}
+
+h1,
+h2 {
+  color: #2b5329;
+}
+
+.mapa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  background: white;
+  border: 2px dashed #2b5329;
+}
+
+.mapa p {
+  margin: 0;
+  text-align: center;
+}
+
+figure {
+  margin: 16px 0;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto;
+}
+
+figcaption {
+  max-width: 600px;
+  margin: 8px auto 0;
+  font-size: 14px;
+}
+
+footer {
+  margin-top: 40px;
+  padding: 16px;
+  text-align: center;
+  background: #eae4d8;
+}
+
+@media (min-width: 600px) {
+  body {
+    padding: 20px;
+  }
+}

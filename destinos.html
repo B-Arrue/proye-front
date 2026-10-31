@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      Destinos | EcoRuta Temuco
+    </title>
+    <link rel="stylesheet" href="destinos.css">
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="">
+        <span>
+          EcoRuta Temuco
+        </span>
+      </a>
+      <nav aria-label="Menú principal">
+        <ul>
+          <li>
+            <a href="index.html">
+              Inicio
+            </a>
+          </li>
+          <li>
+            <a href="destinos.html">
+              Destinos
+            </a>
+          </li>
+          <li>
+            <a href="experiencias.html">
+              Experiencias
+            </a>
+          </li>
+          <li>
+            <a href="mapa.html">
+              Mapa
+            </a>
+          </li>
+          <li>
+            <a href="ruta.html">
+              Rutas
+            </a>
+          </li>
+          <li>
+            <a href="cultura.html">
+              Cultura
+            </a>
+          </li>
+          <li>
+            <a href="informacion.html">
+              Información
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="destinos" aria-labelledby="titulo-destinos">
+        <h1 id="titulo-destinos">
+          Destinos
+        </h1>
+        <p>
+          Algunas zonas para comenzar a recorrer La Araucanía.
+        </p>
+        <p id="estado-destinos" class="estado" role="status" aria-live="polite">Cargando destinos…</p>
+        <div id="lista-destinos" class="lista-destinos" aria-busy="true"></div>
+        <button id="reintentar-destinos" class="boton-reintentar" type="button" hidden>Reintentar</button>
+        <p>
+          <a href="ruta.html">
+            Revisa las rutas
+          </a>
+        </p>
+      </section>
+    </main>
+    <footer>
+      <p>
+        EcoRuta Temuco · Proyecto académico de turismo en La Araucanía.
+      </p>
+    </footer>
+    <script src="destinos.js" defer></script>
+  </body>
+</html>
