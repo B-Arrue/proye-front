@@ -29,7 +29,6 @@ form label {
   form input {
     padding: 10px;
     margin-bottom: 16px;
-    border: 1px solid #ccc;
     border-radius: 5px;
    border: none
   }
@@ -154,3 +153,30 @@ li {
   border-radius: 8px;
   max-width: 1200px;
 }
+
+.warnings {
+  width: 200px;
+  text-align: center;
+  margin:auto;
+  color: rgb(160, 128, 128);
+  padding-top: 20px;
+}
+
+.success {
+display: inline-block;
+  width: 200px;
+  text-align: center;
+  margin:auto;
+  color: rgb(55, 73, 42);
+  padding-top: 20px;
+}
+
+FORM select, FORM textarea {
+    width: 100%;
+  padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+   border: none
+}
+

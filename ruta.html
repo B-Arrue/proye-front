@@ -222,25 +222,37 @@
               <dd>Guardería Truful</dd>
             </div>
           </dl>
-<form id="Formulario">
+<form action="" method="POST" id="form">
             <fieldset>
-              <legend>Reservar experiencia</legend>
+              <legend>Reservar ruta</legend>
               <label for="nombre">Nombre:</label>
-              <input type="text" id="nombre" name="nombre" required>
+              <input type="text" name="nombre" id="nombre" >
               <br>
               <label for="email">Email:</label>
-              <input type="email" id="email" name="email" required>
+              <input type="email" id="email"  name="email" >
               <br>
               <label for="telefono">Teléfono:</label>
-              <input type="tel" id="telefono" name="telefono" required>
+              <input type="tel" id="telefono"  name="telefono">
               <br>
-              <label for="Ruta">Ruta:</label>
-              <input type="text" id="Ruta" name="Ruta" required>
+              <label for="ruta">Elige una ruta:</label>
+                  <select id="ruta" name="ruta">
+                    <option value="ruta1">Circuito Volcán Llaima</option>
+                    <option value="ruta2">Sendero Araucarias Milenarias</option>
+                    <option value="ruta3">Ruta de los Lagos</option>
+                    <option value="ruta4">Sendero Litoral Toltén</option>
+                    <option value="ruta5">Ruta Cultural Mapuche</option>
+                    <option value="ruta6">Travesía Lonquimay</option>
+                    <option value="ruta7">Bahía Ensenada</option>
+                    <option value="ruta8">Mirador Piedra del Águila</option>
+
+                  </select>
               <br>
               <label for="fecha">Fecha:</label>
-              <input type="date" id="fecha" name="fecha" required>
+              <input type="date" name="fecha" id="fecha"  >
               <br>
               <button type="submit">Reservar</button>
+              <p class="warnings" id="warnings"></p>
+              <p class="success" id="success"></p>
             </fieldset>
           </form>
           <a href="#">Reservar experiencia</a>
@@ -254,25 +266,6 @@
   <!-- PIE DE PÁGINA -->
   <footer>
     <div>
-      <section>
-        <img src="logo.png" alt="Logo EcoRuta Temuco">
-        <h2>EcoRuta Temuco</h2>
-        <p>Plataforma de turismo sustentable para la región de La Araucanía. Proyecto académico — ICINF1107.</p>
-      </section>
-
-      <nav>
-        <h3>NAVEGACIÓN</h3>
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="destinos.html">Destinos</a></li>
-          <li><a href="experiencias.html">Experiencias</a></li>
-          <li><a href="mapa.html">Mapa</a></li>
-          <li><a href="ruta.html">Ruta</a></li>
-          <li><a href="cultura.html">Cultura</a></li>
-          <li><a href="informacion.html">Información</a></li>
-        </ul>
-      </nav>
-
       <section>
         <h3>AVISO LEGAL</h3>
         <p>Los contenidos de este sitio —textos, imágenes y datos— son de carácter ilustrativo y pertenecen a sus respectivos autores. Su uso tiene fines exclusivamente educativos y no comerciales.</p>
