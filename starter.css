@@ -1,3 +1,7 @@
+/* ========================================== */
+/* Tarea / Proyecto EcoRuta Temuco            */
+/* Estilos Base y Adaptativos                 */
+/* ========================================== */
 
 * {
     margin: 0;
@@ -27,6 +31,9 @@ img {
     display: block;
 }
 
+/* ========================================== */
+/* ESTILOS DE LA CABECERA Y NAVEGACIÓN        */
+/* ========================================== */
 
 header {
     background-color: #ffffff;
@@ -55,7 +62,7 @@ header img {
 nav ul {
     list-style: none;
     display: flex;
-    flex-wrap: wrap; /
+    flex-wrap: wrap; /* Ajuste para elementos múltiples */
     justify-content: center;
     gap: 8px;
 }
@@ -73,6 +80,10 @@ nav a:hover {
     color: #1b5e20;
     text-decoration: none;
 }
+
+/* ========================================== */
+/* CONTENEDOR PRINCIPAL Y SECCIONES           */
+/* ========================================== */
 
 main {
     width: 100%;
@@ -107,7 +118,7 @@ h3 {
     margin: 8px 0;
 }
 
-
+/* Sección de portada / Hero */
 main > section:first-child {
     text-align: center;
     background-color: #e8f5e9;
@@ -128,6 +139,9 @@ main > section:first-child img {
     margin-top: 15px;
 }
 
+/* ========================================== */
+/* CATÁLOGO DE DESTINOS                       */
+/* ========================================== */
 
 #catalogo-destinos {
     display: flex;
@@ -165,7 +179,7 @@ main > section:first-child img {
 }
 
 #catalogo-destinos article a {
-    display: block; /
+    display: block; /* Comportamiento de bloque para botones */
     text-align: center;
     background-color: #2e7d32;
     color: #ffffff;
@@ -199,6 +213,10 @@ main > section:last-child a:hover {
     background-color: #2e7d32;
     text-decoration: none;
 }
+
+/* ========================================== */
+/* PIE DE PÁGINA (FOOTER)                     */
+/* ========================================== */
 
 footer {
     background-color: #1b5e20;
@@ -238,6 +256,10 @@ footer a:hover {
     color: #ffffff;
 }
 
+/* ========================================== */
+/* DISEÑO RESPONSIVO (MEDIA QUERIES)          */
+/* ========================================== */
+
 @media (min-width: 768px) {
     header {
         flex-direction: row;
@@ -263,7 +285,6 @@ footer a:hover {
         height: 350px;
     }
 
-
     #catalogo-destinos {
         flex-direction: row;
         flex-wrap: wrap;
@@ -283,7 +304,6 @@ footer a:hover {
         width: auto;
     }
 
-
     main > section:last-child a {
         display: inline-block;
         width: auto;
@@ -299,6 +319,11 @@ footer a:hover {
         flex: 1 1 200px;
     }
 }
+
+/* ========================================== */
+/* CONFIGURACIONES ADICIONALES Y TIPOGRAFÍA   */
+/* ========================================== */
+
 .logo {
   display: flex;
   gap: 0.5rem;
@@ -310,15 +335,17 @@ body {
   padding: 0;
   background-color: #f4efe6;
 }
+
 .logo img {
   height: 50px;
   gap: 0.5rem;
   margin-right: 1rem;
 }
+
 header {
-background-color: #f4efe6;
-display: flex;
-color: rgb(244, 239, 230);
+  background-color: #f4efe6;
+  display: flex;
+  color: rgb(244, 239, 230);
 }
 
 p {
@@ -350,14 +377,17 @@ h3 {
     font-size: 0.8rem;
     color: #6b6254;
 }
+
 footer {
   background-color: #eae4d8;
   color: #6b6254;
   padding: 1rem;
   text-align: center;
-  }
+}
 
-/* Mi parte del trabajo - Benjamín Arrué */
+/* ========================================== */
+/* MÓDULO PERSONAL - BENJAMÍN ARRUÉ           */
+/* ========================================== */
 
 .contenedor-grid {
   display: grid;
@@ -365,17 +395,64 @@ footer {
   gap: 15px;
 }
 
-/* Para tablet */
+/* Diseño adaptativo para Tablet */
 @media (min-width: 768px) {
   .contenedor-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-/* Para pc / pantalla grande */
+/* Diseño adaptativo para PC / Pantallas grandes */
 @media (min-width: 1024px) {
   .contenedor-grid {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
   }
+}
+
+/* ========================================== */
+/* COMPONENTE: MENÚ DESPLEGABLE (DROPDOWN)    */
+/* Autoría: Integración de navegación superior*/
+/* ========================================== */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Contenedor flotante que despliega las opciones ocultas al interactuar */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    padding: 5px 0;
+}
+
+/* Enlaces internos pertenecientes al menú desplegable */
+.dropdown-content a {
+    color: #333333;
+    padding: 8px 14px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+/* Efecto hover interactivo para cada opción desplegada */
+.dropdown-content a:hover {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    text-decoration: none;
+}
+
+/* Disparador de visualización al pasar el cursor sobre la clase padre */
+.dropdown:hover .dropdown-content {
+    display: block;
 }
