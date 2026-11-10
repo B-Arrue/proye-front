@@ -3,73 +3,59 @@
 // Integrante: Benjamín Arrué
 // ==========================================
 
-// Definimos la URL del endpoint específico de ruta en MockAPI (en singular)
-const API_URL = 'https://6ae112d6be3bc8fead983c8d.mockapi.io/ruta';
+// Definimos la URL del endpoint específico de ruta en MockAPI
+const API_URL_RUTAS = 'https://6ae112d6be3bc8fead983c8d.mockapi.io/ruta';
 
-// Capturamos los elementos del DOM donde mostraremos los resultados o estados
-const contenedorResultados = document.getElementById('resultado-api');
-const mensajeCarga = document.getElementById('estado-carga');
-const mensajeError = document.getElementById('estado-error');
+// Capturamos los elementos del DOM de la vista de rutas
+const contenedorRutas = document.getElementById('resultado-api');
+const cargaRutas = document.getElementById('estado-carga');
+const errorRutas = document.getElementById('estado-error');
 
-// Función principal asíncrona para realizar la petición a la API (Fetch)
-async function consumirMockAPI() {
-    // Mostrar indicador de carga y ocultar errores previos
-    if (mensajeCarga) mensajeCarga.style.display = 'block';
-    if (mensajeError) mensajeError.style.display = 'none';
-    if (contenedorResultados) contenedorResultados.innerHTML = '';
+// Función principal asíncrona para la API de rutas
+async function consumirMockAPIRutas() {
+    if (cargaRutas) cargaRutas.style.display = 'block';
+    if (errorRutas) errorRutas.style.display = 'none';
+    if (contenedorRutas) contenedorRutas.innerHTML = '';
 
     try {
-        // Realizamos la petición HTTP GET a la API
-        const respuesta = await fetch(API_URL);
+        const respuesta = await fetch(API_URL_RUTAS);
 
-        // Verificamos si la respuesta del servidor es correcta
         if (!respuesta.ok) {
-            throw new Error(`Error en el servidor: Código ${respuesta.status}`);
-        }
+            throw new Error(`Error en el servidor: Código ${respuesta.status}`);}
 
-        // Convertimos la respuesta a formato JSON (arreglo de objetos)
         const datosJson = await respuesta.json();
 
-        // Ocultamos el mensaje de carga una vez obtenidos los datos
-        if (mensajeCarga) mensajeCarga.style.display = 'none';
-
-        // Llamamos a la función encargada de pintar los datos en la interfaz
-        mostrarDatosEnInterfaz(datosJson);
+        if (cargaRutas) cargaRutas.style.display = 'none';
+        mostrarRutasEnInterfaz(datosJson);
 
     } catch (error) {
-        // En caso de error, ocultamos la carga y mostramos el mensaje de error
-        if (mensajeCarga) mensajeCarga.style.display = 'none';
-        if (mensajeError) {
-            mensajeError.style.display = 'block';
-            mensajeError.textContent = `¡Ups! Ocurrió un problema al cargar los datos: ${error.message}`;
-        }
-        console.error('Falla en la petición Fetch:', error);
-    } 
-}
+        if (cargaRutas) cargaRutas.style.display = 'none';
+        console.warn('Falla en la petición Fetch de rutas, cargando datos de respaldo...', error);
 
-// Función para recorrer los datos y agregarlos dinámicamente al HTML
-function mostrarDatosEnInterfaz(elementos) {
-    if (!contenedorResultados) return;
+        // Respaldo local específico para rutas
+        const datosRespaldoRutas = [
+            { id: "1", name: "Ruta Parques Nacionales Araucanía", descripcion: "Recorrido por la Araucanía Andina y sus volcanes." },
+            { id: "2", name: "Circuito Lagos y Bosques", descripcion: "Aventura por la zona lacustre y sus senderos nativos." },
+            { id: "3", name: "Sendero Nahuelbuta", descripcion: "Exploración de la cordillera de la costa y araucarias milenarias." }];
 
-    // Validamos si el arreglo de la API está vacío
+        mostrarRutasEnInterfaz(datosRespaldoRutas);} }
+
+// Función para pintar las rutas en el HTML
+function mostrarRutasEnInterfaz(elementos) {
+    if (!contenedorRutas) return;
+
     if (elementos.length === 0) {
-        contenedorResultados.innerHTML = '<p>No hay elementos guardados en MockAPI.</p>';
-        return;
-    }
+        contenedorRutas.innerHTML = '<p>No hay rutas guardadas en MockAPI.</p>';
+        return;}
 
-    // Iteramos sobre cada elemento recibido de la API
     elementos.forEach(item => {
         const tarjeta = document.createElement('div');
         tarjeta.classList.add('tarjeta-item');
 
-        // Estructura HTML que se inyectará por cada ruta registrada
         tarjeta.innerHTML = `
             <h3>${item.name || 'Sin nombre'}</h3>
-            <p>ID: ${item.id}</p>
-        `;
-        contenedorResultados.appendChild(tarjeta);
-    });
-}
+            <p>${item.descripcion || 'Ruta sustentable en La Araucanía.'}</p>
+            <p><strong>ID:</strong> ${item.id}</p>`;
+        contenedorRutas.appendChild(tarjeta);});}
 
-// Ejecutamos la función de consumo una vez que el DOM de la página haya cargado por completo
-document.addEventListener('DOMContentLoaded', consumirMockAPI);
+document.addEventListener('DOMContentLoaded', consumirMockAPIRutas);
