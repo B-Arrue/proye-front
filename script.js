@@ -3,64 +3,78 @@
 // Integrante: Benjamín Arrué
 // ==========================================
 
-// 1. URL de tu recurso personalizado en MockAPI 
+// 1. URL de tu recurso personalizado en MockAPI (Destinos)
 const API_URL = 'https://6ae112d6be3bc8fead983c8d.mockapi.io/destinos';
 
 // Capturamos los elementos del HTML para manejar los estados
-const contenedorResultados = document.getElementById('resultado-api');
+const contenedorResultados = document.getElementById('zonas-turisticas') || document.getElementById('resultado-api');
 const mensajeCarga = document.getElementById('estado-carga');
 const mensajeError = document.getElementById('estado-error');
 
-// Función principal asíncrona para consumir la API
+// Función principal asíncrona para consumir la API de destinos
 async function consumirMockAPI() {
-    // --- ESTADO 1: CARGA (Mostramos mensaje de espera y limpiamos errores) ---
     if (mensajeCarga) mensajeCarga.style.display = 'block';
     if (mensajeError) mensajeError.style.display = 'none';
-    if (contenedorResultados) contenedorResultados.innerHTML = '';
 
-    try {
-        // Petición fetch al servidor de MockAPI
-        const respuesta = await fetch(API_URL);
+    try {const respuesta = await fetch(API_URL);
 
-        // Verificamos si la respuesta del servidor es exitosa (200-299)
         if (!respuesta.ok) {
             throw new Error(`Error en el servidor: Código ${respuesta.status}`);}
 
-        // Procesamos la respuesta convirtiéndola a formato JSON
         const datosJson = await respuesta.json();
 
-        // --- ESTADO 2: ÉXITO (Ocultamos carga y pintamos los datos en pantalla) ---
         if (mensajeCarga) mensajeCarga.style.display = 'none';
-        mostrarDatosEnInterfaz(datosJson);}
+        mostrarDatosEnInterfaz(datosJson);
 
-      catch (error) {
-        // --- ESTADO 3: ERROR (Ocultamos carga y mostramos el error al usuario) ---
+    } catch (error) {
         if (mensajeCarga) mensajeCarga.style.display = 'none';
-        if (mensajeError) {
-            mensajeError.style.display = 'block';
-            mensajeError.textContent = `¡Ups! Ocurrió un problema al cargar los datos: ${error.message}`;}
-        console.error('Falla en la petición Fetch:', error);} }
+        console.warn('Falla en la petición Fetch de destinos, cargando datos locales de respaldo...', error);
 
-// Función auxiliar para recorrer el JSON y armar las tarjetas en el HTML
+        // Datos de respaldo por si falla MockAPI o GitHub Pages
+        const datosRespaldo = [
+            {
+                id: "1",
+                name: "Araucanía Lacustre",
+                zona: "Lagos · Naturaleza",
+                descripcion: "Lagos, volcanes y bosques nativos al borde de la Patagonia.",
+                imagenUrl: "lacustre.jpg"},
+            {
+                id: "2",
+                name: "Araucanía Andina",
+                zona: "Montaña · Aventura",
+                descripcion: "Cordillera, géiseres, ski y lagunas de altura.",
+                imagenUrl: "andina.jpg"},
+            {
+                id: "3",
+                name: "Nahuelbuta",
+                zona: "Bosque · Trekking",
+                descripcion: "Cordillera de la costa, bosques de araucarias milenarias.",
+                imagenUrl: "nahuelbuta.jpg"}];
+
+        mostrarDatosEnInterfaz(datosRespaldo);}}
+
+// Función para pintar las tarjetas de destinos en el HTML
 function mostrarDatosEnInterfaz(elementos) {
     if (!contenedorResultados) return;
 
-    // Si la API no trae registros
+    const tituloH2 = contenedorResultados.querySelector("h2");
+    contenedorResultados.innerHTML = '';
+    if (tituloH2) contenedorResultados.appendChild(tituloH2);
+
     if (elementos.length === 0) {
-        contenedorResultados.innerHTML = '<p>No hay elementos guardados en MockAPI.</p>';
+        contenedorResultados.innerHTML += '<p>No hay elementos guardados en MockAPI.</p>';
         return;}
 
-    // Recorremos cada objeto del arreglo JSON
     elementos.forEach(item => {
-        const tarjeta = document.createElement('div');
-        tarjeta.classList.add('tarjeta-item'); // Clase útil para estilizar con su CSS
+        const tarjeta = document.createElement('article');
+        tarjeta.classList.add('tarjeta-item');
 
-        // Ajusta las propiedades (ej: item.name, item.descripcion) según los campos que creaste en MockAPI
         tarjeta.innerHTML = `
+            <img src="${item.imagenUrl || 'hero-araucania.jpg'}" alt="${item.name || 'Destino'}">
+            <p>${item.zona || 'Turismo sustentable'}</p>
             <h3>${item.name || 'Sin nombre'}</h3>
-            <p>ID: ${item.id}</p>
-        `;
+            <p>${item.descripcion || 'Descubre los rincones de La Araucanía.'}</p>
+            <a href="ruta.html?id=${item.id}">Ver detalles</a>`;
         contenedorResultados.appendChild(tarjeta);});}
 
-// Ejecutamos la función de manera automática al cargar la página
 document.addEventListener('DOMContentLoaded', consumirMockAPI);
