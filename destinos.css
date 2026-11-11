@@ -5,8 +5,6 @@ body {
   margin: 12px;
 }
 
-/* --- ESTILOS DE CABECERA Y MENÚ DESPLEGABLE (EcoRuta Temuco) --- */
-
 header {
   display: flex;
   justify-content: space-between;
@@ -14,7 +12,6 @@ header {
   padding: 15px 30px;
   background-color: #f4efe6;
   border-bottom: 1px solid #e0d8cc;
-  position: relative;
 }
 
 .logo {
@@ -31,81 +28,22 @@ header {
   width: auto;
 }
 
-/* Botón de Menú */
-.menu-toggle-btn {
-  background-color: transparent;
-  border: 1px solid #1b3022;
-  color: #1b3022;
-  padding: 8px 16px;
-  font-size: 1rem;
-  font-family: inherit;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.menu-toggle-btn:hover {
-  background-color: rgba(27, 48, 34, 0.05);
-}
-
-/* Ocultar el menú de navegación por defecto */
-.nav-links {
-  display: none;
-}
-
-/* Estado activo cuando JavaScript despliega el menú */
-.nav-links.activo {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 70px;
-  right: 30px;
-  background-color: #f4efe6;
-  padding: 20px;
-  border: 1px solid #1b3022;
-  border-radius: 6px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  min-width: 180px;
-}
-
-.nav-links.activo ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.nav-links.activo li {
-  margin: 0;
-}
-
-.nav-links.activo a {
-  text-decoration: none;
-  color: #1b3022;
-  font-weight: 500;
-  font-size: 1.05rem;
-  display: block;
-}
-
-.nav-links.activo a:hover {
-  text-decoration: underline;
-  color: #3b5c46;
-}
-
-main nav ul {
+nav ul {
   display: flex;
   flex-wrap: wrap;
   gap: 8px 16px;
   padding: 0;
   list-style: none;
 }
-nav a,
-main a {
+
+nav a {
+  text-decoration: none;
   color: #2b5329;
+  font-weight: 500;
+}
+
+nav a:hover {
+  text-decoration: underline;
 }
 
 main {
