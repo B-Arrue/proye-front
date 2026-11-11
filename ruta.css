@@ -43,30 +43,45 @@ form label {
     margin-bottom: 16px;
   }
 header {
-  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #f4efe6;
+  border-bottom: 1px solid #e0d8cc;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: #2b5329;
+  gap: 10px;
   text-decoration: none;
+  color: #1b3022;
+  font-weight: bold;
 }
 
 .logo img {
-  width: 40px;
+  height: 40px;
+  width: auto;
 }
 
 nav ul {
-  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 0;
   list-style: none;
 }
 
-a {
+nav a {
+  text-decoration: none;
   color: #2b5329;
+  font-weight: 500;
 }
 
+nav a:hover {
+  text-decoration: underline;
+}
 main {
   max-width: 1500px;
   margin: 20px auto;
