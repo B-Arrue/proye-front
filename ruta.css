@@ -367,3 +367,155 @@ main nav button {
 nav ul {
   padding: 0;
 }
+
+/* ==========================================
+   BUSCADOR Y FILTROS DE RUTAS
+   ========================================== */
+.buscador-rutas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 12px 16px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 8px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid #dcd6cb;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.buscador-rutas__campo {
+  flex: 1 1 320px;
+  text-align: left;
+}
+
+.buscador-rutas label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #4f6038;
+}
+
+.buscador-rutas input,
+.buscador-rutas select {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 44px;
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid #c9c2b5;
+  border-radius: 6px;
+  background: #fdfbf7;
+  color: #292d26;
+  font: inherit;
+}
+
+.buscador-rutas__dificultad {
+  flex: 0 1 180px;
+  text-align: left;
+}
+
+.buscador-rutas__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.buscador-rutas button {
+  margin: 0;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid #2b5329;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.buscador-rutas .boton-limpiar {
+  background: transparent;
+  color: #2b5329;
+}
+
+.buscador-rutas .boton-limpiar:hover {
+  background: rgba(43, 83, 41, 0.1);
+}
+
+.buscador-rutas .boton-limpiar[hidden] {
+  display: none;
+}
+
+.filtros-categoria ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.filtros-categoria button {
+  margin: 0;
+  min-height: 40px;
+  padding: 8px 16px;
+  background: transparent;
+  color: #2b5329;
+  border: 1px solid #2b5329;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.filtros-categoria button:hover {
+  background: rgba(43, 83, 41, 0.1);
+}
+
+.filtros-categoria button.activo,
+.filtros-categoria button[aria-pressed="true"] {
+  background: #2b5329;
+  color: #f4efe6;
+}
+
+.buscador-rutas input:focus-visible,
+.buscador-rutas select:focus-visible,
+.buscador-rutas button:focus-visible,
+.filtros-categoria button:focus-visible {
+  outline: 3px solid rgba(43, 83, 41, 0.35);
+  outline-offset: 2px;
+}
+
+.estado[data-state="empty"] {
+  color: #8a6d1f;
+}
+
+.sin-resultados {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 24px;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px dashed #c9c2b5;
+  border-radius: 8px;
+  color: #4f6038;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .buscador-rutas {
+    padding: 14px;
+  }
+
+  .buscador-rutas__acciones,
+  .buscador-rutas__dificultad {
+    flex: 1 1 100%;
+  }
+
+  .buscador-rutas__acciones button {
+    flex: 1 1 auto;
+  }
+}
