@@ -10,22 +10,34 @@
   </head>
   <body>
 <header>
-    <a href="index.html" class="logo">
-      <img src="logo.png" alt="Logo de EcoRuta Temuco">
-      <span>EcoRuta Temuco</span>
-    </a>
-    
-    <nav aria-label="Menú principal">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="destinos.html">Destinos</a></li>
-        <li><a href="experiencias.html">Experiencias</a></li>
-        <li><a href="mapa.html">Mapa</a></li>
-        <li><a href="ruta.html">Ruta</a></li>
-        <li><a href="cultura.html">Cultura</a></li>
-        <li><a href="informacion.html">Información</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
+        <a href="index.html">
+            <img src="logo.png" alt="Logo de EcoRuta Temuco">
+            <span>EcoRuta Temuco</span>
+        </a>
+
+        <!-- Botón de Menú a la derecha -->
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+            Menú ▾
+        </button>
+    </header>
+
+    <!-- Panel Lateral Deslizante -->
+    <div class="nav-overlay" id="navOverlay"></div>
+    <nav class="side-drawer" id="sideDrawer">
+        <div class="drawer-header">
+            <h3>Menú de Navegación</h3>
+            <button class="close-btn" id="closeBtn" aria-label="Cerrar menú">&times;</button>
+        </div>
+        <ul class="drawer-list">
+            <li><a href="index.html" class="drawer-link">Inicio</a></li>
+            <li><a href="destinos.html" class="drawer-link">Destinos</a></li>
+            <li><a href="experiencias.html" class="drawer-link">Experiencias</a></li>
+            <li><a href="mapa.html" class="drawer-link">Mapa</a></li>
+            <li><a href="ruta.html" class="drawer-link">Ruta</a></li>
+            <li><a href="cultura.html" class="drawer-link">Cultura</a></li>
+            <li><a href="informacion.html" class="drawer-link">Información</a></li>
+            <li><a href="contacto.html" class="drawer-link">Contacto</a></li>
+        </ul>
     </nav>
   </header>
     <main>
