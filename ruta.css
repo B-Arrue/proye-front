@@ -5,8 +5,6 @@ body {
   color: #292d26;
 }
 
-
-
 form
   {
     display: flex;
@@ -195,3 +193,80 @@ FORM select, FORM textarea {
    border: none
 }
 
+.grid-rutas ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grid-rutas li {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  color: #4f6038;
+}
+
+.grid-rutas li:not(:last-child)::after {
+  content: "·";
+  margin-left: 12px;
+}
+
+.grid-rutas figure + span,
+.grid-rutas article > p {
+  display: block;
+  margin: 8px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  color: #4f6038;
+}
+
+.grid-rutas figure + span {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.detalle-ruta h3 {
+  color: #2b5329;
+  font-size: 1.5em;
+}
+
+.detalle-ruta span,
+.detalle-ruta h3 + p,
+.detalle-ruta dt,
+.detalle-ruta dd {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  color: #4f6038;
+}
+
+main nav button {
+  font-weight: 700;
+}
+
+.estado {
+  min-height: 1.5em;
+}
+
+.estado[data-state="error"] {
+  color: #8a241f;
+}
+
+.estado[data-state="success"] {
+  color: #2b5329;
+}
+
+.boton-reintentar {
+  min-height: 44px;
+  padding: 10px 16px;
+  font: inherit;
+}
+
+nav ul {
+  padding: 0;
+}
