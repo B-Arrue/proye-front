@@ -86,7 +86,29 @@
         EcoRuta Temuco · Proyecto académico de turismo en La Araucanía.
       </p>
     </footer>
+<!-- Script de interactividad para abrir y cerrar el menú lateral -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuBtn = document.getElementById("menuBtn");
+            const closeBtn = document.getElementById("closeBtn");
+            const sideDrawer = document.getElementById("sideDrawer");
+            const navOverlay = document.getElementById("navOverlay");
 
+            function openMenu() {
+                sideDrawer.classList.add("open");
+                navOverlay.classList.add("open");
+            }
+
+            function closeMenu() {
+                sideDrawer.classList.remove("open");
+                navOverlay.classList.remove("open");
+            }
+
+            if (menuBtn) menuBtn.addEventListener("click", openMenu);
+            if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+            if (navOverlay) navOverlay.addEventListener("click", closeMenu);
+        });
+    </script>
     <!-- Script conectado a MockAPI -->
     <script src="script.js"></script>
   </body>
