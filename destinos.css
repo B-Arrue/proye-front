@@ -7,22 +7,25 @@ body {
 
 header {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  padding: 15px 30px;
+  background-color: #f4efe6;
+  border-bottom: 1px solid #e0d8cc;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: #2b5329;
+  gap: 10px;
   text-decoration: none;
+  color: #1b3022;
+  font-weight: bold;
 }
 
 .logo img {
-  width: 40px;
+  height: 40px;
+  width: auto;
 }
 
 nav ul {
@@ -33,9 +36,14 @@ nav ul {
   list-style: none;
 }
 
-nav a,
-main a {
+nav a {
+  text-decoration: none;
   color: #2b5329;
+  font-weight: 500;
+}
+
+nav a:hover {
+  text-decoration: underline;
 }
 
 main {
