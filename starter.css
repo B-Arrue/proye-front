@@ -387,3 +387,63 @@ footer a:hover {
     gap: 20px;
   }
 }
+/* carrusel */
+
+
+.container-carrusel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow : 0 8px 16px rgba(0,0,0,0.3);
+    overflow: hidden;
+    object-fit: cover;
+
+}
+
+.carruseles {
+    width: 500%;
+    height: 100%;
+    display: flex;
+
+}
+
+.slider-section {
+    width: calc(100% / 5);
+    height: 100%;
+}
+
+.slider-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+    
+.btn-left, .btn-right {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border-radius: 50%;
+    padding: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #d8d7ad;
+    transform: translate(0,-50%);
+    transition: .5 ease;
+    user-select: none;
+}
+
+.btn-left:hover, .btn-right:hover {
+    background-color: rgba(201, 228, 198, 0.81);
+    color: #2e7d32;
+}
+
+.btn-left{
+    left: 25px;
+}
+
+.btn-right{
+    right: 25px;
+}
+
