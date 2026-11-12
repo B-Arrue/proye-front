@@ -9,53 +9,37 @@
     <link rel="stylesheet" href="cultura.css">
   </head>
   <body>
-    <header>
-      <a href="index.html" class="logo">
-        <img src="logo.png" alt="">
-        <span>
-          EcoRuta Temuco
-        </span>
-      </a>
-      <nav aria-label="Menú principal">
-        <ul>
-          <li>
-            <a href="index.html">
-              Inicio
-            </a>
-          </li>
-          <li>
-            <a href="destinos.html">
-              Destinos
-            </a>
-          </li>
-          <li>
-            <a href="experiencias.html">
-              Experiencias
-            </a>
-          </li>
-          <li>
-            <a href="mapa.html">
-              Mapa
-            </a>
-          </li>
-          <li>
-            <a href="ruta.html">
-              Rutas
-            </a>
-          </li>
-          <li>
-            <a href="cultura.html">
-              Cultura
-            </a>
-          </li>
-          <li>
-            <a href="informacion.html">
-              Información
-            </a>
-          </li>
-        </ul>
-      </nav>
+<header>
+        <a href="index.html">
+            <img src="logo.png" alt="Logo de EcoRuta Temuco">
+            <span>EcoRuta Temuco</span>
+        </a>
+
+        <!-- Botón de Menú a la derecha -->
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+            Menú ▾
+        </button>
     </header>
+
+    <!-- Panel Lateral Deslizante -->
+    <div class="nav-overlay" id="navOverlay"></div>
+    <nav class="side-drawer" id="sideDrawer">
+        <div class="drawer-header">
+            <h3>Menú de Navegación</h3>
+            <button class="close-btn" id="closeBtn" aria-label="Cerrar menú">&times;</button>
+        </div>
+        <ul class="drawer-list">
+            <li><a href="index.html" class="drawer-link">Inicio</a></li>
+            <li><a href="destinos.html" class="drawer-link">Destinos</a></li>
+            <li><a href="experiencias.html" class="drawer-link">Experiencias</a></li>
+            <li><a href="mapa.html" class="drawer-link">Mapa</a></li>
+            <li><a href="ruta.html" class="drawer-link">Ruta</a></li>
+            <li><a href="cultura.html" class="drawer-link">Cultura</a></li>
+            <li><a href="informacion.html" class="drawer-link">Información</a></li>
+            <li><a href="contacto.html" class="drawer-link">Contacto</a></li>
+        </ul>
+    </nav>
+  </header>
     <main>
       <section>
         <h1>
@@ -99,8 +83,29 @@
         EcoRuta Temuco · Proyecto académico de turismo en La Araucanía.
       </p>
     </footer>
+<!-- Script de interactividad para abrir y cerrar el menú lateral -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuBtn = document.getElementById("menuBtn");
+            const closeBtn = document.getElementById("closeBtn");
+            const sideDrawer = document.getElementById("sideDrawer");
+            const navOverlay = document.getElementById("navOverlay");
 
-    <!-- Script conectado a MockAPI -->
+            function openMenu() {
+                sideDrawer.classList.add("open");
+                navOverlay.classList.add("open");
+            }
+
+            function closeMenu() {
+                sideDrawer.classList.remove("open");
+                navOverlay.classList.remove("open");
+            }
+
+            if (menuBtn) menuBtn.addEventListener("click", openMenu);
+            if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+            if (navOverlay) navOverlay.addEventListener("click", closeMenu);
+        });
+    </script>
     <script src="script.js"></script>
   </body>
 </html>

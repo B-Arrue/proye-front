@@ -90,3 +90,15 @@ async function loadDestinations() {
 
 retryButton.addEventListener("click", loadDestinations);
 loadDestinations();
+
+// --- FUNCIONALIDAD DEL MENÚ DESPLEGABLE ---
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("menu-btn");
+  const menuDesplegable = document.getElementById("menu-desplegable");
+
+  if (menuBtn && menuDesplegable) {
+    menuBtn.addEventListener("click", () => {
+      menuDesplegable.classList.toggle("activo");
+    });
+  }
+});

@@ -8,29 +8,36 @@
 </head>
 <body>
 
-  <!-- CABECERA PRINCIPAL -->
-  <header>
-    <div class="logo">
-      <a href="index.html">
-        <img src="Imagenes/logo.png" alt="Logo de EcoRuta Temuco">
-        <span>EcoRuta Temuco</span>
-      </a>
-    </div>
+<header>
+        <a href="index.html">
+            <img src="logo.png" alt="Logo de EcoRuta Temuco">
+            <span>EcoRuta Temuco</span>
+        </a>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="destinos.html">Destinos</a></li>
-        <li><a href="experiencias.html">Experiencias</a></li>
-        <li><a href="mapa.html">Mapa</a></li>
-        <li><a href="ruta.html">Ruta</a></li>
-        <li><a href="cultura.html">Cultura</a></li>
-        <li><a href="informacion.html">Información</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
+        <!-- Botón de Menú a la derecha -->
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+            Menú ▾
+        </button>
+    </header>
+
+    <!-- Panel Lateral Deslizante -->
+    <div class="nav-overlay" id="navOverlay"></div>
+    <nav class="side-drawer" id="sideDrawer">
+        <div class="drawer-header">
+            <h3>Menú de Navegación</h3>
+            <button class="close-btn" id="closeBtn" aria-label="Cerrar menú">&times;</button>
+        </div>
+        <ul class="drawer-list">
+            <li><a href="index.html" class="drawer-link">Inicio</a></li>
+            <li><a href="destinos.html" class="drawer-link">Destinos</a></li>
+            <li><a href="experiencias.html" class="drawer-link">Experiencias</a></li>
+            <li><a href="mapa.html" class="drawer-link">Mapa</a></li>
+            <li><a href="ruta.html" class="drawer-link">Ruta</a></li>
+            <li><a href="cultura.html" class="drawer-link">Cultura</a></li>
+            <li><a href="informacion.html" class="drawer-link">Información</a></li>
+            <li><a href="contacto.html" class="drawer-link">Contacto</a></li>
+        </ul>
     </nav>
-  </header>
-
   <!-- CONTENIDO PRINCIPAL -->
   <main>
 
@@ -41,7 +48,7 @@
       <p>Explora todas las opciones disponibles en la región.</p>
 
       <figure class="banner-rutas">
-        <img src="Imagenes/Banner-rutas.jpg" alt="Imagen panorámica del catálogo de rutas">
+        <img src="imagenes/Banner-rutas.jpg" alt="Imagen panorámica del catálogo de rutas">
       </figure>
 
       <!-- Filtros de categoría -->
@@ -60,129 +67,11 @@
 
     <!-- CONTENEDOR PARA MOCKAPI -->
     <section>
-      <h2>Rutas desde MockAPI</h2>
-      <!-- Aquí se cargarán dinámicamente los datos de tu API /ruta -->
-      <div id="resultado-api"></div>
-    </section>
-
-    <!-- GRILLA / LISTADO DE RUTAS -->
-    <section>
-      <div>
-        <div class="grid-rutas">
-          <article>
-            <figure>
-              <img src="Imagenes/volcan-llaima.jpg" alt="Circuito Volcán Llaima">
-            </figure>
-            <span>Trekking</span>
-            <p>Araucanía Andina</p>
-            <h2>Circuito Volcán Llaima</h2>
-            <ul>
-              <li><span>Alta</span></li>
-              <li>2 días</li>
-              <li>28 km</li>
-            </ul>
-          </article>
-
-          <article>
-            <figure>
-              <img src="Imagenes/araucarias.jpg" alt="Sendero Araucarias Milenarias">
-            </figure>
-            <span>Senderismo</span>
-            <p>Nahuelbuta</p>
-            <h2>Sendero Araucarias Milenarias</h2>
-            <ul>
-              <li><span>Media</span></li>
-              <li>1 día</li>
-              <li>12 km</li>
-            </ul>
-          </article>
-
-          <article>
-            <figure>
-              <img src="Imagenes/ruta-lagos.jpg" alt="Ruta de los Lagos">
-            </figure>
-            <span>Ciclismo</span>
-            <p>Araucanía Lacustre</p>
-            <h2>Ruta de los Lagos</h2>
-            <ul>
-              <li><span>Baja</span></li>
-              <li>3 días</li>
-              <li>45 km</li>
-            </ul>
-          </article>
-
-          <article>
-            <figure>
-              <img src="Imagenes/sendero-litoral.jpeg" alt="Sendero Litoral Toltén">
-            </figure>
-            <span>Senderismo</span>
-            <p>Araucanía Costera</p>
-            <h2>Sendero Litoral Toltén</h2>
-            <ul>
-              <li><span>Media</span></li>
-              <li>1 día</li>
-              <li>18 km</li>
-            </ul>
-          </article>
-
-          <article>
-            <figure>
-              <img src="Imagenes/mapuche.jpeg" alt="Ruta Cultural Mapuche">
-            </figure>
-            <span>Cultural</span>
-            <p>Temuco</p>
-            <h2>Ruta Cultural Mapuche</h2>
-            <ul>
-              <li><span>Baja</span></li>
-              <li>4 horas</li>
-              <li>8 km</li>
-            </ul>
-          </article>
-
-          <article>
-            <figure>
-              <img src="Imagenes/lonquimay.jpeg" alt="Travesía Lonquimay">
-            </figure>
-            <span>Expedición</span>
-            <p>Araucanía Andina</p>
-            <h2>Travesía Lonquimay</h2>
-            <ul>
-              <li><span>Alta</span></li>
-              <li>3 días</li>
-              <li>52 km</li>
-            </ul>
-          </article>
-
-          <article>
-            <figure>
-              <img src="Imagenes/ensenada.jpeg" alt="Bahía Ensenada">
-            </figure>
-            <span>Kayak</span>
-            <p>Araucanía Lacustre</p>
-            <h2>Bahía Ensenada</h2>
-            <ul>
-              <li><span>Baja</span></li>
-              <li>5 horas</li>
-              <li>9 km</li>
-            </ul>
-          </article>
-
-          <article>
-            <figure>
-              <img src="Imagenes/piedra-aguila.png" alt="Mirador Piedra del Águila">
-            </figure>
-            <span>Trekking</span>
-            <p>Nahuelbuta</p>
-            <h2>Mirador Piedra del Águila</h2>
-            <ul>
-              <li><span>Media</span></li>
-              <li>6 horas</li>
-              <li>14 km</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
+  <h2>Rutas desde MockAPI</h2>
+  <p id="estado" class="estado" role="status" aria-live="polite"></p>
+  <button id="reintentar" class="boton-reintentar" type="button" hidden>Reintentar</button>
+  <div id="resultado-api" class="grid-rutas"></div>
+</section>
 
     <!-- DETALLE / FICHA DE RUTA -->
     <section>
@@ -190,7 +79,7 @@
 
       <article class="detalle-ruta">
         <figure>
-          <img src="Imagenes/volcan-llaima.jpg" alt="Vista en detalle del Circuito Volcán Llaima">
+          <img src="imagenes/volcan-llaima.jpg" alt="Vista en detalle del Circuito Volcán Llaima">
         </figure>
 
         <div>
@@ -229,7 +118,7 @@
               <dd>Guardería Truful</dd>
             </div>
           </dl>
-<form action="" method="POST" id="form">
+          <form action="" method="POST" id="form">
             <fieldset>
               <legend>Reservar ruta</legend>
               <label for="nombre">Nombre:</label>
@@ -263,7 +152,6 @@
             </fieldset>
           </form>
           <a href="#">Reservar experiencia</a>
-          <script src="ruta-form.js"></script>
         </div>
       </article>
     </section>
@@ -284,4 +172,38 @@
       <p>Desarrollado con fines académicos · Universidad · ICINF1107</p>
       <ul>
         <li><a href="#">Política de privacidad</a></li>
-        <li><a href="#">Términos de uso</a>
+                <li><a href="#">Términos de uso</a></li>
+      </ul>
+    </div>
+  </footer>
+<!-- Script de interactividad para abrir y cerrar el menú lateral -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuBtn = document.getElementById("menuBtn");
+            const closeBtn = document.getElementById("closeBtn");
+            const sideDrawer = document.getElementById("sideDrawer");
+            const navOverlay = document.getElementById("navOverlay");
+
+            function openMenu() {
+                sideDrawer.classList.add("open");
+                navOverlay.classList.add("open");
+            }
+
+            function closeMenu() {
+                sideDrawer.classList.remove("open");
+                navOverlay.classList.remove("open");
+            }
+
+            if (menuBtn) menuBtn.addEventListener("click", openMenu);
+            if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+            if (navOverlay) navOverlay.addEventListener("click", closeMenu);
+        });
+    </script>
+  <script src="ruta-form.js"></script>
+  <script src="ruta-mockapi.js" defer></script>
+        <li><a href="#">Términos de uso</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
