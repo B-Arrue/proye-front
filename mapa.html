@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
@@ -8,6 +9,8 @@
     </title>
     <link rel="stylesheet" href="mapa.css">
   </head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+<script src="mapa.js" defer></script>
   <body>
 <header>
         <a href="index.html">
@@ -51,9 +54,9 @@
         <!-- Contenedor para cargar los datos dinámicos de MockAPI -->
         <div id="resultado-api"></div>
 
-        <div class="mapa" role="img" aria-label="Espacio reservado para el mapa de La Araucanía">
+        
           <p>
-            El mapa estará disponible en una próxima etapa.
+            <div class="mapa" id="mapa-leaflet" role="region" aria-label="Mapa de destinos de La Araucanía"></div>
           </p>
         </div>
         <figure>
