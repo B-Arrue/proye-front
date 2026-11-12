@@ -10,7 +10,7 @@
 
 <header>
         <a href="index.html">
-            <img src="logo.png" alt="Logo de EcoRuta Temuco">
+            <img src="Imagenes/logo.png" alt="Logo de EcoRuta Temuco">
             <span>EcoRuta Temuco</span>
         </a>
 
@@ -51,16 +51,46 @@
         <img src="imagenes/Banner-rutas.jpg" alt="Imagen panorámica del catálogo de rutas">
       </figure>
 
+      <!-- Buscador y filtros de rutas -->
+      <form class="buscador-rutas" id="buscador-rutas" role="search">
+        <div class="buscador-rutas__campo">
+          <label for="busqueda-rutas">Buscar rutas</label>
+          <input
+            type="search"
+            id="busqueda-rutas"
+            name="busqueda"
+            placeholder="Nombre, zona, categoría o dificultad..."
+            autocomplete="off"
+            aria-controls="resultado-api"
+          >
+        </div>
+
+        <div class="buscador-rutas__acciones">
+          <button type="submit" id="boton-buscar">Buscar</button>
+          <button type="button" class="boton-limpiar" id="limpiar-busqueda" hidden>Limpiar filtros</button>
+        </div>
+
+        <div class="buscador-rutas__dificultad">
+          <label for="filtro-dificultad">Dificultad</label>
+          <select id="filtro-dificultad">
+            <option value="">Todas</option>
+            <option value="Baja">Baja</option>
+            <option value="Media">Media</option>
+            <option value="Alta">Alta</option>
+          </select>
+        </div>
+      </form>
+
       <!-- Filtros de categoría -->
-      <nav>
+      <nav class="filtros-categoria" aria-label="Filtrar por categoría">
         <ul>
-          <li><button type="button">Todas</button></li>
-          <li><button type="button">Trekking</button></li>
-          <li><button type="button">Senderismo</button></li>
-          <li><button type="button">Ciclismo</button></li>
-          <li><button type="button">Cultural</button></li>
-          <li><button type="button">Kayak</button></li>
-          <li><button type="button">Expedición</button></li>
+          <li><button type="button" class="filtro-categoria activo" data-categoria="" aria-pressed="true">Todas</button></li>
+          <li><button type="button" class="filtro-categoria" data-categoria="Trekking" aria-pressed="false">Trekking</button></li>
+          <li><button type="button" class="filtro-categoria" data-categoria="Senderismo" aria-pressed="false">Senderismo</button></li>
+          <li><button type="button" class="filtro-categoria" data-categoria="Ciclismo" aria-pressed="false">Ciclismo</button></li>
+          <li><button type="button" class="filtro-categoria" data-categoria="Cultural" aria-pressed="false">Cultural</button></li>
+          <li><button type="button" class="filtro-categoria" data-categoria="Kayak" aria-pressed="false">Kayak</button></li>
+          <li><button type="button" class="filtro-categoria" data-categoria="Expedición" aria-pressed="false">Expedición</button></li>
         </ul>
       </nav>
     </section>
