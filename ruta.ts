@@ -4,13 +4,15 @@ export type ZonaAraucania = 'Araucanía Lacustre' | 'Araucanía Andina' | 'Nahue
 
 export interface Coordenadas {
     latitud: number;
-    longitud: number;}
+    longitud: number;
+}
 
 export interface ParadaTuristica {
     id: number;
     nombre: string;
     descripcion: string;
-    coordenadas: Coordenadas;}
+    coordenadas: Coordenadas;
+}
 
 // Interfaz principal que modela toda la información de una ruta
 export interface RutaEcoRuta {
@@ -27,4 +29,15 @@ export interface RutaEcoRuta {
     paradas: ParadaTuristica[];
     imagenUrl: string;
     descripcionBreve: string;
-    esSustentable: boolean;}
+    esSustentable: boolean;
+}
+
+// Interfaz para el formulario de reserva de ruta
+export interface ReservaRuta {
+    id?: string;
+    nombre: string;
+    email: string;
+    telefono: string;
+    fecha: string;
+    ruta: RutaEcoRuta['nombre'];
+}
