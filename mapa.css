@@ -160,17 +160,12 @@ h2 {
 }
 
 .mapa {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 240px;
-  background: white;
-  border: 2px dashed #2b5329;
+  height: 450px;
+  border: 2px solid #2b5329;
 }
 
-.mapa p {
-  margin: 0;
-  text-align: center;
+.mapa img {
+  max-width: none;
 }
 
 figure {
