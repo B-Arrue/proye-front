@@ -1,80 +1,89 @@
-// ==========================================
-// Tarea Semana 12 - Desarrollo Web UCT
-// Integrante: Benjamín Arrué
-// ==========================================
+/* ==========================================
+   INICIO · EcoRuta Temuco
+   Pinta las 5 zonas turísticas combinando
+   MockAPI con los datos locales compartidos.
+   ========================================== */
+(function () {
+  "use strict";
 
-// 1. URL de tu recurso personalizado en MockAPI (Destinos)
-const API_URL = 'https://6ae112d6be3bc8fead983c8d.mockapi.io/destinos';
+  var contenedor = document.getElementById("zonas-turisticas");
+  var estado = document.getElementById("estado-carga");
 
-// Capturamos los elementos del HTML para manejar los estados
-const contenedorResultados = document.getElementById('zonas-turisticas') || document.getElementById('resultado-api');
-const mensajeCarga = document.getElementById('estado-carga');
-const mensajeError = document.getElementById('estado-error');
+  if (!contenedor) return;
 
-// Función principal asíncrona para consumir la API de destinos
-async function consumirMockAPI() {
-    if (mensajeCarga) mensajeCarga.style.display = 'block';
-    if (mensajeError) mensajeError.style.display = 'none';
+  function crearTarjeta(zona) {
+    var articulo = document.createElement("article");
+    articulo.className = "zona-card";
 
-    try {const respuesta = await fetch(API_URL);
+    var media = document.createElement("div");
+    media.className = "zona-card__media";
 
-        if (!respuesta.ok) {
-            throw new Error(`Error en el servidor: Código ${respuesta.status}`);}
+    var DIMENSIONES = {
+      "conguillio-llaima.jpg": [1280, 719],
+      "icalma-araucarias.jpg": [1280, 719],
+      "nahuelbuta-araucaria.jpg": [1280, 960],
+      "sendero-litoral.jpeg": [1300, 1300],
+      "mapuche.jpeg": [1600, 1067]
+    };
+    var imagen = document.createElement("img");
+    imagen.src = zona.imagen;
+    imagen.alt = zona.alt || zona.nombre;
+    imagen.loading = "lazy";
+    imagen.decoding = "async";
+    var dim = DIMENSIONES[String(zona.imagen).split("/").pop().toLowerCase()];
+    if (dim) {
+      imagen.width = dim[0];
+      imagen.height = dim[1];
+    }
+    media.appendChild(imagen);
 
-        const datosJson = await respuesta.json();
+    var cuerpo = document.createElement("div");
+    cuerpo.className = "zona-card__body";
 
-        if (mensajeCarga) mensajeCarga.style.display = 'none';
-        mostrarDatosEnInterfaz(datosJson);
+    var titulo = document.createElement("h3");
+    titulo.textContent = zona.nombre;
 
+    var descripcion = document.createElement("p");
+    descripcion.textContent = zona.descripcion;
+
+    var enlace = document.createElement("a");
+    enlace.className = "zona-card__link";
+    enlace.href = "ruta.html?busqueda=" + encodeURIComponent(zona.busqueda || zona.nombre);
+    enlace.innerHTML = 'Ver rutas <span aria-hidden="true">&rarr;</span>';
+
+    cuerpo.append(titulo, descripcion, enlace);
+    articulo.append(media, cuerpo);
+    return articulo;
+  }
+
+  async function iniciar() {
+    contenedor.setAttribute("aria-busy", "true");
+
+    try {
+      var zonas =
+        window.EcoRutaDestinos && window.EcoRutaDestinos.cargarDestinos
+          ? await window.EcoRutaDestinos.cargarDestinos()
+          : [];
+
+      var fragmento = document.createDocumentFragment();
+      zonas.forEach(function (zona) {
+        fragmento.appendChild(crearTarjeta(zona));
+      });
+
+      contenedor.replaceChildren(fragmento);
+      contenedor.setAttribute("aria-busy", "false");
+
+      if (estado) {
+        estado.textContent = zonas.length + " zonas turísticas disponibles.";
+      }
     } catch (error) {
-        if (mensajeCarga) mensajeCarga.style.display = 'none';
-        console.warn('Falla en la petición Fetch de destinos, cargando datos locales de respaldo...', error);
+      contenedor.setAttribute("aria-busy", "false");
+      if (estado) {
+        estado.textContent = "No se pudieron cargar las zonas turísticas.";
+      }
+      console.error("Error al renderizar las zonas turísticas:", error);
+    }
+  }
 
-        // Datos de respaldo por si falla MockAPI o GitHub Pages
-        const datosRespaldo = [
-            {
-                id: "1",
-                name: "Araucanía Lacustre",
-                zona: "Lagos · Naturaleza",
-                descripcion: "Lagos, volcanes y bosques nativos al borde de la Patagonia.",
-                imagenUrl: "lacustre.jpg"},
-            {
-                id: "2",
-                name: "Araucanía Andina",
-                zona: "Montaña · Aventura",
-                descripcion: "Cordillera, géiseres, ski y lagunas de altura.",
-                imagenUrl: "andina.jpg"},
-            {
-                id: "3",
-                name: "Nahuelbuta",
-                zona: "Bosque · Trekking",
-                descripcion: "Cordillera de la costa, bosques de araucarias milenarias.",
-                imagenUrl: "nahuelbuta.jpg"}];
-
-        mostrarDatosEnInterfaz(datosRespaldo);}}
-
-// Función para pintar las tarjetas de destinos en el HTML
-function mostrarDatosEnInterfaz(elementos) {
-    if (!contenedorResultados) return;
-
-    const tituloH2 = contenedorResultados.querySelector("h2");
-    contenedorResultados.innerHTML = '';
-    if (tituloH2) contenedorResultados.appendChild(tituloH2);
-
-    if (elementos.length === 0) {
-        contenedorResultados.innerHTML += '<p>No hay elementos guardados en MockAPI.</p>';
-        return;}
-
-    elementos.forEach(item => {
-        const tarjeta = document.createElement('article');
-        tarjeta.classList.add('tarjeta-item');
-
-        tarjeta.innerHTML = `
-            <img src="${item.imagenUrl || 'hero-araucania.jpg'}" alt="${item.name || 'Destino'}">
-            <p>${item.zona || 'Turismo sustentable'}</p>
-            <h3>${item.name || 'Sin nombre'}</h3>
-            <p>${item.descripcion || 'Descubre los rincones de La Araucanía.'}</p>
-            <a href="ruta.html?id=${item.id}">Ver detalles</a>`;
-        contenedorResultados.appendChild(tarjeta);});}
-
-document.addEventListener('DOMContentLoaded', consumirMockAPI);
+  iniciar();
+})();

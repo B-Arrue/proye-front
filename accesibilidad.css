@@ -1,0 +1,398 @@
+/* ==========================================
+   ACCESIBILIDAD · EcoRuta Temuco
+   Controles, modo oscuro y lectura para dislexia.
+   Se apoya en los tokens de figma.css.
+   ========================================== */
+
+/* ---------- Controles del encabezado ---------- */
+.header-acciones {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  margin-left: 8px;
+}
+
+.acc-controles {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.acc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 8px 11px;
+  border: 1px solid var(--eco-border, #ddd8cc);
+  border-radius: 8px;
+  background: var(--eco-surface, #fff);
+  color: var(--eco-text-2, #4a5240);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease, transform 0.2s ease;
+}
+
+.acc-btn:hover {
+  border-color: var(--eco-green, #2a5c1e);
+  background: var(--eco-bg-alt, #f0ebe0);
+  color: var(--eco-green, #2a5c1e);
+}
+
+.acc-btn:active {
+  transform: scale(0.97);
+}
+
+.acc-btn:focus-visible {
+  outline: 3px solid rgba(42, 92, 30, 0.35);
+  outline-offset: 2px;
+}
+
+.acc-btn svg {
+  width: 17px;
+  height: 17px;
+  flex: none;
+}
+
+.acc-btn[aria-pressed="true"] {
+  border-color: var(--eco-primary, #2a5c1e);
+  background: var(--eco-primary, #2a5c1e);
+  color: #fff;
+}
+
+.acc-btn[aria-pressed="true"]:hover {
+  background: var(--eco-primary-hover, #1e4515);
+  color: #fff;
+}
+
+.acc-btn__icono--sol {
+  display: none;
+}
+
+.acc-btn[aria-pressed="true"] .acc-btn__icono--luna {
+  display: none;
+}
+
+.acc-btn[aria-pressed="true"] .acc-btn__icono--sol {
+  display: block;
+}
+
+.acc-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (max-width: 760px) {
+  .header-acciones {
+    gap: 6px;
+    margin-left: auto;
+  }
+
+  .acc-btn {
+    width: 44px;
+    min-height: 44px;
+    padding: 0;
+  }
+
+  .acc-btn__texto {
+    display: none;
+  }
+}
+
+/* ==========================================
+   MODO OSCURO
+   ========================================== */
+html.modo-oscuro {
+  color-scheme: dark;
+  --eco-bg: #0d1710;
+  --eco-bg-alt: #132117;
+  --eco-surface: #192b1e;
+  --eco-surface-soft: #16241a;
+  --eco-primary: #3f7a2f;
+  --eco-primary-hover: #4f9f52;
+  --eco-green: #96d990;
+  --eco-green-hover: #b7e6a8;
+  --eco-green-dark: #101d12;
+  --eco-accent: #8fd07a;
+  --eco-green-light: #a8d880;
+  --eco-text: #eaf2e8;
+  --eco-text-2: #c3d2bf;
+  --eco-muted: #9fb39a;
+  --eco-border: #34503a;
+  --eco-border-card: #2a4230;
+  --eco-footer-bg: #08110b;
+  --eco-footer-border: #233a28;
+  --eco-footer-muted: #a8b8a0;
+  --eco-footer-muted-2: #7c9475;
+  --eco-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --eco-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+html.modo-oscuro body {
+  background: var(--eco-bg);
+  color: var(--eco-text);
+}
+
+html.modo-oscuro .site-header {
+  background: var(--eco-surface);
+  border-bottom-color: var(--eco-border);
+}
+
+html.modo-oscuro .side-drawer {
+  background: var(--eco-bg-alt);
+  box-shadow: -12px 0 34px rgba(0, 0, 0, 0.55);
+}
+
+html.modo-oscuro .close-btn,
+html.modo-oscuro .menu-btn {
+  background: var(--eco-surface);
+  border-color: var(--eco-border);
+  color: var(--eco-green);
+}
+
+html.modo-oscuro .close-btn:hover,
+html.modo-oscuro .menu-btn:hover {
+  background: var(--eco-surface-soft);
+  border-color: var(--eco-green);
+}
+
+html.modo-oscuro .acc-btn {
+  background: var(--eco-surface);
+  border-color: var(--eco-border);
+  color: var(--eco-text-2);
+}
+
+html.modo-oscuro .acc-btn:hover {
+  border-color: var(--eco-green);
+  background: var(--eco-surface-soft);
+  color: var(--eco-green);
+}
+
+html.modo-oscuro .acc-btn[aria-pressed="true"] {
+  background: var(--eco-primary);
+  border-color: var(--eco-primary);
+  color: #fff;
+}
+
+html.modo-oscuro .interes-chip,
+html.modo-oscuro .filtros-categoria button {
+  background: var(--eco-surface);
+  border-color: var(--eco-border-card);
+  color: var(--eco-text);
+}
+
+html.modo-oscuro .filtros-categoria button:hover,
+html.modo-oscuro .interes-chip:hover {
+  border-color: var(--eco-green);
+  color: var(--eco-green);
+}
+
+html.modo-oscuro .filtros-categoria button.activo,
+html.modo-oscuro .filtros-categoria button[aria-pressed="true"] {
+  background: var(--eco-primary);
+  border-color: var(--eco-primary);
+  color: #fff;
+}
+
+html.modo-oscuro .btn--secondary {
+  background: var(--eco-surface);
+  border-color: var(--eco-border);
+  color: var(--eco-green);
+}
+
+html.modo-oscuro .btn--secondary:hover {
+  background: var(--eco-surface-soft);
+  border-color: var(--eco-green);
+}
+
+html.modo-oscuro .info-card--clima {
+  border-color: #1e4a5e;
+  background: #0f2530;
+}
+
+html.modo-oscuro .info-card--eventos {
+  border-color: #5e4a1e;
+  background: #2a2410;
+}
+
+html.modo-oscuro .info-card--recomendaciones {
+  border-color: #2a5e34;
+  background: #102a17;
+}
+
+html.modo-oscuro .info-card--sustentabilidad {
+  border-color: #1e5e4a;
+  background: #0f2a24;
+}
+
+html.modo-oscuro .info-card__icono {
+  background: var(--eco-surface);
+}
+
+html.modo-oscuro .ventaja-icono,
+html.modo-oscuro .cultura-card__icono,
+html.modo-oscuro .contacto-info__icono {
+  background: #1e3a24;
+  color: var(--eco-green);
+}
+
+html.modo-oscuro .badge--baja {
+  background: #12351f;
+  color: #a7f3c0;
+}
+
+html.modo-oscuro .badge--media {
+  background: #3a2c10;
+  color: #fde68a;
+}
+
+html.modo-oscuro .badge--alta {
+  background: #3d1717;
+  color: #fecaca;
+}
+
+html.modo-oscuro .estado[data-state="error"],
+html.modo-oscuro .warnings,
+html.modo-oscuro .form-message[data-state="error"] {
+  color: #ff9d96;
+}
+
+html.modo-oscuro .estado[data-state="success"],
+html.modo-oscuro .success,
+html.modo-oscuro .form-message[data-state="success"] {
+  color: var(--eco-green);
+}
+
+html.modo-oscuro .estado[data-state="empty"] {
+  color: #e7c56a;
+}
+
+html.modo-oscuro .leaflet-container {
+  background: #0b130d;
+}
+
+html.modo-oscuro .leaflet-tile-pane {
+  filter: brightness(0.8) invert(1) hue-rotate(180deg) contrast(0.9)
+    saturate(0.8);
+}
+
+html.modo-oscuro .leaflet-control-attribution {
+  background: rgba(13, 23, 16, 0.88) !important;
+  color: var(--eco-text-2) !important;
+}
+
+html.modo-oscuro .leaflet-bar a,
+html.modo-oscuro .leaflet-bar a:hover {
+  background: var(--eco-surface) !important;
+  border-color: var(--eco-border) !important;
+  color: var(--eco-text) !important;
+}
+
+html.modo-oscuro .leaflet-bar {
+  border-color: var(--eco-border) !important;
+}
+
+html.modo-oscuro .leaflet-control-attribution a {
+  color: var(--eco-green) !important;
+}
+
+html.modo-oscuro .leaflet-popup-content-wrapper,
+html.modo-oscuro .leaflet-popup-tip {
+  background: var(--eco-surface) !important;
+  color: var(--eco-text) !important;
+}
+
+html.modo-oscuro .leaflet-popup-content p {
+  color: var(--eco-text-2) !important;
+}
+
+html.modo-oscuro ::selection {
+  background: var(--eco-green);
+  color: #071009;
+}
+
+/* ==========================================
+   MODO DE LECTURA PARA DISLEXIA
+   ========================================== */
+html.modo-dislexia body,
+html.modo-dislexia body * {
+  font-family: "OpenDyslexic", "Open Dyslexic", "Comic Sans MS",
+    "Trebuchet MS", Verdana, sans-serif !important;
+}
+
+html.modo-dislexia body {
+  font-size: 112.5% !important;
+  line-height: 1.9 !important;
+  letter-spacing: 0.025em !important;
+  word-spacing: 0.1em !important;
+}
+
+html.modo-dislexia p,
+html.modo-dislexia li,
+html.modo-dislexia dd,
+html.modo-dislexia figcaption,
+html.modo-dislexia label,
+html.modo-dislexia a,
+html.modo-dislexia button,
+html.modo-dislexia input,
+html.modo-dislexia select,
+html.modo-dislexia textarea {
+  line-height: 1.9 !important;
+  letter-spacing: 0.03em !important;
+  word-spacing: 0.12em !important;
+}
+
+html.modo-dislexia h1,
+html.modo-dislexia h2,
+html.modo-dislexia h3,
+html.modo-dislexia h4 {
+  line-height: 1.35 !important;
+  letter-spacing: 0.01em !important;
+}
+
+html.modo-dislexia p,
+html.modo-dislexia li {
+  max-width: 72ch;
+}
+
+html.modo-dislexia main p,
+html.modo-dislexia main li,
+html.modo-dislexia main dd,
+html.modo-dislexia main figcaption {
+  text-align: left !important;
+}
+
+html.modo-dislexia a {
+  text-decoration: underline !important;
+  text-underline-offset: 0.18em;
+}
+
+html.modo-dislexia .btn,
+html.modo-dislexia .nav-cta,
+html.modo-dislexia .acc-btn,
+html.modo-dislexia .menu-btn {
+  letter-spacing: 0.02em !important;
+}
+
+html.modo-dislexia .acc-btn__texto {
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  html.modo-dislexia .acc-btn__texto {
+    display: none;
+  }
+}

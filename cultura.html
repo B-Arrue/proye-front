@@ -1,111 +1,218 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-      Cultura | EcoRuta Temuco
-    </title>
-    <link rel="stylesheet" href="cultura.css">
-  </head>
-  <body>
-<header>
-        <a href="index.html">
-            <img src="Imagenes/logo.png" alt="Logo de EcoRuta Temuco">
-            <span>EcoRuta Temuco</span>
-        </a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cultura local de La Araucanía: pueblo mapuche, lengua, tradiciones y recomendaciones para visitar con respeto.">
+  <title>Cultura | EcoRuta Temuco</title>
+  <link rel="icon" href="Imagenes/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="figma.css?v=4">
+  <link rel="stylesheet" href="accesibilidad.css?v=4">
+  <script src="accesibilidad.js?v=4"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-        <!-- Botón de Menú a la derecha -->
-        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
-            Menú ▾
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="EcoRuta Temuco, ir al inicio">
+        <span class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12l9-9 9 9M5 10v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V10"/>
+            <path d="M9 17c0-1.5.5-3 3-4.5C14.5 14 15 15.5 15 17"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">EcoRuta</span>
+          <span class="brand-sub">Temuco</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="destinos.html">Destinos</a>
+        <a href="experiencias.html">Experiencias</a>
+        <a href="mapa.html">Mapa</a>
+        <a href="ruta.html">Rutas</a>
+        <a href="cultura.html" aria-current="page">Cultura</a>
+        <a href="informacion.html">Información</a>
+        <a href="contacto.html">Contacto</a>
+        <a class="nav-cta" href="ruta.html">Explorar rutas</a>
+      </nav>
+      <div class="header-acciones">
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="sideDrawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <span class="menu-btn__texto">Menú</span>
         </button>
-    </header>
-
-    <!-- Panel Lateral Deslizante -->
-    <div class="nav-overlay" id="navOverlay"></div>
-    <nav class="side-drawer" id="sideDrawer">
-        <div class="drawer-header">
-            <h3>Menú de Navegación</h3>
-            <button class="close-btn" id="closeBtn" aria-label="Cerrar menú">&times;</button>
-        </div>
-        <ul class="drawer-list">
-            <li><a href="index.html" class="drawer-link">Inicio</a></li>
-            <li><a href="destinos.html" class="drawer-link">Destinos</a></li>
-            <li><a href="experiencias.html" class="drawer-link">Experiencias</a></li>
-            <li><a href="mapa.html" class="drawer-link">Mapa</a></li>
-            <li><a href="ruta.html" class="drawer-link">Ruta</a></li>
-            <li><a href="cultura.html" class="drawer-link">Cultura</a></li>
-            <li><a href="informacion.html" class="drawer-link">Información</a></li>
-            <li><a href="contacto.html" class="drawer-link">Contacto</a></li>
-        </ul>
-    </nav>
+      </div>
+    </div>
   </header>
-    <main>
-      <section>
-        <h1>
-          Cultura local
-        </h1>
-        <p>
-          La Araucanía tiene una historia y una diversidad cultural que forman parte de la identidad de su territorio.
-        </p>
-        
-        <!-- Contenedor donde se cargarán los datos dinámicos de MockAPI -->
-        <div id="resultado-api"></div>
 
-        <article>
-          <h2>
-            Pueblo Mapuche
-          </h2>
-          <p>
-            El pueblo Mapuche mantiene una relación profunda con el territorio, sus comunidades y la naturaleza.
-          </p>
-        </article>
-        <article>
-          <h2>
-            Lengua y tradiciones
-          </h2>
-          <p>
-            El mapudungun, los relatos y las prácticas culturales transmiten conocimientos entre generaciones.
-          </p>
-        </article>
-        <article>
-          <h2>
-            Respeto al visitar
-          </h2>
-          <p>
-            Infórmate, pide autorización cuando corresponda y respeta las costumbres de cada comunidad.
-          </p>
-        </article>
-      </section>
-    </main>
-    <footer>
-      <p>
-        EcoRuta Temuco · Proyecto académico de turismo en La Araucanía.
-      </p>
-    </footer>
-<!-- Script de interactividad para abrir y cerrar el menú lateral -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const menuBtn = document.getElementById("menuBtn");
-            const closeBtn = document.getElementById("closeBtn");
-            const sideDrawer = document.getElementById("sideDrawer");
-            const navOverlay = document.getElementById("navOverlay");
+  <div class="nav-overlay" id="navOverlay"></div>
+  <nav class="side-drawer" id="sideDrawer" aria-label="Menú de navegación" aria-hidden="true">
+    <div class="drawer-header">
+      <h3>Menú de navegación</h3>
+      <button class="close-btn" id="closeBtn" type="button" aria-label="Cerrar menú">&times;</button>
+    </div>
+    <ul class="drawer-list">
+      <li><a href="index.html" class="drawer-link">Inicio</a></li>
+      <li><a href="destinos.html" class="drawer-link">Destinos</a></li>
+      <li><a href="experiencias.html" class="drawer-link">Experiencias</a></li>
+      <li><a href="mapa.html" class="drawer-link">Mapa</a></li>
+      <li><a href="ruta.html" class="drawer-link">Rutas</a></li>
+      <li><a href="cultura.html" class="drawer-link">Cultura</a></li>
+      <li><a href="informacion.html" class="drawer-link">Información</a></li>
+      <li><a href="contacto.html" class="drawer-link">Contacto</a></li>
+    </ul>
+    <div class="drawer-footer">
+      <p>Turismo sustentable en La Araucanía.</p>
+    </div>
+  </nav>
 
-            function openMenu() {
-                sideDrawer.classList.add("open");
-                navOverlay.classList.add("open");
-            }
+  <main id="contenido">
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Identidad del territorio</span>
+        <h1>Cultura local</h1>
+        <p>La Araucanía tiene una historia y una diversidad cultural que forman parte de la identidad de su territorio.</p>
+      </div>
+    </section>
 
-            function closeMenu() {
-                sideDrawer.classList.remove("open");
-                navOverlay.classList.remove("open");
-            }
+    <section class="section">
+      <div class="container">
+        <figure class="page-banner">
+          <img decoding="async" width="1600" height="1067" src="Imagenes/mapuche.jpeg" alt="Cultura mapuche en La Araucanía">
+          <figcaption>Cultura mapuche · La Araucanía</figcaption>
+        </figure>
 
-            if (menuBtn) menuBtn.addEventListener("click", openMenu);
-            if (closeBtn) closeBtn.addEventListener("click", closeMenu);
-            if (navOverlay) navOverlay.addEventListener("click", closeMenu);
-        });
-    </script>
-    <script src="script.js"></script>
-  </body>
+        <div class="cultura-intro">
+          <div class="cultura-intro__media">
+            <img decoding="async" width="1024" height="768" src="imagenes/art.jpg" alt="Artesanía tradicional de La Araucanía" loading="lazy">
+          </div>
+          <div>
+            <span class="eyebrow">Pueblo Mapuche</span>
+            <h2>Una cultura viva y presente</h2>
+            <p>El pueblo Mapuche mantiene una relación profunda con el territorio, sus comunidades y la naturaleza. Su historia, lengua y tradiciones son parte fundamental del patrimonio de La Araucanía.</p>
+            <p>Visitar la región es también una oportunidad para conocer emprendimientos, talleres y relatos que mantienen viva esta cultura entre generaciones.</p>
+            <a class="link-arrow" href="experiencias.html">Descubrir experiencias culturales <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Tres claves</span>
+          <h2 class="section-title">Cultura, lengua y respeto</h2>
+          <p class="section-lead">Aprender sobre el territorio también es aprender a cuidarlo y a relacionarse con respeto.</p>
+        </div>
+        <div class="cultura-grid">
+          <article class="cultura-card">
+            <div class="cultura-card__icono">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22V12"/><path d="M12 12C12 8 9 5 5 5c0 4 3 7 7 7Z"/><path d="M12 14c0-3 2.5-6 6-6 0 3.5-2.5 6-6 6Z"/>
+              </svg>
+            </div>
+            <h2>Pueblo Mapuche</h2>
+            <p>El pueblo Mapuche mantiene una relación profunda con el territorio, sus comunidades y la naturaleza.</p>
+          </article>
+          <article class="cultura-card">
+            <div class="cultura-card__icono">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 5h7a3 3 0 0 1 3 3v11a2 2 0 0 0-2-2H4V5Z"/><path d="M20 5h-3a3 3 0 0 0-3 3v11a2 2 0 0 1 2-2h4V5Z"/>
+              </svg>
+            </div>
+            <h2>Lengua y tradiciones</h2>
+            <p>El mapudungun, los relatos y las prácticas culturales transmiten conocimientos entre generaciones.</p>
+          </article>
+          <article class="cultura-card">
+            <div class="cultura-card__icono">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/>
+              </svg>
+            </div>
+            <h2>Respeto al visitar</h2>
+            <p>Infórmate, pide autorización cuando corresponda y respeta las costumbres de cada comunidad.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cultura-respeto">
+          <div>
+            <span class="eyebrow">Antes de visitar</span>
+            <h2>Un turismo que respeta y aprende</h2>
+            <ul>
+              <li>Infórmate sobre la historia y las tradiciones del lugar que vas a visitar.</li>
+              <li>Pide autorización antes de entrar a espacios comunitarios o tomar fotografías.</li>
+              <li>Respeta las costumbres, los tiempos y las decisiones de cada comunidad.</li>
+              <li>Apoya emprendimientos locales y compra directamente a sus creadores.</li>
+            </ul>
+            <a class="btn btn--primary" href="contacto.html">Quiero sumar mi emprendimiento</a>
+          </div>
+          <div class="cultura-intro__media" style="height: 320px;">
+            <img decoding="async" width="550" height="367" src="Imagenes/araucarias.jpg" alt="Bosque de araucarias en La Araucanía" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="EcoRuta Temuco, ir al inicio">
+            <span class="brand-logo" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12l9-9 9 9M5 10v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V10"/>
+                <path d="M9 17c0-1.5.5-3 3-4.5C14.5 14 15 15.5 15 17"/>
+              </svg>
+            </span>
+            <span class="brand-text">
+              <span class="brand-name">EcoRuta</span>
+              <span class="brand-sub">Temuco</span>
+            </span>
+          </a>
+          <p>Descubre y conecta con la naturaleza de La Araucanía. Turismo sustentable, cultura local y experiencias auténticas.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explorar</h4>
+          <ul>
+            <li><a href="ruta.html">Rutas</a></li>
+            <li><a href="experiencias.html">Actividades</a></li>
+            <li><a href="contacto.html">Emprendimientos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Información</h4>
+          <ul>
+            <li><a href="index.html#sobre">Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Síguenos</h4>
+          <ul>
+            <li><span>Instagram</span></li>
+            <li><span>Facebook</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <p>© 2026 EcoRuta Temuco. Todos los derechos reservados.</p>
+        <div class="footer-legal-links">
+          <a href="informacion.html">Aviso legal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="menu.js?v=4"></script>
+</body>
 </html>

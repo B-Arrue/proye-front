@@ -1,42 +1,46 @@
-const btnleft = document.querySelector('.btn-left'),
-    btnright = document.querySelector('.btn-right'),
-    slider = document.querySelector('#slider'),
-    sliderSection = document.querySelectorAll('.slider-section');
+/* ==========================================
+   CARRUSEL DE GALERÍA · EcoRuta Temuco
+   Conserva el carrusel original y actualiza el
+   texto descriptivo de cada fotografía.
+   ========================================== */
+(function () {
+  "use strict";
 
- 
-    
- btnleft.addEventListener('click', e => moverIzquierda()); 
- btnright.addEventListener('click', e => moverDerecha());  
+  var btnIzquierda = document.querySelector(".btn-left");
+  var btnDerecha = document.querySelector(".btn-right");
+  var slider = document.getElementById("slider");
+  var diapositivas = Array.prototype.slice.call(
+    document.querySelectorAll(".slider-section")
+  );
+  var leyenda = document.getElementById("carrusel-caption");
 
- let operacion = 0;
-    counter = 0,
-    widthImg = 100 / sliderSection.length;
+  if (!btnIzquierda || !btnDerecha || !slider || diapositivas.length === 0) {
+    return;
+  }
 
-function moverDerecha() {
-    if (counter >= sliderSection.length-1) {
-        counter= 0;
-        operacion = 0;
-        slider.style.transform = `translate(-${operacion}%)`;
-        
-    }else {
-        counter++;  
-        operacion = operacion + widthImg;
-        slider.style.transform = `translate(-${operacion}%)`;
-        slider.style.transition = "all ease .6s"
-   }
-}
+  var indice = 0;
+  var paso = 100 / diapositivas.length;
 
-function moverIzquierda() {
-    counter --;
-    if (counter < 0) {
-        counter = sliderSection.length-1;
-        operacion = widthImg * (sliderSection.length-1);
-        slider.style.transform = `translate(-${operacion}%)`;
-    } else {
-        operacion = operacion - widthImg;
-        slider.style.transform = `translate(-${operacion}%)`;
-        slider.style.transition = "all ease .6s"
-    }
-    
+  function actualizarLeyenda() {
+    if (!leyenda) return;
+    var texto = diapositivas[indice].getAttribute("data-caption");
+    if (texto) leyenda.textContent = texto;
+  }
 
-}
+  function moverA(nuevoIndice) {
+    indice = (nuevoIndice + diapositivas.length) % diapositivas.length;
+    slider.style.transform = "translateX(-" + indice * paso + "%)";
+    slider.style.transition = "transform 0.55s ease";
+    actualizarLeyenda();
+  }
+
+  btnIzquierda.addEventListener("click", function () {
+    moverA(indice - 1);
+  });
+
+  btnDerecha.addEventListener("click", function () {
+    moverA(indice + 1);
+  });
+
+  actualizarLeyenda();
+})();

@@ -1,123 +1,202 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-      Experiencias | EcoRuta Temuco
-    </title>
-    <link rel="stylesheet" href="experiencias.css">
-  </head>
-  <body>
-<header>
-        <a href="index.html">
-            <img src="Imagenes/logo.png" alt="Logo de EcoRuta Temuco">
-            <span>EcoRuta Temuco</span>
-        </a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Experiencias de artesanía, gastronomía y recorridos guiados en La Araucanía.">
+  <title>Experiencias | EcoRuta Temuco</title>
+  <link rel="icon" href="Imagenes/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="figma.css?v=4">
+  <link rel="stylesheet" href="accesibilidad.css?v=4">
+  <script src="accesibilidad.js?v=4"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-        <!-- Botón de Menú a la derecha -->
-        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
-            Menú ▾
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="EcoRuta Temuco, ir al inicio">
+        <span class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12l9-9 9 9M5 10v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V10"/>
+            <path d="M9 17c0-1.5.5-3 3-4.5C14.5 14 15 15.5 15 17"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">EcoRuta</span>
+          <span class="brand-sub">Temuco</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="destinos.html">Destinos</a>
+        <a href="experiencias.html" aria-current="page">Experiencias</a>
+        <a href="mapa.html">Mapa</a>
+        <a href="ruta.html">Rutas</a>
+        <a href="cultura.html">Cultura</a>
+        <a href="informacion.html">Información</a>
+        <a href="contacto.html">Contacto</a>
+        <a class="nav-cta" href="ruta.html">Explorar rutas</a>
+      </nav>
+      <div class="header-acciones">
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="sideDrawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <span class="menu-btn__texto">Menú</span>
         </button>
-    </header>
+      </div>
+    </div>
+  </header>
 
-    <!-- Panel Lateral Deslizante -->
-    <div class="nav-overlay" id="navOverlay"></div>
-    <nav class="side-drawer" id="sideDrawer">
-        <div class="drawer-header">
-            <h3>Menú de Navegación</h3>
-            <button class="close-btn" id="closeBtn" aria-label="Cerrar menú">&times;</button>
+  <div class="nav-overlay" id="navOverlay"></div>
+  <nav class="side-drawer" id="sideDrawer" aria-label="Menú de navegación" aria-hidden="true">
+    <div class="drawer-header">
+      <h3>Menú de navegación</h3>
+      <button class="close-btn" id="closeBtn" type="button" aria-label="Cerrar menú">&times;</button>
+    </div>
+    <ul class="drawer-list">
+      <li><a href="index.html" class="drawer-link">Inicio</a></li>
+      <li><a href="destinos.html" class="drawer-link">Destinos</a></li>
+      <li><a href="experiencias.html" class="drawer-link">Experiencias</a></li>
+      <li><a href="mapa.html" class="drawer-link">Mapa</a></li>
+      <li><a href="ruta.html" class="drawer-link">Rutas</a></li>
+      <li><a href="cultura.html" class="drawer-link">Cultura</a></li>
+      <li><a href="informacion.html" class="drawer-link">Información</a></li>
+      <li><a href="contacto.html" class="drawer-link">Contacto</a></li>
+    </ul>
+    <div class="drawer-footer">
+      <p>Turismo sustentable en La Araucanía.</p>
+    </div>
+  </nav>
+
+  <main id="contenido">
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Vive la región</span>
+        <h1>Experiencias</h1>
+        <p>Ideas para acercarte a la naturaleza y a la vida local de la región, con actividades para todos los ritmos.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <figure class="page-banner">
+          <img decoding="async" width="550" height="367" src="Imagenes/araucarias.jpg" alt="Bosque de araucarias en La Araucanía">
+          <figcaption>Bosques nativos · La Araucanía</figcaption>
+        </figure>
+
+        <div class="section-head">
+          <span class="eyebrow">Cultura y naturaleza</span>
+          <h2 class="section-title">Tres formas de conocer La Araucanía</h2>
+          <p class="section-lead">Artesanía, sabores y recorridos guiados para vivir el territorio con respeto.</p>
         </div>
-        <ul class="drawer-list">
-            <li><a href="index.html" class="drawer-link">Inicio</a></li>
-            <li><a href="destinos.html" class="drawer-link">Destinos</a></li>
-            <li><a href="experiencias.html" class="drawer-link">Experiencias</a></li>
-            <li><a href="mapa.html" class="drawer-link">Mapa</a></li>
-            <li><a href="ruta.html" class="drawer-link">Ruta</a></li>
-            <li><a href="cultura.html" class="drawer-link">Cultura</a></li>
-            <li><a href="informacion.html" class="drawer-link">Información</a></li>
-            <li><a href="contacto.html" class="drawer-link">Contacto</a></li>
-        </ul>
-    </nav>
-    <main>
-      <section>
-        <h1>
-          Experiencias
-        </h1>
-        <p>
-          Ideas para acercarte a la naturaleza y a la vida local de la región.
-        </p>
 
-        <!-- Contenedor donde se cargarán los datos dinámicos de MockAPI -->
-        <div id="resultado-api"></div>
+        <div class="experiencias-grid">
+          <article class="experiencia-card">
+            <figure>
+              <img decoding="async" width="1024" height="768" src="imagenes/art.jpg" alt="Artesanía tradicional de La Araucanía" loading="lazy">
+              <figcaption>Imagen ilustrativa · EcoRuta Temuco</figcaption>
+            </figure>
+            <div class="experiencia-card__body">
+              <h2>Talleres de artesanía</h2>
+              <p>Conoce técnicas y oficios tradicionales de La Araucanía de la mano de artesanas y artesanos locales.</p>
+              <a class="btn btn--secondary btn--sm" href="contacto.html">Consultar disponibilidad</a>
+            </div>
+          </article>
 
-        <article>
-          <figure>
-            <img src="C:\Users\anais\OneDrive\Documentos\GitHub\proye-front\imagenes\art.jpg" alt="Descripción de lo que muestra la foto de artesanía">
-            <figcaption>Foto: NOMBRE DEL AUTOR, <a href="URL-DE-LA-LICENCIA">LICENCIA</a>.</figcaption>
-          </figure>
-          <h2>
-            Talleres de artesanía
-          </h2>
-          <p>
-            Conoce técnicas y oficios tradicionales de La Araucanía.
-          </p>
-        </article>
-        <article>
-          <figure>
-            <img src="c:\Users\anais\OneDrive\Documentos\GitHub\proye-front\imagenes\comida.png" alt="Descripción de lo que muestra la foto de comida">
-            <figcaption>Foto: NOMBRE DEL AUTOR, <a href="URL-DE-LA-LICENCIA">LICENCIA</a>.</figcaption>
-          </figure>
-          <h2>
-            Sabores locales
-          </h2>
-          <p>
-            Descubre productos y preparaciones propias de la zona.
-          </p>
-        </article>
-        <article>
-          <figure>
-            <img src="imagenes/conguillio-llaima.jpg" alt="Volcán Llaima junto al lago Conguillío">
-            <figcaption>Foto: Mariomxel, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</figcaption>
-          </figure>
-          <h2>
-            Recorridos guiados
-          </h2>
-          <p>
-            Explora senderos y paisajes junto a personas que conocen el territorio.
-          </p>
-        </article>
-      </section>
-    </main>
-    <footer>
-      <p>
-        EcoRuta Temuco · Proyecto académico de turismo en La Araucanía.
-      </p>
-    </footer>
-<!-- Script de interactividad para abrir y cerrar el menú lateral -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const menuBtn = document.getElementById("menuBtn");
-            const closeBtn = document.getElementById("closeBtn");
-            const sideDrawer = document.getElementById("sideDrawer");
-            const navOverlay = document.getElementById("navOverlay");
+          <article class="experiencia-card">
+            <figure>
+              <img decoding="async" width="1254" height="1254" src="imagenes/comida.png" alt="Comida tradicional de La Araucanía" loading="lazy">
+              <figcaption>Imagen ilustrativa · EcoRuta Temuco</figcaption>
+            </figure>
+            <div class="experiencia-card__body">
+              <h2>Sabores locales</h2>
+              <p>Descubre productos y preparaciones propias de la zona, desde la huerta mapuche hasta la cocina de costa.</p>
+              <a class="btn btn--secondary btn--sm" href="contacto.html">Consultar disponibilidad</a>
+            </div>
+          </article>
 
-            function openMenu() {
-                sideDrawer.classList.add("open");
-                navOverlay.classList.add("open");
-            }
+          <article class="experiencia-card">
+            <figure>
+              <img decoding="async" width="1280" height="719" src="imagenes/conguillio-llaima.jpg" alt="Volcán Llaima junto al lago Conguillío" loading="lazy">
+              <figcaption>Foto: Mariomxel, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a></figcaption>
+            </figure>
+            <div class="experiencia-card__body">
+              <h2>Recorridos guiados</h2>
+              <p>Explora senderos y paisajes junto a personas que conocen el territorio y su historia.</p>
+              <a class="btn btn--secondary btn--sm" href="ruta.html">Ver rutas guiadas</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-            function closeMenu() {
-                sideDrawer.classList.remove("open");
-                navOverlay.classList.remove("open");
-            }
+    <section class="section section--alt">
+      <div class="container">
+        <div class="cta-card">
+          <div>
+            <span class="eyebrow">Siguiente paso</span>
+            <h2>Arma tu propia experiencia</h2>
+            <p>Combina una ruta, una actividad cultural y una parada gastronómica para conocer La Araucanía a tu manera.</p>
+          </div>
+          <a class="btn btn--accent" href="ruta.html">Explorar rutas</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-            if (menuBtn) menuBtn.addEventListener("click", openMenu);
-            if (closeBtn) closeBtn.addEventListener("click", closeMenu);
-            if (navOverlay) navOverlay.addEventListener("click", closeMenu);
-        });
-    </script>
-    <!-- Script conectado a MockAPI -->
-    <script src="script.js"></script>
-  </body>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="EcoRuta Temuco, ir al inicio">
+            <span class="brand-logo" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12l9-9 9 9M5 10v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V10"/>
+                <path d="M9 17c0-1.5.5-3 3-4.5C14.5 14 15 15.5 15 17"/>
+              </svg>
+            </span>
+            <span class="brand-text">
+              <span class="brand-name">EcoRuta</span>
+              <span class="brand-sub">Temuco</span>
+            </span>
+          </a>
+          <p>Descubre y conecta con la naturaleza de La Araucanía. Turismo sustentable, cultura local y experiencias auténticas.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explorar</h4>
+          <ul>
+            <li><a href="ruta.html">Rutas</a></li>
+            <li><a href="experiencias.html">Actividades</a></li>
+            <li><a href="contacto.html">Emprendimientos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Información</h4>
+          <ul>
+            <li><a href="index.html#sobre">Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Síguenos</h4>
+          <ul>
+            <li><span>Instagram</span></li>
+            <li><span>Facebook</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <p>© 2026 EcoRuta Temuco. Todos los derechos reservados.</p>
+        <div class="footer-legal-links">
+          <a href="informacion.html">Aviso legal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="menu.js?v=4"></script>
+</body>
 </html>
