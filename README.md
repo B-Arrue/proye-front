@@ -23,7 +23,7 @@ Sitio web estático para conocer destinos, rutas y experiencias de la Región de
 - Formulario de reserva de rutas y formulario de contacto.
 - Modo oscuro y modo de lectura para dislexia (preferencias guardadas).
 - Menú lateral móvil con navegación por teclado.
-- Favoritos de rutas guardados en el navegador.
+
 
 ## Tecnologías
 
