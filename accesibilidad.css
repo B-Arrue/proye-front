@@ -1,0 +1,477 @@
+/* ==========================================
+   ACCESIBILIDAD · EcoRuta Temuco
+   Modo oscuro y modo de lectura para dislexia
+   ========================================== */
+
+/* ---------- Controles del encabezado ---------- */
+header {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+header > a {
+  min-width: 0;
+}
+
+header > a span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header-acciones {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+  flex: none;
+}
+
+.acc-controles {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.acc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 40px;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid #1e3d1b;
+  border-radius: 999px;
+  background: transparent;
+  color: #1e3d1b;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.acc-btn:hover {
+  background-color: rgba(30, 61, 27, 0.1);
+}
+
+.acc-btn:active {
+  transform: scale(0.97);
+}
+
+.acc-btn:focus-visible {
+  outline: 3px solid rgba(46, 125, 50, 0.45);
+  outline-offset: 2px;
+}
+
+.acc-btn svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+
+.acc-btn[aria-pressed="true"] {
+  background-color: #1e3d1b;
+  border-color: #1e3d1b;
+  color: #f4efe6;
+}
+
+.acc-btn[aria-pressed="true"]:hover {
+  background-color: #2b5329;
+}
+
+.acc-btn__icono--sol {
+  display: none;
+}
+
+.acc-btn[aria-pressed="true"] .acc-btn__icono--luna {
+  display: none;
+}
+
+.acc-btn[aria-pressed="true"] .acc-btn__icono--sol {
+  display: block;
+}
+
+.acc-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* En pantallas pequeñas los botones quedan solo con ícono. */
+@media (max-width: 760px) {
+  .header-acciones {
+    gap: 0.35rem;
+  }
+
+  .acc-btn {
+    width: 42px;
+    min-height: 42px;
+    padding: 0;
+  }
+
+  .acc-btn__texto {
+    display: none;
+  }
+
+  header {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  header > a span {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  header > a span {
+    display: none;
+  }
+}
+
+/* ==========================================
+   MODO OSCURO
+   ========================================== */
+html.modo-oscuro {
+  color-scheme: dark;
+  --acc-fondo: #0d1710;
+  --acc-fondo-alt: #132117;
+  --acc-superficie: #192b1e;
+  --acc-superficie-2: #213728;
+  --acc-texto: #eaf2e8;
+  --acc-texto-suave: #b9c9b6;
+  --acc-borde: #34503a;
+  --acc-verde: #96d990;
+  --acc-verde-fuerte: #4f9f52;
+  --acc-error: #ff9d96;
+  --acc-aviso: #e7c56a;
+}
+
+html.modo-oscuro body {
+  background-color: var(--acc-fondo) !important;
+  background-image: none !important;
+  color: var(--acc-texto) !important;
+}
+
+html.modo-oscuro header,
+html.modo-oscuro footer,
+html.modo-oscuro .side-drawer,
+html.modo-oscuro form,
+html.modo-oscuro .detalle-rutas {
+  background-color: var(--acc-fondo-alt) !important;
+  color: var(--acc-texto-suave) !important;
+  border-color: var(--acc-borde) !important;
+}
+
+html.modo-oscuro header {
+  border-bottom-color: var(--acc-borde) !important;
+}
+
+html.modo-oscuro header > a,
+html.modo-oscuro header > a span,
+html.modo-oscuro .drawer-header h3,
+html.modo-oscuro .drawer-link {
+  color: var(--acc-texto) !important;
+}
+
+html.modo-oscuro .menu-btn,
+html.modo-oscuro .acc-btn {
+  color: var(--acc-verde) !important;
+  border-color: var(--acc-verde) !important;
+}
+
+html.modo-oscuro .menu-btn:hover,
+html.modo-oscuro .acc-btn:hover {
+  background-color: rgba(150, 217, 144, 0.14) !important;
+}
+
+html.modo-oscuro .acc-btn[aria-pressed="true"] {
+  background-color: var(--acc-verde) !important;
+  border-color: var(--acc-verde) !important;
+  color: #0d1710 !important;
+}
+
+html.modo-oscuro .side-drawer {
+  box-shadow: -5px 0 24px rgba(0, 0, 0, 0.55) !important;
+}
+
+html.modo-oscuro .drawer-header {
+  border-bottom-color: var(--acc-borde) !important;
+}
+
+html.modo-oscuro .close-btn {
+  color: var(--acc-texto-suave) !important;
+}
+
+html.modo-oscuro .close-btn:hover {
+  color: var(--acc-verde) !important;
+}
+
+html.modo-oscuro h1,
+html.modo-oscuro h2,
+html.modo-oscuro h3,
+html.modo-oscuro h4,
+html.modo-oscuro h5,
+html.modo-oscuro h6 {
+  color: var(--acc-texto) !important;
+}
+
+html.modo-oscuro h2 {
+  border-bottom-color: var(--acc-borde) !important;
+}
+
+html.modo-oscuro main p,
+html.modo-oscuro main li,
+html.modo-oscuro main figcaption,
+html.modo-oscuro main dt,
+html.modo-oscuro main dd,
+html.modo-oscuro main label,
+html.modo-oscuro footer p,
+html.modo-oscuro footer li {
+  color: var(--acc-texto-suave) !important;
+}
+
+html.modo-oscuro a {
+  color: var(--acc-verde) !important;
+}
+
+html.modo-oscuro section,
+html.modo-oscuro article,
+html.modo-oscuro aside,
+html.modo-oscuro .buscador-rutas,
+html.modo-oscuro .sin-resultados,
+html.modo-oscuro .tarjeta-destino,
+html.modo-oscuro .tarjeta-item,
+html.modo-oscuro .detalle-ruta {
+  background-color: var(--acc-superficie) !important;
+  border-color: var(--acc-borde) !important;
+  color: var(--acc-texto) !important;
+  box-shadow: none !important;
+}
+
+html.modo-oscuro main > section:first-child {
+  background-color: var(--acc-superficie) !important;
+  border-color: var(--acc-borde) !important;
+}
+
+html.modo-oscuro main > section:first-child p:first-child {
+  color: var(--acc-verde) !important;
+}
+
+html.modo-oscuro #zonas-turisticas article {
+  background-color: var(--acc-superficie) !important;
+  border-color: var(--acc-borde) !important;
+}
+
+html.modo-oscuro #zonas-turisticas article a,
+html.modo-oscuro .boton-reintentar,
+html.modo-oscuro .buscador-rutas button,
+html.modo-oscuro form button {
+  background-color: var(--acc-verde-fuerte) !important;
+  border-color: var(--acc-verde) !important;
+  color: #071009 !important;
+}
+
+html.modo-oscuro #zonas-turisticas article a:hover,
+html.modo-oscuro .boton-reintentar:hover,
+html.modo-oscuro .buscador-rutas button:hover,
+html.modo-oscuro form button:hover {
+  background-color: var(--acc-verde) !important;
+}
+
+html.modo-oscuro input,
+html.modo-oscuro select,
+html.modo-oscuro textarea {
+  background-color: var(--acc-superficie-2) !important;
+  border-color: var(--acc-borde) !important;
+  color: var(--acc-texto) !important;
+}
+
+html.modo-oscuro input::placeholder,
+html.modo-oscuro textarea::placeholder {
+  color: #8fa68d !important;
+}
+
+html.modo-oscuro .buscador-rutas label,
+html.modo-oscuro .grid-rutas li,
+html.modo-oscuro .grid-rutas figure + span,
+html.modo-oscuro .grid-rutas article > p,
+html.modo-oscuro .detalle-ruta span,
+html.modo-oscuro .detalle-ruta h3 + p,
+html.modo-oscuro .detalle-ruta dt,
+html.modo-oscuro .detalle-ruta dd {
+  color: var(--acc-texto-suave) !important;
+}
+
+html.modo-oscuro .detalle-ruta h3 {
+  color: var(--acc-texto) !important;
+}
+
+html.modo-oscuro .filtros-categoria button {
+  background-color: transparent !important;
+  border-color: var(--acc-verde) !important;
+  color: var(--acc-verde) !important;
+}
+
+html.modo-oscuro .filtros-categoria button:hover {
+  background-color: rgba(150, 217, 144, 0.14) !important;
+}
+
+html.modo-oscuro .filtros-categoria button.activo,
+html.modo-oscuro .filtros-categoria button[aria-pressed="true"] {
+  background-color: var(--acc-verde) !important;
+  color: #071009 !important;
+}
+
+html.modo-oscuro .buscador-rutas .boton-limpiar {
+  background-color: transparent !important;
+  color: var(--acc-verde) !important;
+}
+
+html.modo-oscuro .buscador-rutas .boton-limpiar:hover {
+  background-color: rgba(150, 217, 144, 0.14) !important;
+}
+
+html.modo-oscuro .estado[data-state="error"] {
+  color: var(--acc-error) !important;
+}
+
+html.modo-oscuro .estado[data-state="success"] {
+  color: var(--acc-verde) !important;
+}
+
+html.modo-oscuro .estado[data-state="empty"],
+html.modo-oscuro .warnings {
+  color: var(--acc-aviso) !important;
+}
+
+html.modo-oscuro .success {
+  color: var(--acc-verde) !important;
+}
+
+html.modo-oscuro .mapa {
+  border-color: var(--acc-verde) !important;
+}
+
+html.modo-oscuro .leaflet-container {
+  background: #0b130d !important;
+}
+
+html.modo-oscuro .leaflet-tile-pane {
+  filter: brightness(0.8) invert(1) hue-rotate(180deg) contrast(0.9) saturate(0.8);
+}
+
+html.modo-oscuro .leaflet-control-attribution {
+  background: rgba(13, 23, 16, 0.88) !important;
+  color: var(--acc-texto-suave) !important;
+}
+
+html.modo-oscuro .leaflet-bar a,
+html.modo-oscuro .leaflet-bar a:hover {
+  background: var(--acc-superficie) !important;
+  border-color: var(--acc-borde) !important;
+  color: var(--acc-texto) !important;
+}
+
+html.modo-oscuro .leaflet-bar {
+  border-color: var(--acc-borde) !important;
+}
+
+html.modo-oscuro .leaflet-control-attribution a {
+  color: var(--acc-verde) !important;
+}
+
+html.modo-oscuro .leaflet-popup-content-wrapper,
+html.modo-oscuro .leaflet-popup-tip {
+  background: var(--acc-superficie) !important;
+  color: var(--acc-texto) !important;
+}
+
+html.modo-oscuro .leaflet-popup-content p {
+  color: var(--acc-texto-suave) !important;
+}
+
+html.modo-oscuro ::selection {
+  background: var(--acc-verde-fuerte);
+  color: #071009;
+}
+
+/* ==========================================
+   MODO DE LECTURA PARA DISLEXIA
+   ========================================== */
+html.modo-dislexia body,
+html.modo-dislexia body * {
+  font-family: "OpenDyslexic", "Open Dyslexic", "Comic Sans MS", "Trebuchet MS",
+    Verdana, sans-serif !important;
+}
+
+html.modo-dislexia body {
+  font-size: 112.5% !important;
+  line-height: 1.9 !important;
+  letter-spacing: 0.025em !important;
+  word-spacing: 0.1em !important;
+}
+
+html.modo-dislexia p,
+html.modo-dislexia li,
+html.modo-dislexia dd,
+html.modo-dislexia figcaption,
+html.modo-dislexia label,
+html.modo-dislexia a,
+html.modo-dislexia button,
+html.modo-dislexia input,
+html.modo-dislexia select,
+html.modo-dislexia textarea {
+  line-height: 1.9 !important;
+  letter-spacing: 0.03em !important;
+  word-spacing: 0.12em !important;
+}
+
+html.modo-dislexia h1,
+html.modo-dislexia h2,
+html.modo-dislexia h3,
+html.modo-dislexia h4 {
+  line-height: 1.35 !important;
+  letter-spacing: 0.01em !important;
+}
+
+html.modo-dislexia p,
+html.modo-dislexia li {
+  max-width: 72ch;
+}
+
+html.modo-dislexia main p,
+html.modo-dislexia main li,
+html.modo-dislexia main dd,
+html.modo-dislexia main figcaption {
+  text-align: left !important;
+}
+
+html.modo-dislexia a {
+  text-decoration: underline !important;
+  text-underline-offset: 0.18em;
+}
+
+html.modo-dislexia .acc-btn,
+html.modo-dislexia .menu-btn {
+  letter-spacing: 0.02em !important;
+}
+
+html.modo-dislexia .acc-btn__texto {
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  html.modo-dislexia .acc-btn__texto {
+    display: none;
+  }
+}
