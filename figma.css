@@ -17,7 +17,7 @@
   --eco-green-light: #a8d880;
   --eco-text: #1a2b14;
   --eco-text-2: #4a5240;
-  --eco-muted: #6b7566;
+  --eco-muted: #5e6658;
   --eco-border: #ddd8cc;
   --eco-border-card: #e8e2d5;
   --eco-footer-bg: #1a2b14;
@@ -2665,5 +2665,24 @@ main {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Modo de alto contraste (Windows) ---------- */
+@media (forced-colors: active) {
+  .acc-btn,
+  .btn,
+  .menu-btn,
+  .close-btn {
+    border: 1px solid ButtonText;
+  }
+
+  .acc-btn[aria-pressed="true"] {
+    background: Highlight;
+    color: HighlightText;
+  }
+
+  .ruta-card__badge {
+    border: 1px solid ButtonText;
   }
 }

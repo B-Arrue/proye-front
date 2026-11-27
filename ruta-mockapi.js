@@ -44,6 +44,65 @@
   var terminoBusqueda = "";
   var categoriaActiva = "";
   var dificultadActiva = "";
+  var CLAVE_FAVORITOS = "ecoruta-favoritos";
+  var CLAVE_FILTROS = "ecoruta-filtros-rutas";
+
+  function leerFavoritos() {
+    try {
+      var valor = window.localStorage.getItem(CLAVE_FAVORITOS);
+      return valor ? JSON.parse(valor) : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function guardarFavoritos(lista) {
+    try {
+      window.localStorage.setItem(CLAVE_FAVORITOS, JSON.stringify(lista));
+    } catch (error) {
+      /* sin persistencia */
+    }
+  }
+
+  function esFavorito(nombre) {
+    return leerFavoritos().indexOf(nombre) !== -1;
+  }
+
+  function alternarFavorito(nombre) {
+    var lista = leerFavoritos();
+    var indice = lista.indexOf(nombre);
+    if (indice === -1) {
+      lista.push(nombre);
+    } else {
+      lista.splice(indice, 1);
+    }
+    guardarFavoritos(lista);
+    return indice === -1;
+  }
+
+  function guardarFiltros() {
+    try {
+      window.sessionStorage.setItem(
+        CLAVE_FILTROS,
+        JSON.stringify({
+          termino: terminoBusqueda,
+          categoria: categoriaActiva,
+          dificultad: dificultadActiva
+        })
+      );
+    } catch (error) {
+      /* sin persistencia */
+    }
+  }
+
+  function leerFiltrosGuardados() {
+    try {
+      var valor = window.sessionStorage.getItem(CLAVE_FILTROS);
+      return valor ? JSON.parse(valor) : null;
+    } catch (error) {
+      return null;
+    }
+  }
 
   function normalizar(texto) {
     return String(texto || "")
@@ -95,9 +154,15 @@
     return rutas.filter(function (ruta) {
       var coincideTexto =
         !terminoBusqueda || textoBuscable(ruta).indexOf(terminoBusqueda) !== -1;
-      var coincideCategoria =
-        !categoriaActiva ||
-        normalizar(ruta.categoria) === normalizar(categoriaActiva);
+      var coincideCategoria = true;
+      if (categoriaActiva) {
+        if (categoriaActiva === "Favoritos") {
+          coincideCategoria = esFavorito(ruta.nombre);
+        } else {
+          coincideCategoria =
+            normalizar(ruta.categoria) === normalizar(categoriaActiva);
+        }
+      }
       var coincideDificultad =
         !dificultadActiva ||
         normalizar(ruta.dificultad) === normalizar(dificultadActiva);
@@ -119,6 +184,13 @@
       boton.classList.toggle("activo", activa);
       boton.setAttribute("aria-pressed", String(activa));
     });
+  }
+
+  function actualizarContadorFavoritos() {
+    var contador = document.querySelector(".fav-count");
+    if (contador) {
+      contador.textContent = " (" + leerFavoritos().length + ")";
+    }
   }
 
   function actualizarBotonLimpiar() {
@@ -156,6 +228,55 @@
     }
 
     select.value = opcion.value;
+    actualizarFicha(nombre);
+  }
+
+  function actualizarFicha(nombre) {
+    var ruta = rutas.find(function (item) {
+      return normalizar(item.nombre) === normalizar(nombre);
+    });
+    if (!ruta) return;
+
+    var imagen = document.getElementById("ficha-imagen");
+    if (imagen) {
+      imagen.src = ruta.imagen;
+      imagen.alt = "Vista en detalle de la ruta " + ruta.nombre;
+    }
+
+    var titulo = document.getElementById("ficha-titulo");
+    if (titulo) titulo.textContent = ruta.nombre;
+
+    var zona = document.getElementById("ficha-zona");
+    if (zona) zona.textContent = ruta.zona + " · " + ruta.categoria;
+
+    var descripcion = document.getElementById("ficha-descripcion");
+    if (descripcion) {
+      descripcion.textContent =
+        "Ruta de dificultad " +
+        ruta.dificultad.toLowerCase() +
+        " en " +
+        ruta.zona +
+        ". Duración de " +
+        ruta.duracion +
+        " y " +
+        ruta.distancia +
+        " de recorrido. Consulta los detalles y reserva tu cupo.";
+    }
+
+    var categoria = document.getElementById("ficha-categoria");
+    if (categoria) categoria.textContent = ruta.categoria;
+
+    var dificultad = document.getElementById("ficha-dificultad");
+    if (dificultad) dificultad.textContent = ruta.dificultad + " dificultad";
+
+    var zonaBadge = document.getElementById("ficha-zona-badge");
+    if (zonaBadge) zonaBadge.textContent = ruta.zona;
+
+    var duracion = document.getElementById("ficha-duracion");
+    if (duracion) duracion.textContent = ruta.duracion;
+
+    var distancia = document.getElementById("ficha-distancia");
+    if (distancia) distancia.textContent = ruta.distancia;
   }
 
   function crearTarjeta(ruta) {
@@ -203,6 +324,38 @@
       ruta.zona +
       ". Consulta los detalles y reserva tu cupo.";
 
+    var favorito = document.createElement("button");
+    favorito.type = "button";
+    favorito.className = "ruta-card__favorito";
+    var inicial = esFavorito(ruta.nombre);
+    favorito.setAttribute("aria-pressed", String(inicial));
+    favorito.setAttribute(
+      "aria-label",
+      inicial
+        ? "Quitar " + ruta.nombre + " de favoritos"
+        : "Agregar " + ruta.nombre + " a favoritos"
+    );
+    favorito.innerHTML =
+      '<svg viewBox="0 0 24 24" fill="' +
+      (inicial ? "currentColor" : "none") +
+      '" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+    favorito.addEventListener("click", function () {
+      var ahora = alternarFavorito(ruta.nombre);
+      favorito.setAttribute("aria-pressed", String(ahora));
+      favorito.setAttribute(
+        "aria-label",
+        ahora
+          ? "Quitar " + ruta.nombre + " de favoritos"
+          : "Agregar " + ruta.nombre + " a favoritos"
+      );
+      var svg = favorito.querySelector("svg");
+      if (svg) svg.setAttribute("fill", ahora ? "currentColor" : "none");
+      actualizarContadorFavoritos();
+      if (categoriaActiva === "Favoritos") {
+        renderizarRutas();
+      }
+    });
+
     var enlace = document.createElement("a");
     enlace.className = "btn btn--primary btn--sm btn--block";
     enlace.href = "#ficha-ruta";
@@ -211,7 +364,7 @@
       seleccionarRuta(ruta.nombre);
     });
 
-    cuerpo.append(categoria, titulo, meta, descripcion, enlace);
+    cuerpo.append(categoria, titulo, meta, descripcion, favorito, enlace);
     articulo.append(media, cuerpo);
     return articulo;
   }
@@ -255,6 +408,8 @@
     }
 
     actualizarBotonLimpiar();
+    actualizarContadorFavoritos();
+    guardarFiltros();
   }
 
   async function cargarRutas() {
@@ -282,6 +437,7 @@
       rutas = datos.map(normalizarRuta);
       datosCargados = true;
       renderizarRutas();
+      seleccionarRuta("Circuito Volcán Llaima");
     } catch (error) {
       console.warn(
         "No se pudo conectar con la API de rutas. Se usa el catálogo local.",
@@ -290,6 +446,7 @@
       rutas = RUTAS_RESPALDO.map(normalizarRuta);
       datosCargados = true;
       renderizarRutas();
+      seleccionarRuta("Circuito Volcán Llaima");
       mostrarEstado(
         "error",
         "No se pudo conectar con la API. Mostrando el catálogo local."
@@ -304,6 +461,17 @@
     var categoria = parametros.get("categoria") || "";
     var busqueda = parametros.get("busqueda") || "";
     var dificultad = parametros.get("dificultad") || "";
+
+    var hayParametros = Boolean(categoria || busqueda || dificultad);
+
+    if (!hayParametros) {
+      var guardados = leerFiltrosGuardados();
+      if (guardados) {
+        if (guardados.categoria) categoria = guardados.categoria;
+        if (guardados.dificultad) dificultad = guardados.dificultad;
+        if (guardados.termino) busqueda = guardados.termino;
+      }
+    }
 
     if (categoria) categoriaActiva = categoria;
     if (dificultad) {

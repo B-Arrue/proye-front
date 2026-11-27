@@ -12,6 +12,9 @@
 
   if (!menuBtn || !drawer || !overlay) return;
 
+  drawer.setAttribute("role", "dialog");
+  drawer.setAttribute("aria-modal", "true");
+
   var ultimoFoco = null;
 
   function obtenerEnlaces() {

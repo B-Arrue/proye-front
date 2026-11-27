@@ -116,6 +116,7 @@
             <li><button type="button" class="filtro-categoria" data-categoria="Cultural" aria-pressed="false">Cultural</button></li>
             <li><button type="button" class="filtro-categoria" data-categoria="Kayak" aria-pressed="false">Kayak</button></li>
             <li><button type="button" class="filtro-categoria" data-categoria="Expedición" aria-pressed="false">Expedición</button></li>
+            <li><button type="button" class="filtro-categoria" data-categoria="Favoritos" aria-pressed="false">Favoritos <span class="fav-count" aria-label="cantidad de favoritos">0</span></button></li>
           </ul>
         </nav>
 
@@ -125,7 +126,7 @@
             <p id="estado" class="estado" role="status" aria-live="polite">Cargando rutas…</p>
           </div>
           <button id="reintentar" class="boton-reintentar" type="button" hidden>Reintentar</button>
-          <div id="resultado-api" class="grid-rutas" aria-busy="true"></div>
+          <div id="resultado-api" class="grid-rutas" aria-busy="true" aria-live="polite"></div>
         </section>
       </div>
     </section>
@@ -142,21 +143,21 @@
 
         <article class="ficha-ruta">
           <div class="ficha-ruta__media">
-            <img src="Imagenes/volcan-llaima.jpg" alt="Vista en detalle del Circuito Volcán Llaima" loading="lazy">
+            <img id="ficha-imagen" src="Imagenes/volcan-llaima.jpg" alt="Vista en detalle del Circuito Volcán Llaima" loading="lazy">
           </div>
           <div class="ficha-ruta__contenido">
             <div class="ficha-ruta__badges">
-              <span class="ficha-ruta__badge">Trekking</span>
-              <span class="ficha-ruta__badge">Alta dificultad</span>
-              <span class="ficha-ruta__badge">Araucanía Andina</span>
+              <span id="ficha-categoria" class="ficha-ruta__badge">Trekking</span>
+              <span id="ficha-dificultad" class="ficha-ruta__badge">Alta dificultad</span>
+              <span id="ficha-zona-badge" class="ficha-ruta__badge">Araucanía Andina</span>
             </div>
-            <h3>Circuito Volcán Llaima</h3>
-            <p class="ficha-ruta__zona">Araucanía Andina · Parque Nacional Conguillío</p>
-            <p class="ficha-ruta__descripcion">Un recorrido de alta montaña que rodea el volcán Llaima, uno de los más activos de Sudamérica. Atraviesa paisajes de lava solidificada, bosques de araucarias y miradores únicos con vistas al Parque Nacional Conguillío.</p>
+            <h3 id="ficha-titulo">Circuito Volcán Llaima</h3>
+            <p id="ficha-zona" class="ficha-ruta__zona">Araucanía Andina · Parque Nacional Conguillío</p>
+            <p id="ficha-descripcion" class="ficha-ruta__descripcion">Un recorrido de alta montaña que rodea el volcán Llaima, uno de los más activos de Sudamérica. Atraviesa paisajes de lava solidificada, bosques de araucarias y miradores únicos con vistas al Parque Nacional Conguillío.</p>
 
             <dl class="ficha-ruta__datos">
-              <div><dt>Duración</dt><dd>2 días</dd></div>
-              <div><dt>Distancia</dt><dd>28 km</dd></div>
+              <div><dt>Duración</dt><dd id="ficha-duracion">2 días</dd></div>
+              <div><dt>Distancia</dt><dd id="ficha-distancia">28 km</dd></div>
               <div><dt>Desnivel</dt><dd>+1 400 m</dd></div>
               <div><dt>Punto de inicio</dt><dd>Sector Captrén</dd></div>
               <div><dt>Temporada</dt><dd>Dic – Mar</dd></div>
@@ -265,8 +266,6 @@
       <div class="footer-legal">
         <p>© 2026 EcoRuta Temuco. Todos los derechos reservados.</p>
         <div class="footer-legal-links">
-          <a href="#">Política de privacidad</a>
-          <a href="#">Términos de uso</a>
           <a href="informacion.html">Aviso legal</a>
         </div>
       </div>

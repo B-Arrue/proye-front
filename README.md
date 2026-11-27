@@ -6,88 +6,63 @@ Sitio web estático para conocer destinos, rutas y experiencias de la Región de
 
 | Integrante | Rol |
 |---|---|
-| Asher Galván Diaz | Product Owner |
+| Asher Galván Díaz | Product Owner |
 | Benjamin Ignacio Arrué Chávez | Scrum Master |
 | Diego Andrés Vásquez Contreras | Developer |
 | Benjamin Camila Baeza Pérez | Developer |
 | Paula Rosalía Pastén Guerrero | QA / Tester |
 
-## Sprint 1
+## Funcionalidades
 
-En este sprint se preparó la estructura inicial del sitio con páginas HTML y estilos CSS.
-
-El sitio incluye:
-
-- Inicio y navegación entre páginas.
-- Secciones de destinos, experiencias, rutas, cultura e información.
-- Fotografías locales con sus créditos en FUENTES.md.
-- Una página de mapa con un espacio reservado para una próxima etapa.
-
-El mapa interactivo y los filtros todavía no están implementados.
+- Inicio con zonas turísticas cargadas desde MockAPI y respaldo local.
+- Catálogo de rutas con filtros por categoría, dificultad y búsqueda.
+- Ficha de ruta con información consistente con el catálogo.
+- Mapa interactivo (Leaflet) con las rutas de la región.
+- Experiencias culturales, gastronómicas y recorridos guiados.
+- Cultura local y recomendaciones para visitar con respeto.
+- Formulario de reserva de rutas y formulario de contacto.
+- Modo oscuro y modo de lectura para dislexia (preferencias guardadas).
+- Menú lateral móvil con navegación por teclado.
+- Favoritos de rutas guardados en el navegador.
 
 ## Tecnologías
 
-- HTML
-- CSS
-- JavaScript (`fetch`)
-- MockAPI para la sección de destinos
-
-El proyecto no requiere instalar dependencias. La página `destinos.html` consulta los destinos en MockAPI.
-
-## Configurar MockAPI
-
-1. En MockAPI, crea un proyecto y un recurso llamado `destinos`.
-2. Agrega registros con estos campos de texto: `nombre`, `descripcion`, `imagen`, `alt`, `credito` y `creditoUrl`. Los dos campos de crédito son opcionales. En `imagen`, usa rutas del sitio como `imagenes/conguillio-llaima.jpg`.
-3. El recurso configurado para este proyecto es [`/destinos`](https://6ae3b3b1933120ae20f918c6.mockapi.io/destinos). Si creas otro proyecto MockAPI, cambia `MOCKAPI_DESTINOS_URL` en `destinos.js` por su URL GET.
-4. Abre `destinos.html` mediante un servidor web o la URL publicada. `fetch` puede estar bloqueado al abrir archivos directamente con `file://`.
-
-La interfaz informa los estados de carga, éxito y error, y ofrece un botón para volver a intentar la consulta. El JSON debe ser una lista de objetos que contengan los campos requeridos.
-
-Ejemplo de datos iniciales para el recurso:
-
-```json
-[
-  {
-    "nombre": "Araucanía Lacustre",
-    "descripcion": "Lagos, volcanes y bosques nativos. Una zona para disfrutar de la naturaleza y actividades al aire libre.",
-    "imagen": "imagenes/icalma-araucarias.jpg",
-    "alt": "Laguna de Icalma rodeada de araucarias",
-    "credito": "Foto: Paula Misle",
-    "creditoUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
-  },
-  {
-    "nombre": "Araucanía Andina",
-    "descripcion": "Paisajes de cordillera, volcanes y lagunas de altura.",
-    "imagen": "imagenes/conguillio-llaima.jpg",
-    "alt": "Volcán Llaima junto al lago Conguillío",
-    "credito": "Foto: Mariomxel",
-    "creditoUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
-  },
-  {
-    "nombre": "Nahuelbuta",
-    "descripcion": "Una zona conocida por sus bosques de araucarias y senderos.",
-    "imagen": "imagenes/nahuelbuta-araucaria.jpg",
-    "alt": "Araucaria en el Parque Nacional Nahuelbuta",
-    "credito": "Foto: Roberto Antonio Ancavil Ñ",
-    "creditoUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
-  }
-]
-```
+- HTML5, CSS3 y JavaScript (sin dependencias).
+- MockAPI para destinos y rutas.
+- Leaflet para el mapa interactivo.
+- LocalStorage / SessionStorage para preferencias y favoritos.
 
 ## Cómo abrir el sitio
 
 1. Descarga o clona este repositorio.
-2. Configura la URL de MockAPI en `destinos.js`.
-3. Sirve la carpeta con un servidor web o abre la URL publicada.
-4. Navega a `destinos.html`.
+2. Sirve la carpeta con un servidor web (por ejemplo, Live Server o `python -m http.server`).
+3. Abre `index.html` en el navegador.
+4. Las zonas y rutas se cargan desde MockAPI; si la API no responde, se usa el catálogo local.
 
 ## Archivos principales
 
-- destinos.html, experiencias.html, ruta.html, cultura.html, informacion.html y mapa.html: páginas del sitio.
-- destinos.js: consulta y renderizado de los datos de MockAPI.
-- Los archivos CSS contienen los estilos de cada página.
-- imagenes/: fotografías utilizadas en el sitio.
-- FUENTES.md: autores, licencias y enlaces de las fotografías.
+- `index.html`, `destinos.html`, `experiencias.html`, `ruta.html`, `cultura.html`, `informacion.html`, `mapa.html`, `contacto.html`: páginas del sitio.
+- `figma.css`: sistema visual compartido (tokens, componentes y responsive).
+- `accesibilidad.css` / `accesibilidad.js`: modo oscuro y lectura fácil.
+- `menu.js`: menú lateral compartido.
+- `destinos-data.js` / `destinos.js`: zonas turísticas (MockAPI + respaldo local).
+- `ruta-mockapi.js`: catálogo de rutas, filtros y favoritos.
+- `ruta-form.js`: validación y envío de reservas.
+- `contacto.js`: validación del formulario de contacto.
+- `mapa.js`: mapa Leaflet con las rutas.
+- `carrusel.js`: carrusel de la galería.
+- `script.js`: renderizado de las zonas en el inicio.
+- `imagenes/` e `Imagenes/`: fotografías utilizadas.
+- `FUENTES.md`: autores, licencias y enlaces de las fotografías.
+
+## Accesibilidad
+
+- Navegación por teclado y trampa de foco en el menú.
+- `skip-link` para saltar al contenido.
+- Textos alternativos en imágenes y formularios etiquetados.
+- Contraste verificado (WCAG AA).
+- `prefers-reduced-motion` y soporte de alto contraste.
+- Modo oscuro y lectura fácil para dislexia.
 
 ## Uso de inteligencia artificial
 
@@ -103,5 +78,6 @@ El equipo es responsable del contenido final y debe poder explicar y modificar e
 
 ## Despliegue
 
+- Página principal: https://b-arrue.github.io/proye-front/index.html
 - Página de destinos: https://b-arrue.github.io/proye-front/destinos.html
 - Recurso MockAPI: https://6ae3b3b1933120ae20f918c6.mockapi.io/destinos

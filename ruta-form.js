@@ -87,9 +87,31 @@
     limpiarMensajes();
 
     var resultado = validar();
+
+    ["nombre", "email", "telefono", "fecha", "ruta"].forEach(function (id) {
+      var campo = document.getElementById(id);
+      if (campo) campo.setAttribute("aria-invalid", "false");
+    });
+
     if (resultado.errores.length > 0) {
       mostrarErrores(resultado.errores);
       if (avisos) avisos.focus();
+      if (campos.nombre && !/^[a-zA-ZÁÉÍÓÚáéíóúñÑ\\s]{3,50}$/.test(campos.nombre.value.trim())) {
+        campos.nombre.setAttribute("aria-invalid", "true");
+      }
+      if (campos.email && !/^[-\\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\\.){1,125}[A-Z]{2,63}$/i.test(campos.email.value.trim())) {
+        campos.email.setAttribute("aria-invalid", "true");
+      }
+      if (campos.telefono) {
+        var limpio = campos.telefono.value.replace(/[\\s()+-]/g, "");
+        if (!/^\\d{9,12}$/.test(limpio)) campos.telefono.setAttribute("aria-invalid", "true");
+      }
+      if (campos.fecha && (!campos.fecha.value || campos.fecha.value < fechaMinima)) {
+        campos.fecha.setAttribute("aria-invalid", "true");
+      }
+      if (campos.ruta && campos.ruta.value.trim().length < 5) {
+        campos.ruta.setAttribute("aria-invalid", "true");
+      }
       return;
     }
 
@@ -113,6 +135,10 @@
         if (exito) exito.textContent = "¡Reserva realizada con éxito!";
         formulario.reset();
         if (campos.fecha) campos.fecha.min = fechaMinima;
+        ["nombre", "email", "telefono", "fecha", "ruta"].forEach(function (id) {
+          var campo = document.getElementById(id);
+          if (campo) campo.setAttribute("aria-invalid", "false");
+        });
       })
       .catch(function (error) {
         console.error("Error al enviar la reserva:", error);

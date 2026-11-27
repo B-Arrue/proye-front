@@ -52,8 +52,18 @@
       errores.push("Debes aceptar el uso de tus datos para responderte.");
     }
 
+    ["contacto-nombre", "contacto-email", "contacto-asunto", "contacto-mensaje", "contacto-privacidad"].forEach(function (id) {
+      var campo = document.getElementById(id);
+      if (campo) campo.setAttribute("aria-invalid", "false");
+    });
+
     if (errores.length > 0) {
       mostrar("error", errores.join(" "));
+      if (nombre.length < 3 && campos.nombre) campos.nombre.setAttribute("aria-invalid", "true");
+      if (!regexEmail.test(email) && campos.email) campos.email.setAttribute("aria-invalid", "true");
+      if (!asunto && campos.asunto) campos.asunto.setAttribute("aria-invalid", "true");
+      if (texto.length < 10 && campos.texto) campos.texto.setAttribute("aria-invalid", "true");
+      if (!privacidad && campos.privacidad) campos.privacidad.setAttribute("aria-invalid", "true");
       return;
     }
 
@@ -62,5 +72,9 @@
       "¡Gracias por escribirnos! Recibimos tu mensaje y te responderemos a la brevedad."
     );
     formulario.reset();
+    ["contacto-nombre", "contacto-email", "contacto-asunto", "contacto-mensaje", "contacto-privacidad"].forEach(function (id) {
+      var campo = document.getElementById(id);
+      if (campo) campo.setAttribute("aria-invalid", "false");
+    });
   });
 })();
