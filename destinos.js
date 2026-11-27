@@ -17,10 +17,23 @@
     articulo.className = "tarjeta-destino";
 
     var figura = document.createElement("figure");
+    var DIMENSIONES_DESTINO = {
+      "conguillio-llaima.jpg": [1280, 719],
+      "icalma-araucarias.jpg": [1280, 719],
+      "nahuelbuta-araucaria.jpg": [1280, 960],
+      "sendero-litoral.jpeg": [1300, 1300],
+      "mapuche.jpeg": [1600, 1067]
+    };
     var imagen = document.createElement("img");
     imagen.src = destino.imagen;
     imagen.alt = destino.alt || destino.nombre;
     imagen.loading = "lazy";
+    imagen.decoding = "async";
+    var dimDestino = DIMENSIONES_DESTINO[String(destino.imagen).split("/").pop().toLowerCase()];
+    if (dimDestino) {
+      imagen.width = dimDestino[0];
+      imagen.height = dimDestino[1];
+    }
     figura.appendChild(imagen);
 
     if (destino.credito) {

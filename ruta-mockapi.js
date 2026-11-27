@@ -239,10 +239,27 @@
     var media = document.createElement("div");
     media.className = "ruta-card__media";
 
+    var DIMENSIONES_RUTA = {
+      "volcan-llaima.jpg": [1080, 624],
+      "araucarias.jpg": [550, 367],
+      "ruta-lagos.jpg": [1355, 900],
+      "sendero-litoral.jpeg": [1300, 1300],
+      "mapuche.jpeg": [1600, 1067],
+      "lonquimay.jpeg": [960, 1000],
+      "ensenada.jpeg": [447, 447],
+      "piedra-aguila.png": [495, 619]
+    };
+
     var imagen = document.createElement("img");
     imagen.src = ruta.imagen;
     imagen.alt = "Paisaje de la ruta " + ruta.nombre;
     imagen.loading = "lazy";
+    imagen.decoding = "async";
+    var dimRuta = DIMENSIONES_RUTA[String(ruta.imagen).split("/").pop().toLowerCase()];
+    if (dimRuta) {
+      imagen.width = dimRuta[0];
+      imagen.height = dimRuta[1];
+    }
     media.appendChild(imagen);
 
     var badge = document.createElement("span");

@@ -18,10 +18,23 @@
     var media = document.createElement("div");
     media.className = "zona-card__media";
 
+    var DIMENSIONES = {
+      "conguillio-llaima.jpg": [1280, 719],
+      "icalma-araucarias.jpg": [1280, 719],
+      "nahuelbuta-araucaria.jpg": [1280, 960],
+      "sendero-litoral.jpeg": [1300, 1300],
+      "mapuche.jpeg": [1600, 1067]
+    };
     var imagen = document.createElement("img");
     imagen.src = zona.imagen;
     imagen.alt = zona.alt || zona.nombre;
     imagen.loading = "lazy";
+    imagen.decoding = "async";
+    var dim = DIMENSIONES[String(zona.imagen).split("/").pop().toLowerCase()];
+    if (dim) {
+      imagen.width = dim[0];
+      imagen.height = dim[1];
+    }
     media.appendChild(imagen);
 
     var cuerpo = document.createElement("div");
