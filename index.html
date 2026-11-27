@@ -1,308 +1,460 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoRuta Temuco - Inicio</title>
-    <link rel="stylesheet" href="starter.css">
-    <style>
-        /* ESTILOS NUEVOS PARA EL MENÚ LATERAL DESLIZANTE */
-        .menu-btn {
-            background: transparent;
-            border: 1px solid #1E3D1B;
-            color: #1E3D1B;
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background 0.3s ease;}
-
-        .menu-btn:hover {
-            background-color: rgba(30, 61, 27, 0.1);}
-
-        /* Panel lateral (Drawer) que se abre de derecha a izquierda */
-        .side-drawer {
-            position: fixed;
-            top: 0;
-            right: -400px; /* Oculto inicialmente a la derecha */
-            width: 350px;
-            height: 100%;
-            background-color: #f4efe6;
-            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
-            z-index: 2000;
-            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            flex-direction: column;
-            box-sizing: border-box;
-            padding: 2.5rem 2rem;}
-
-        .side-drawer.open {
-            right: 0; /* Se desliza a la pantalla */}
-
-        .drawer-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #dcd6cb;
-            padding-bottom: 1rem;
-            margin-bottom: 1.5rem;}
-
-        .drawer-header h3 {
-            margin: 0;
-            color: #1E3D1B;
-            font-size: 1.3rem;}
-
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #6b6254;
-            line-height: 1;}
-
-        .close-btn:hover {
-            color: #1E3D1B;}
-
-        .drawer-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;}
-
-        .drawer-link {
-            text-decoration: none;
-            color: #1E3D1B;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: transform 0.2s ease;
-            display: inline-block;}
-
-        .drawer-link:hover {
-            transform: translateX(5px);
-            text-decoration: underline;}
-
-        /* Fondo oscuro difuminado (Overlay) */
-        .nav-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.3);
-            z-index: 1500;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;}
-
-        .nav-overlay.open {
-            opacity: 1;
-            visibility: visible;}
-    </style>
-    <link rel="stylesheet" href="accesibilidad.css?v=2">
-    <script src="accesibilidad.js?v=2"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EcoRuta Temuco: rutas, actividades y experiencias de turismo sustentable en La Araucanía.">
+  <title>Inicio | EcoRuta Temuco</title>
+  <link rel="icon" href="Imagenes/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="figma.css?v=3">
+  <link rel="stylesheet" href="accesibilidad.css?v=3">
+  <script src="accesibilidad.js?v=3"></script>
 </head>
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <header>
-        <a href="index.html">
-            <img src="Imagenes/logo.png" alt="Logo de EcoRuta Temuco">
-            <span>EcoRuta Temuco</span>
-        </a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="EcoRuta Temuco, ir al inicio">
+        <span class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12l9-9 9 9M5 10v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V10"/>
+            <path d="M9 17c0-1.5.5-3 3-4.5C14.5 14 15 15.5 15 17"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">EcoRuta</span>
+          <span class="brand-sub">Temuco</span>
+        </span>
+      </a>
 
-        <!-- Botón de Menú a la derecha (remplazando la barra horizontal de enlaces) -->
-        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
-            Menú ▾
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html" aria-current="page">Inicio</a>
+        <a href="destinos.html">Destinos</a>
+        <a href="experiencias.html">Experiencias</a>
+        <a href="mapa.html">Mapa</a>
+        <a href="ruta.html">Rutas</a>
+        <a href="cultura.html">Cultura</a>
+        <a href="informacion.html">Información</a>
+        <a href="contacto.html">Contacto</a>
+        <a class="nav-cta" href="ruta.html">Explorar rutas</a>
+      </nav>
+
+      <div class="header-acciones">
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="sideDrawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <span class="menu-btn__texto">Menú</span>
         </button>
-    </header>
+      </div>
+    </div>
+  </header>
 
-    <!-- Panel Lateral Deslizante -->
-    <div class="nav-overlay" id="navOverlay"></div>
-    <nav class="side-drawer" id="sideDrawer">
-        <div class="drawer-header">
-            <h3>Menú de Navegación</h3>
-            <button class="close-btn" id="closeBtn" aria-label="Cerrar menú">&times;</button>
+  <div class="nav-overlay" id="navOverlay"></div>
+  <nav class="side-drawer" id="sideDrawer" aria-label="Menú de navegación" aria-hidden="true">
+    <div class="drawer-header">
+      <h3>Menú de navegación</h3>
+      <button class="close-btn" id="closeBtn" type="button" aria-label="Cerrar menú">&times;</button>
+    </div>
+    <ul class="drawer-list">
+      <li><a href="index.html" class="drawer-link">Inicio</a></li>
+      <li><a href="destinos.html" class="drawer-link">Destinos</a></li>
+      <li><a href="experiencias.html" class="drawer-link">Experiencias</a></li>
+      <li><a href="mapa.html" class="drawer-link">Mapa</a></li>
+      <li><a href="ruta.html" class="drawer-link">Rutas</a></li>
+      <li><a href="cultura.html" class="drawer-link">Cultura</a></li>
+      <li><a href="informacion.html" class="drawer-link">Información</a></li>
+      <li><a href="contacto.html" class="drawer-link">Contacto</a></li>
+    </ul>
+    <div class="drawer-footer">
+      <p>Turismo sustentable en La Araucanía.</p>
+      <p>Proyecto académico · ICINF1107</p>
+    </div>
+  </nav>
+
+  <main id="contenido">
+    <!-- HERO -->
+    <section class="hero" style="background-image: url('Imagenes/volcan-llaima.jpg');" aria-labelledby="hero-titulo">
+      <div class="hero-content">
+        <span class="hero-eyebrow">Región de La Araucanía · Chile</span>
+        <h1 id="hero-titulo">Descubre<br>EcoRuta Temuco</h1>
+        <p>Explora rutas, actividades y experiencias sustentables en La Araucanía.</p>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="ruta.html">Explorar rutas</a>
+          <a class="btn btn--ghost" href="experiencias.html">Descubrir actividades</a>
         </div>
-        <ul class="drawer-list">
-            <li><a href="index.html" class="drawer-link">Inicio</a></li>
-            <li><a href="destinos.html" class="drawer-link">Destinos</a></li>
-            <li><a href="experiencias.html" class="drawer-link">Experiencias</a></li>
-            <li><a href="mapa.html" class="drawer-link">Mapa</a></li>
-            <li><a href="ruta.html" class="drawer-link">Ruta</a></li>
-            <li><a href="cultura.html" class="drawer-link">Cultura</a></li>
-            <li><a href="informacion.html" class="drawer-link">Información</a></li>
-            <li><a href="contacto.html" class="drawer-link">Contacto</a></li>
-        </ul>
-    </nav>
+      </div>
+    </section>
 
-    <main>
+    <!-- ZONAS TURÍSTICAS -->
+    <section class="section" aria-labelledby="zonas-titulo">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Zonas turísticas</span>
+          <h2 class="section-title" id="zonas-titulo">Descubre La Araucanía</h2>
+          <p class="section-lead">Cinco territorios para recorrer entre volcanes, bosques, lagos, costa y cultura viva.</p>
+        </div>
+        <p id="estado-carga" class="sr-only" role="status" aria-live="polite"></p>
+        <div id="zonas-turisticas" class="zonas-grid" aria-busy="true"></div>
+        <noscript>
+          <p class="sin-resultados">Activa JavaScript para ver las zonas turísticas cargadas desde MockAPI.</p>
+        </noscript>
+      </div>
+    </section>
 
-        <!-- HERO / PORTADA -->
-        <section>
-            <p>LA ARAUCANÍA · CHILE</p>
-            <h1>Descubre La Araucanía</h1>
-            <p>Naturaleza, cultura y aventura en el corazón del sur de Chile.</p>
-            
-            <a href="#zonas-turisticas">Explorar destinos</a>
-            <a href="ruta.html">Ver todas las rutas</a>
-            
-            <div class="container-carrusel">
-                <div class="carruseles" id="slider">
-                    <section class="slider-section">
-                        <img src="Imagenes/volcan-llaima.jpg" alt="Volcán Llaima en la Araucanía">
-                    </section>
-                    <section class="slider-section">
-                        <img src="Imagenes/conguillio-llaima.jpg" alt="Bosques de Araucarias en Nahuelbuta">
-                    </section>
-                    <section class="slider-section">
-                        <img src="Imagenes/cordillera.png" alt="Cordillera de la Araucanía Andina">
-                    </section>
-                    <section class="slider-section">
-                        <img src="Imagenes/icalma-araucarias.jpg" alt="Paisaje natural de la región de La Araucanía">
-                    </section>
-                    <section class="slider-section">
-                        <img src="Imagenes/sendero-litoral.jpeg" alt="Volcán Llaima en la Araucanía">
-                    </section>
-                 </div>
-                 <div class="btn-left"><</div>
-                 <div class="btn-right">></div>
-             </div>
-            <script src="carrusel.js"></script>
-        </section>
+    <!-- RUTAS DESTACADAS -->
+    <section class="section section--tight section--alt" aria-labelledby="rutas-destacadas-titulo">
+      <div class="container">
+        <div class="section-head section-head--row">
+          <div>
+            <span class="eyebrow">Explorar</span>
+            <h2 class="section-title" id="rutas-destacadas-titulo">Rutas destacadas</h2>
+          </div>
+          <a class="link-arrow" href="ruta.html">Ver todas las rutas <span aria-hidden="true">&rarr;</span></a>
+        </div>
 
-        <!-- ZONAS TURÍSTICAS Y SOBRE EL PROYECTO -->
-        <section id="zonas-turisticas">
-            <h2>Zonas Turísticas</h2>
+        <div class="rutas-grid">
+          <article class="ruta-card">
+            <div class="ruta-card__media">
+              <img src="Imagenes/volcan-llaima.jpg" alt="Volcán Llaima rodeado de bosque" loading="lazy">
+              <span class="ruta-card__badge badge--alta">Alta</span>
+            </div>
+            <div class="ruta-card__body">
+              <span class="ruta-card__categoria">Trekking</span>
+              <h3>Circuito Volcán Llaima</h3>
+              <div class="ruta-card__meta">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a2 2 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/><path d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
+                  Araucanía Andina
+                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                  2 días
+                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg>
+                  28 km
+                </span>
+              </div>
+              <p>Recorrido de alta montaña que rodea el volcán Llaima, entre paisajes de lava y bosques de araucarias.</p>
+              <a class="btn btn--primary btn--sm btn--block" href="ruta.html?busqueda=Circuito%20Volc%C3%A1n%20Llaima">Ver detalles</a>
+            </div>
+          </article>
 
-            <!-- Tarjeta 1 -->
-            <article>
-                <img src="Imagenes/volcan-llaima.jpg" alt="Vista de la Araucanía Lacustre">
-                <p>Lagos · Naturaleza</p>
-                <h3>Araucanía Lacustre</h3>
-                <p>Lagos, volcanes y bosques nativos al borde de la Patagonia.</p>
-            </article>
+          <article class="ruta-card">
+            <div class="ruta-card__media">
+              <img src="Imagenes/araucarias.jpg" alt="Araucarias milenarias en Nahuelbuta" loading="lazy">
+              <span class="ruta-card__badge badge--media">Media</span>
+            </div>
+            <div class="ruta-card__body">
+              <span class="ruta-card__categoria">Senderismo</span>
+              <h3>Sendero Araucarias Milenarias</h3>
+              <div class="ruta-card__meta">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a2 2 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/><path d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
+                  Nahuelbuta
+                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                  1 día
+                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg>
+                  12 km
+                </span>
+              </div>
+              <p>Bosques de araucarias milenarias y miradores hacia la cordillera de la Costa en el Parque Nacional Nahuelbuta.</p>
+              <a class="btn btn--primary btn--sm btn--block" href="ruta.html?busqueda=Sendero%20Araucarias%20Milenarias">Ver detalles</a>
+            </div>
+          </article>
 
-            <!-- Tarjeta 2 -->
-            <article>
-                <img src="Imagenes/cordillera.png" alt="Cordillera de la Araucanía Andina">
-                <p>Montaña · Aventura</p>
-                <h3>Araucanía Andina</h3>
-                <p>Cordillera, géiseres, ski y lagunas de altura.</p>
-            </article>
+          <article class="ruta-card">
+            <div class="ruta-card__media">
+              <img src="Imagenes/ruta-lagos.jpg" alt="Lago y volcán en la Araucanía Lacustre" loading="lazy">
+              <span class="ruta-card__badge badge--baja">Baja</span>
+            </div>
+            <div class="ruta-card__body">
+              <span class="ruta-card__categoria">Ciclismo</span>
+              <h3>Ruta de los Lagos</h3>
+              <div class="ruta-card__meta">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a2 2 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/><path d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
+                  Araucanía Lacustre
+                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                  3 días
+                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg>
+                  45 km
+                </span>
+              </div>
+              <p>Pedalea entre lagos, ríos y bosques nativos con vistas panorámicas a los volcanes de la región.</p>
+              <a class="btn btn--primary btn--sm btn--block" href="ruta.html?busqueda=Ruta%20de%20los%20Lagos">Ver detalles</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-            <!-- Tarjeta 3 -->
-            <article>
-                <img src="Imagenes/nahuelbuta-araucaria.jpg" alt="Bosques de Araucarias en Nahuelbuta">
-                <p>Bosque · Trekking</p>
-                <h3>Nahuelbuta</h3>
-                <p>Cordillera de la costa, bosques de araucarias milenarias.</p>
-            </article>
+    <!-- INTERESES -->
+    <section class="section" aria-labelledby="intereses-titulo">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Filtra por interés</span>
+          <h2 class="section-title" id="intereses-titulo">Encuentra tu próxima experiencia</h2>
+        </div>
+        <div class="intereses">
+          <a class="interes-chip" href="ruta.html?categoria=Senderismo">Senderismo</a>
+          <a class="interes-chip" href="destinos.html">Naturaleza</a>
+          <a class="interes-chip" href="experiencias.html">Paisajes</a>
+          <a class="interes-chip" href="experiencias.html">Actividades</a>
+          <a class="interes-chip" href="contacto.html">Emprendimientos</a>
+          <a class="interes-chip" href="informacion.html">Turismo sustentable</a>
+        </div>
+      </div>
+    </section>
 
-            <!-- Panel Lateral -->
-            <aside>
-                <h3>Sobre el Proyecto</h3>
-                <p>EcoRuta Temuco conecta a visitantes con la rica oferta natural, cultural y gastronómica de La Araucanía.</p>
-                <p>Descubre rutas, emprendimientos locales y experiencias únicas respetando el medioambiente.</p>
-
-                <ul>
-                    <li>6+ Zonas</li>
-                    <li>24+ Rutas</li>
-                    <li>3 Niveles</li>
-                    <li>100% Sustentable</li>
-                </ul>
-
-                <a href="ruta.html">Ver catálogo de rutas</a>
-            </aside>
-        </section>
-
-        <!-- VENTAJAS -->
-        <section>
-            <h2>¿Por qué explorar La Araucanía?</h2>
-            <p>Una región donde conviven volcanes activos, lagos milenarios y la sabiduría mapuche.</p>
-
-            <article>
-                <h3>Naturaleza preservada</h3>
-                <p>Parques nacionales y reservas de bosque nativo con flora y fauna endémica.</p>
-            </article>
-
-            <article>
-                <h3>Aventura de alto estándar</h3>
-                <p>Rutas para todos los niveles con señalética clara y puntos de descanso.</p>
-            </article>
-
-            <article>
-                <h3>Turismo responsable</h3>
-                <p>Emprendimientos locales comprometidos con el medioambiente y las comunidades.</p>
-            </article>
-        </section>
-
-        <!-- LLAMADO A LA ACCIÓN -->
-        <section>
-            <h2>¿Quieres sumar tu emprendimiento?</h2>
-            <p>Si tienes una actividad o ruta turística sustentable en La Araucanía, escríbenos.</p>
-            <a href="contacto.html">Contactar</a>
-        </section>
-
-    </main>
-
-    <footer>
+    <!-- SOBRE ECORUTA -->
+    <section class="section sobre" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="container">
+        <div class="sobre__media">
+          <img src="Imagenes/mapuche.jpeg" alt="Cultura mapuche en La Araucanía" loading="lazy">
+        </div>
         <div>
-            <img src="Imagenes/logo.png" alt="Logo EcoRuta Temuco">
-            <p>EcoRuta Temuco</p>
-            <p>Plataforma de turismo sustentable para la región de La Araucanía. Proyecto académico — ICINF1107.</p>
+          <span class="eyebrow">Quiénes somos</span>
+          <h2 id="sobre-titulo">Sobre EcoRuta Temuco</h2>
+          <p>Somos una plataforma de turismo sustentable dedicada a conectar a viajeros con la riqueza natural y cultural de La Araucanía. Trabajamos junto a comunidades locales, guías certificados y emprendedores mapuche para ofrecer experiencias auténticas y responsables.</p>
+          <p>Nuestro compromiso es con el territorio, su gente y el medioambiente. Cada ruta y actividad en EcoRuta Temuco sigue principios de mínimo impacto y máxima conexión cultural.</p>
+          <div class="sobre__stats">
+            <div class="sobre__stat"><strong>5</strong><span>Zonas</span></div>
+            <div class="sobre__stat"><strong>8</strong><span>Rutas</span></div>
+            <div class="sobre__stat"><strong>3</strong><span>Niveles</span></div>
+            <div class="sobre__stat"><strong>100%</strong><span>Sustentable</span></div>
+          </div>
+          <p style="margin-top: 24px;">
+            <a class="btn btn--ghost" href="informacion.html">Conoce más sobre nosotros</a>
+          </p>
         </div>
+      </div>
+    </section>
 
-        <div>
-            <p>NAVEGACIÓN</p>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="destinos.html">Destinos</a></li>
-                <li><a href="experiencias.html">Experiencias</a></li>
-                <li><a href="mapa.html">Mapa</a></li>
-                <li><a href="ruta.html">Ruta</a></li>
-                <li><a href="cultura.html">Cultura</a></li>
-                <li><a href="informacion.html">Información</a></li>
-            </ul>
+    <!-- GALERÍA -->
+    <section class="section" aria-labelledby="galeria-titulo">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Galería</span>
+          <h2 class="section-title" id="galeria-titulo">Paisajes de La Araucanía</h2>
+          <p class="section-lead">Volcanes, bosques y costa en un recorrido visual por el territorio.</p>
         </div>
-
-        <div>
-            <p>AVISO LEGAL</p>
-            <p>Los contenidos de este sitio son de carácter ilustrativo y pertenecen a sus respectivos autores. Uso educativo.</p>
+        <div class="carrusel-marco">
+          <div class="container-carrusel">
+            <div class="carruseles" id="slider">
+              <section class="slider-section" data-caption="Volcán Llaima · Araucanía Andina">
+                <img src="Imagenes/volcan-llaima.jpg" alt="Volcán Llaima en La Araucanía">
+              </section>
+              <section class="slider-section" data-caption="Parque Nacional Conguillío · Araucanía Andina">
+                <img src="imagenes/conguillio-llaima.jpg" alt="Volcán Llaima junto al lago Conguillío">
+              </section>
+              <section class="slider-section" data-caption="Ruta de los Lagos · Araucanía Lacustre">
+                <img src="Imagenes/ruta-lagos.jpg" alt="Lago y volcán en la Araucanía Lacustre">
+              </section>
+              <section class="slider-section" data-caption="Laguna de Icalma · Araucanía Andina">
+                <img src="imagenes/icalma-araucarias.jpg" alt="Laguna de Icalma rodeada de araucarias">
+              </section>
+              <section class="slider-section" data-caption="Sendero litoral · Araucanía Costera">
+                <img src="Imagenes/sendero-litoral.jpeg" alt="Sendero junto a la costa de La Araucanía">
+              </section>
+            </div>
+            <button class="btn-left" type="button" aria-label="Fotografía anterior">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button class="btn-right" type="button" aria-label="Fotografía siguiente">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+            <p class="carrusel-caption" id="carrusel-caption" aria-live="polite">Volcán Llaima · Araucanía Andina</p>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <div>
-            <p>© 2026 EcoRuta Temuco. Todos los derechos reservados.</p>
-            <p>Desarrollado con fines académicos · Universidad · ICINF1107</p>
-            <a href="#">Política de privacidad</a>
-            <a href="#">Términos de uso</a>
+    <!-- VENTAJAS -->
+    <section class="section section--alt" aria-labelledby="ventajas-titulo">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Nuestra mirada</span>
+          <h2 class="section-title" id="ventajas-titulo">¿Por qué explorar La Araucanía?</h2>
+          <p class="section-lead">Una región donde conviven volcanes activos, lagos milenarios y la sabiduría mapuche.</p>
         </div>
-    </footer>
+        <div class="ventajas-grid">
+          <article class="ventaja-card">
+            <div class="ventaja-icono">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22V12"/><path d="M12 12C12 8 9 5 5 5c0 4 3 7 7 7Z"/><path d="M12 14c0-3 2.5-6 6-6 0 3.5-2.5 6-6 6Z"/>
+              </svg>
+            </div>
+            <h3>Naturaleza preservada</h3>
+            <p>Parques nacionales y reservas de bosque nativo con flora y fauna endémica.</p>
+          </article>
+          <article class="ventaja-card">
+            <div class="ventaja-icono">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 20l6-10 4 6 3-4 5 8H3Z"/><circle cx="17" cy="6" r="2.5"/>
+              </svg>
+            </div>
+            <h3>Aventura de alto estándar</h3>
+            <p>Rutas para todos los niveles con señalética clara y puntos de descanso.</p>
+          </article>
+          <article class="ventaja-card">
+            <div class="ventaja-icono">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/>
+              </svg>
+            </div>
+            <h3>Turismo responsable</h3>
+            <p>Emprendimientos locales comprometidos con el medioambiente y las comunidades.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <!-- Script de interactividad para abrir y cerrar el menú lateral -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const menuBtn = document.getElementById("menuBtn");
-            const closeBtn = document.getElementById("closeBtn");
-            const sideDrawer = document.getElementById("sideDrawer");
-            const navOverlay = document.getElementById("navOverlay");
+    <!-- INFORMACIÓN ÚTIL -->
+    <section class="section" aria-labelledby="info-titulo">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Información útil</span>
+          <h2 class="section-title" id="info-titulo">Antes de explorar</h2>
+        </div>
+        <div class="info-grid">
+          <article class="info-card info-card--clima">
+            <div class="info-card__body">
+              <div class="info-card__icono">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="8" cy="8" r="3"/><path d="M8 2v1M8 13v1M2 8h1M13 8h1M3.8 3.8l.7.7M11.5 11.5l.7.7M3.8 12.2l.7-.7"/><path d="M8 18h9a3 3 0 0 0 0-6h-.5A4.5 4.5 0 0 0 8 14"/>
+                </svg>
+              </div>
+              <span class="info-card__eyebrow">Primavera activa</span>
+              <h3>Clima</h3>
+              <p>Consulta el pronóstico antes de salir. La Araucanía tiene temporadas lluviosas entre mayo y agosto.</p>
+            </div>
+          </article>
+          <article class="info-card info-card--eventos">
+            <div class="info-card__body">
+              <div class="info-card__icono">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/><path d="M8 15h.01M12 15h.01M16 15h.01M8 18h.01M12 18h.01"/>
+                </svg>
+              </div>
+              <span class="info-card__eyebrow">Sep–Nov 2026</span>
+              <h3>Eventos</h3>
+              <p>Feria de Artesanía Mapuche · Festivales Lacustres · Semana de las Rutas Ecológicas.</p>
+            </div>
+          </article>
+          <article class="info-card info-card--recomendaciones">
+            <div class="info-card__body">
+              <div class="info-card__icono">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 12h6M9 16h4"/>
+                </svg>
+              </div>
+              <span class="info-card__eyebrow">Guía básica</span>
+              <h3>Recomendaciones</h3>
+              <p>Lleva abrigo, calzado de trekking, protector solar y suficiente agua en todas las rutas.</p>
+            </div>
+          </article>
+          <article class="info-card info-card--sustentabilidad">
+            <div class="info-card__body">
+              <div class="info-card__icono">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22V12"/><path d="M12 12C12 8 9 5 5 5c0 4 3 7 7 7Z"/><path d="M12 14c0-3 2.5-6 6-6 0 3.5-2.5 6-6 6Z"/>
+                </svg>
+              </div>
+              <span class="info-card__eyebrow">Turismo responsable</span>
+              <h3>Sustentabilidad</h3>
+              <p>No dejes residuos. Respeta la fauna y flora. Apoya a los emprendimientos locales.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-            function openMenu() {
-                sideDrawer.classList.add("open");
-                navOverlay.classList.add("open");}
+    <!-- CTA EMPRENDIMIENTO -->
+    <section class="section" aria-labelledby="cta-titulo">
+      <div class="container">
+        <div class="cta-card">
+          <div>
+            <span class="eyebrow">Emprendimientos locales</span>
+            <h2 id="cta-titulo">¿Quieres sumar tu emprendimiento?</h2>
+            <p>Si tienes una actividad o ruta turística sustentable en La Araucanía, escríbenos y forma parte de EcoRuta Temuco.</p>
+          </div>
+          <a class="btn btn--accent" href="contacto.html">Contactar</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-            function closeMenu() {
-                sideDrawer.classList.remove("open");
-                navOverlay.classList.remove("open");}
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="EcoRuta Temuco, ir al inicio">
+            <span class="brand-logo" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12l9-9 9 9M5 10v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V10"/>
+                <path d="M9 17c0-1.5.5-3 3-4.5C14.5 14 15 15.5 15 17"/>
+              </svg>
+            </span>
+            <span class="brand-text">
+              <span class="brand-name">EcoRuta</span>
+              <span class="brand-sub">Temuco</span>
+            </span>
+          </a>
+          <p>Descubre y conecta con la naturaleza de La Araucanía. Turismo sustentable, cultura local y experiencias auténticas.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explorar</h4>
+          <ul>
+            <li><a href="ruta.html">Rutas</a></li>
+            <li><a href="experiencias.html">Actividades</a></li>
+            <li><a href="contacto.html">Emprendimientos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Información</h4>
+          <ul>
+            <li><a href="index.html#sobre">Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="informacion.html#accesibilidad">Accesibilidad</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Síguenos</h4>
+          <ul>
+            <li><span>Instagram</span></li>
+            <li><span>Facebook</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <p>© 2026 EcoRuta Temuco. Todos los derechos reservados.</p>
+        <div class="footer-legal-links">
+          <a href="#">Política de privacidad</a>
+          <a href="#">Términos de uso</a>
+          <a href="informacion.html">Aviso legal</a>
+        </div>
+      </div>
+      <p class="footer-aviso">Los contenidos de este sitio —textos, imágenes y datos— son de carácter ilustrativo y pertenecen a sus respectivos autores. Su uso tiene fines exclusivamente educativos y no comerciales. Desarrollado con fines académicos · Universidad · ICINF1107.</p>
+    </div>
+  </footer>
 
-            menuBtn.addEventListener("click", openMenu);
-            closeBtn.addEventListener("click", closeMenu);
-            navOverlay.addEventListener("click", closeMenu);});
-    </script>
-
-    <!-- Script conectado a MockAPI -->
-    <script src="script.js?v=2"></script>
-
+  <script src="menu.js?v=3"></script>
+  <script src="destinos-data.js?v=3"></script>
+  <script src="script.js?v=3"></script>
+  <script src="carrusel.js?v=3"></script>
 </body>
 </html>

@@ -103,13 +103,29 @@
     }, 60);
   }
 
-  function insertarControles() {
-    var header = document.querySelector("header");
-    if (!header || header.querySelector(".acc-controles")) return;
+  function obtenerAcciones(header) {
+    var acciones = header.querySelector(".header-acciones");
+    if (acciones) return acciones;
+
+    acciones = document.createElement("div");
+    acciones.className = "header-acciones";
 
     var menuBtn = header.querySelector(".menu-btn");
-    var acciones = document.createElement("div");
-    acciones.className = "header-acciones";
+    if (menuBtn) {
+      header.insertBefore(acciones, menuBtn);
+      acciones.appendChild(menuBtn);
+    } else {
+      header.appendChild(acciones);
+    }
+
+    return acciones;
+  }
+
+  function insertarControles() {
+    var header = document.querySelector(".site-header") || document.querySelector("header");
+    if (!header || header.querySelector(".acc-controles")) return;
+
+    var acciones = obtenerAcciones(header);
 
     var controles = document.createElement("div");
     controles.className = "acc-controles";
@@ -144,14 +160,7 @@
     });
 
     controles.append(botonTema, botonLectura);
-    acciones.appendChild(controles);
-
-    if (menuBtn) {
-      header.insertBefore(acciones, menuBtn);
-      acciones.appendChild(menuBtn);
-    } else {
-      header.appendChild(acciones);
-    }
+    acciones.insertBefore(controles, acciones.firstChild);
   }
 
   function sincronizarOtrasPestanas(evento) {

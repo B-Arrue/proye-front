@@ -1,60 +1,48 @@
 /* ==========================================
    ACCESIBILIDAD · EcoRuta Temuco
-   Modo oscuro y modo de lectura para dislexia
+   Controles, modo oscuro y lectura para dislexia.
+   Se apoya en los tokens de figma.css.
    ========================================== */
 
 /* ---------- Controles del encabezado ---------- */
-header {
-  box-sizing: border-box;
-  max-width: 100%;
-}
-
-header > a {
-  min-width: 0;
-}
-
-header > a span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .header-acciones {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-left: auto;
+  gap: 8px;
   flex: none;
+  margin-left: 8px;
 }
 
 .acc-controles {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 6px;
 }
 
 .acc-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
+  gap: 7px;
   min-height: 40px;
-  padding: 0.45rem 0.8rem;
-  border: 1px solid #1e3d1b;
-  border-radius: 999px;
-  background: transparent;
-  color: #1e3d1b;
+  padding: 8px 11px;
+  border: 1px solid var(--eco-border, #ddd8cc);
+  border-radius: 8px;
+  background: var(--eco-surface, #fff);
+  color: var(--eco-text-2, #4a5240);
   font: inherit;
-  font-size: 0.88rem;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 600;
   line-height: 1;
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
-    transform 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease, transform 0.2s ease;
 }
 
 .acc-btn:hover {
-  background-color: rgba(30, 61, 27, 0.1);
+  border-color: var(--eco-green, #2a5c1e);
+  background: var(--eco-bg-alt, #f0ebe0);
+  color: var(--eco-green, #2a5c1e);
 }
 
 .acc-btn:active {
@@ -62,24 +50,25 @@ header > a span {
 }
 
 .acc-btn:focus-visible {
-  outline: 3px solid rgba(46, 125, 50, 0.45);
+  outline: 3px solid rgba(42, 92, 30, 0.35);
   outline-offset: 2px;
 }
 
 .acc-btn svg {
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   flex: none;
 }
 
 .acc-btn[aria-pressed="true"] {
-  background-color: #1e3d1b;
-  border-color: #1e3d1b;
-  color: #f4efe6;
+  border-color: var(--eco-primary, #2a5c1e);
+  background: var(--eco-primary, #2a5c1e);
+  color: #fff;
 }
 
 .acc-btn[aria-pressed="true"]:hover {
-  background-color: #2b5329;
+  background: var(--eco-primary-hover, #1e4515);
+  color: #fff;
 }
 
 .acc-btn__icono--sol {
@@ -106,34 +95,19 @@ header > a span {
   border: 0 !important;
 }
 
-/* En pantallas pequeñas los botones quedan solo con ícono. */
 @media (max-width: 760px) {
   .header-acciones {
-    gap: 0.35rem;
+    gap: 6px;
+    margin-left: auto;
   }
 
   .acc-btn {
-    width: 42px;
-    min-height: 42px;
+    width: 40px;
+    min-height: 40px;
     padding: 0;
   }
 
   .acc-btn__texto {
-    display: none;
-  }
-
-  header {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  header > a span {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 420px) {
-  header > a span {
     display: none;
   }
 }
@@ -143,265 +117,210 @@ header > a span {
    ========================================== */
 html.modo-oscuro {
   color-scheme: dark;
-  --acc-fondo: #0d1710;
-  --acc-fondo-alt: #132117;
-  --acc-superficie: #192b1e;
-  --acc-superficie-2: #213728;
-  --acc-texto: #eaf2e8;
-  --acc-texto-suave: #b9c9b6;
-  --acc-borde: #34503a;
-  --acc-verde: #96d990;
-  --acc-verde-fuerte: #4f9f52;
-  --acc-error: #ff9d96;
-  --acc-aviso: #e7c56a;
+  --eco-bg: #0d1710;
+  --eco-bg-alt: #132117;
+  --eco-surface: #192b1e;
+  --eco-surface-soft: #16241a;
+  --eco-primary: #3f7a2f;
+  --eco-primary-hover: #4f9f52;
+  --eco-green: #96d990;
+  --eco-green-hover: #b7e6a8;
+  --eco-green-dark: #101d12;
+  --eco-accent: #8fd07a;
+  --eco-green-light: #a8d880;
+  --eco-text: #eaf2e8;
+  --eco-text-2: #c3d2bf;
+  --eco-muted: #9fb39a;
+  --eco-border: #34503a;
+  --eco-border-card: #2a4230;
+  --eco-footer-bg: #08110b;
+  --eco-footer-border: #233a28;
+  --eco-footer-muted: #a8b8a0;
+  --eco-footer-muted-2: #7c9475;
+  --eco-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --eco-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
 }
 
 html.modo-oscuro body {
-  background-color: var(--acc-fondo) !important;
-  background-image: none !important;
-  color: var(--acc-texto) !important;
+  background: var(--eco-bg);
+  color: var(--eco-text);
 }
 
-html.modo-oscuro header,
-html.modo-oscuro footer,
-html.modo-oscuro .side-drawer,
-html.modo-oscuro form,
-html.modo-oscuro .detalle-rutas {
-  background-color: var(--acc-fondo-alt) !important;
-  color: var(--acc-texto-suave) !important;
-  border-color: var(--acc-borde) !important;
-}
-
-html.modo-oscuro header {
-  border-bottom-color: var(--acc-borde) !important;
-}
-
-html.modo-oscuro header > a,
-html.modo-oscuro header > a span,
-html.modo-oscuro .drawer-header h3,
-html.modo-oscuro .drawer-link {
-  color: var(--acc-texto) !important;
-}
-
-html.modo-oscuro .menu-btn,
-html.modo-oscuro .acc-btn {
-  color: var(--acc-verde) !important;
-  border-color: var(--acc-verde) !important;
-}
-
-html.modo-oscuro .menu-btn:hover,
-html.modo-oscuro .acc-btn:hover {
-  background-color: rgba(150, 217, 144, 0.14) !important;
-}
-
-html.modo-oscuro .acc-btn[aria-pressed="true"] {
-  background-color: var(--acc-verde) !important;
-  border-color: var(--acc-verde) !important;
-  color: #0d1710 !important;
+html.modo-oscuro .site-header {
+  background: var(--eco-surface);
+  border-bottom-color: var(--eco-border);
 }
 
 html.modo-oscuro .side-drawer {
-  box-shadow: -5px 0 24px rgba(0, 0, 0, 0.55) !important;
+  background: var(--eco-bg-alt);
+  box-shadow: -12px 0 34px rgba(0, 0, 0, 0.55);
 }
 
-html.modo-oscuro .drawer-header {
-  border-bottom-color: var(--acc-borde) !important;
+html.modo-oscuro .close-btn,
+html.modo-oscuro .menu-btn {
+  background: var(--eco-surface);
+  border-color: var(--eco-border);
+  color: var(--eco-green);
 }
 
-html.modo-oscuro .close-btn {
-  color: var(--acc-texto-suave) !important;
+html.modo-oscuro .close-btn:hover,
+html.modo-oscuro .menu-btn:hover {
+  background: var(--eco-surface-soft);
+  border-color: var(--eco-green);
 }
 
-html.modo-oscuro .close-btn:hover {
-  color: var(--acc-verde) !important;
+html.modo-oscuro .acc-btn {
+  background: var(--eco-surface);
+  border-color: var(--eco-border);
+  color: var(--eco-text-2);
 }
 
-html.modo-oscuro h1,
-html.modo-oscuro h2,
-html.modo-oscuro h3,
-html.modo-oscuro h4,
-html.modo-oscuro h5,
-html.modo-oscuro h6 {
-  color: var(--acc-texto) !important;
+html.modo-oscuro .acc-btn:hover {
+  border-color: var(--eco-green);
+  background: var(--eco-surface-soft);
+  color: var(--eco-green);
 }
 
-html.modo-oscuro h2 {
-  border-bottom-color: var(--acc-borde) !important;
+html.modo-oscuro .acc-btn[aria-pressed="true"] {
+  background: var(--eco-primary);
+  border-color: var(--eco-primary);
+  color: #fff;
 }
 
-html.modo-oscuro main p,
-html.modo-oscuro main li,
-html.modo-oscuro main figcaption,
-html.modo-oscuro main dt,
-html.modo-oscuro main dd,
-html.modo-oscuro main label,
-html.modo-oscuro footer p,
-html.modo-oscuro footer li {
-  color: var(--acc-texto-suave) !important;
-}
-
-html.modo-oscuro a {
-  color: var(--acc-verde) !important;
-}
-
-html.modo-oscuro section,
-html.modo-oscuro article,
-html.modo-oscuro aside,
-html.modo-oscuro .buscador-rutas,
-html.modo-oscuro .sin-resultados,
-html.modo-oscuro .tarjeta-destino,
-html.modo-oscuro .tarjeta-item,
-html.modo-oscuro .detalle-ruta {
-  background-color: var(--acc-superficie) !important;
-  border-color: var(--acc-borde) !important;
-  color: var(--acc-texto) !important;
-  box-shadow: none !important;
-}
-
-html.modo-oscuro main > section:first-child {
-  background-color: var(--acc-superficie) !important;
-  border-color: var(--acc-borde) !important;
-}
-
-html.modo-oscuro main > section:first-child p:first-child {
-  color: var(--acc-verde) !important;
-}
-
-html.modo-oscuro #zonas-turisticas article {
-  background-color: var(--acc-superficie) !important;
-  border-color: var(--acc-borde) !important;
-}
-
-html.modo-oscuro #zonas-turisticas article a,
-html.modo-oscuro .boton-reintentar,
-html.modo-oscuro .buscador-rutas button,
-html.modo-oscuro form button {
-  background-color: var(--acc-verde-fuerte) !important;
-  border-color: var(--acc-verde) !important;
-  color: #071009 !important;
-}
-
-html.modo-oscuro #zonas-turisticas article a:hover,
-html.modo-oscuro .boton-reintentar:hover,
-html.modo-oscuro .buscador-rutas button:hover,
-html.modo-oscuro form button:hover {
-  background-color: var(--acc-verde) !important;
-}
-
-html.modo-oscuro input,
-html.modo-oscuro select,
-html.modo-oscuro textarea {
-  background-color: var(--acc-superficie-2) !important;
-  border-color: var(--acc-borde) !important;
-  color: var(--acc-texto) !important;
-}
-
-html.modo-oscuro input::placeholder,
-html.modo-oscuro textarea::placeholder {
-  color: #8fa68d !important;
-}
-
-html.modo-oscuro .buscador-rutas label,
-html.modo-oscuro .grid-rutas li,
-html.modo-oscuro .grid-rutas figure + span,
-html.modo-oscuro .grid-rutas article > p,
-html.modo-oscuro .detalle-ruta span,
-html.modo-oscuro .detalle-ruta h3 + p,
-html.modo-oscuro .detalle-ruta dt,
-html.modo-oscuro .detalle-ruta dd {
-  color: var(--acc-texto-suave) !important;
-}
-
-html.modo-oscuro .detalle-ruta h3 {
-  color: var(--acc-texto) !important;
-}
-
+html.modo-oscuro .interes-chip,
 html.modo-oscuro .filtros-categoria button {
-  background-color: transparent !important;
-  border-color: var(--acc-verde) !important;
-  color: var(--acc-verde) !important;
+  background: var(--eco-surface);
+  border-color: var(--eco-border-card);
+  color: var(--eco-text);
 }
 
-html.modo-oscuro .filtros-categoria button:hover {
-  background-color: rgba(150, 217, 144, 0.14) !important;
+html.modo-oscuro .filtros-categoria button:hover,
+html.modo-oscuro .interes-chip:hover {
+  border-color: var(--eco-green);
+  color: var(--eco-green);
 }
 
 html.modo-oscuro .filtros-categoria button.activo,
 html.modo-oscuro .filtros-categoria button[aria-pressed="true"] {
-  background-color: var(--acc-verde) !important;
-  color: #071009 !important;
+  background: var(--eco-primary);
+  border-color: var(--eco-primary);
+  color: #fff;
 }
 
-html.modo-oscuro .buscador-rutas .boton-limpiar {
-  background-color: transparent !important;
-  color: var(--acc-verde) !important;
+html.modo-oscuro .btn--secondary {
+  background: var(--eco-surface);
+  border-color: var(--eco-border);
+  color: var(--eco-green);
 }
 
-html.modo-oscuro .buscador-rutas .boton-limpiar:hover {
-  background-color: rgba(150, 217, 144, 0.14) !important;
+html.modo-oscuro .btn--secondary:hover {
+  background: var(--eco-surface-soft);
+  border-color: var(--eco-green);
 }
 
-html.modo-oscuro .estado[data-state="error"] {
-  color: var(--acc-error) !important;
+html.modo-oscuro .info-card--clima {
+  border-color: #1e4a5e;
+  background: #0f2530;
 }
 
-html.modo-oscuro .estado[data-state="success"] {
-  color: var(--acc-verde) !important;
+html.modo-oscuro .info-card--eventos {
+  border-color: #5e4a1e;
+  background: #2a2410;
 }
 
-html.modo-oscuro .estado[data-state="empty"],
-html.modo-oscuro .warnings {
-  color: var(--acc-aviso) !important;
+html.modo-oscuro .info-card--recomendaciones {
+  border-color: #2a5e34;
+  background: #102a17;
 }
 
-html.modo-oscuro .success {
-  color: var(--acc-verde) !important;
+html.modo-oscuro .info-card--sustentabilidad {
+  border-color: #1e5e4a;
+  background: #0f2a24;
 }
 
-html.modo-oscuro .mapa {
-  border-color: var(--acc-verde) !important;
+html.modo-oscuro .info-card__icono {
+  background: var(--eco-surface);
+}
+
+html.modo-oscuro .ventaja-icono,
+html.modo-oscuro .cultura-card__icono,
+html.modo-oscuro .contacto-info__icono {
+  background: #1e3a24;
+  color: var(--eco-green);
+}
+
+html.modo-oscuro .badge--baja {
+  background: #12351f;
+  color: #a7f3c0;
+}
+
+html.modo-oscuro .badge--media {
+  background: #3a2c10;
+  color: #fde68a;
+}
+
+html.modo-oscuro .badge--alta {
+  background: #3d1717;
+  color: #fecaca;
+}
+
+html.modo-oscuro .estado[data-state="error"],
+html.modo-oscuro .warnings,
+html.modo-oscuro .form-message[data-state="error"] {
+  color: #ff9d96;
+}
+
+html.modo-oscuro .estado[data-state="success"],
+html.modo-oscuro .success,
+html.modo-oscuro .form-message[data-state="success"] {
+  color: var(--eco-green);
+}
+
+html.modo-oscuro .estado[data-state="empty"] {
+  color: #e7c56a;
 }
 
 html.modo-oscuro .leaflet-container {
-  background: #0b130d !important;
+  background: #0b130d;
 }
 
 html.modo-oscuro .leaflet-tile-pane {
-  filter: brightness(0.8) invert(1) hue-rotate(180deg) contrast(0.9) saturate(0.8);
+  filter: brightness(0.8) invert(1) hue-rotate(180deg) contrast(0.9)
+    saturate(0.8);
 }
 
 html.modo-oscuro .leaflet-control-attribution {
   background: rgba(13, 23, 16, 0.88) !important;
-  color: var(--acc-texto-suave) !important;
+  color: var(--eco-text-2) !important;
 }
 
 html.modo-oscuro .leaflet-bar a,
 html.modo-oscuro .leaflet-bar a:hover {
-  background: var(--acc-superficie) !important;
-  border-color: var(--acc-borde) !important;
-  color: var(--acc-texto) !important;
+  background: var(--eco-surface) !important;
+  border-color: var(--eco-border) !important;
+  color: var(--eco-text) !important;
 }
 
 html.modo-oscuro .leaflet-bar {
-  border-color: var(--acc-borde) !important;
+  border-color: var(--eco-border) !important;
 }
 
 html.modo-oscuro .leaflet-control-attribution a {
-  color: var(--acc-verde) !important;
+  color: var(--eco-green) !important;
 }
 
 html.modo-oscuro .leaflet-popup-content-wrapper,
 html.modo-oscuro .leaflet-popup-tip {
-  background: var(--acc-superficie) !important;
-  color: var(--acc-texto) !important;
+  background: var(--eco-surface) !important;
+  color: var(--eco-text) !important;
 }
 
 html.modo-oscuro .leaflet-popup-content p {
-  color: var(--acc-texto-suave) !important;
+  color: var(--eco-text-2) !important;
 }
 
 html.modo-oscuro ::selection {
-  background: var(--acc-verde-fuerte);
+  background: var(--eco-green);
   color: #071009;
 }
 
@@ -410,8 +329,8 @@ html.modo-oscuro ::selection {
    ========================================== */
 html.modo-dislexia body,
 html.modo-dislexia body * {
-  font-family: "OpenDyslexic", "Open Dyslexic", "Comic Sans MS", "Trebuchet MS",
-    Verdana, sans-serif !important;
+  font-family: "OpenDyslexic", "Open Dyslexic", "Comic Sans MS",
+    "Trebuchet MS", Verdana, sans-serif !important;
 }
 
 html.modo-dislexia body {
@@ -461,6 +380,8 @@ html.modo-dislexia a {
   text-underline-offset: 0.18em;
 }
 
+html.modo-dislexia .btn,
+html.modo-dislexia .nav-cta,
 html.modo-dislexia .acc-btn,
 html.modo-dislexia .menu-btn {
   letter-spacing: 0.02em !important;

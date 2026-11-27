@@ -1,117 +1,237 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-      Información | EcoRuta Temuco
-    </title>
-    <link rel="stylesheet" href="informacion.css">
-    <link rel="stylesheet" href="accesibilidad.css?v=2">
-    <script src="accesibilidad.js?v=2"></script>
-  </head>
-  <body>
-<header>
-        <a href="index.html">
-            <img src="Imagenes/logo.png" alt="Logo de EcoRuta Temuco">
-            <span>EcoRuta Temuco</span>
-        </a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Información práctica para visitar La Araucanía: clima, qué llevar, seguridad y accesibilidad.">
+  <title>Información | EcoRuta Temuco</title>
+  <link rel="icon" href="Imagenes/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="figma.css?v=3">
+  <link rel="stylesheet" href="accesibilidad.css?v=3">
+  <script src="accesibilidad.js?v=3"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-        <!-- Botón de Menú a la derecha -->
-        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
-            Menú ▾
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="EcoRuta Temuco, ir al inicio">
+        <span class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12l9-9 9 9M5 10v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V10"/>
+            <path d="M9 17c0-1.5.5-3 3-4.5C14.5 14 15 15.5 15 17"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">EcoRuta</span>
+          <span class="brand-sub">Temuco</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="destinos.html">Destinos</a>
+        <a href="experiencias.html">Experiencias</a>
+        <a href="mapa.html">Mapa</a>
+        <a href="ruta.html">Rutas</a>
+        <a href="cultura.html">Cultura</a>
+        <a href="informacion.html" aria-current="page">Información</a>
+        <a href="contacto.html">Contacto</a>
+        <a class="nav-cta" href="ruta.html">Explorar rutas</a>
+      </nav>
+      <div class="header-acciones">
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="sideDrawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <span class="menu-btn__texto">Menú</span>
         </button>
-    </header>
+      </div>
+    </div>
+  </header>
 
-    <!-- Panel Lateral Deslizante -->
-    <div class="nav-overlay" id="navOverlay"></div>
-    <nav class="side-drawer" id="sideDrawer">
-        <div class="drawer-header">
-            <h3>Menú de Navegación</h3>
-            <button class="close-btn" id="closeBtn" aria-label="Cerrar menú">&times;</button>
+  <div class="nav-overlay" id="navOverlay"></div>
+  <nav class="side-drawer" id="sideDrawer" aria-label="Menú de navegación" aria-hidden="true">
+    <div class="drawer-header">
+      <h3>Menú de navegación</h3>
+      <button class="close-btn" id="closeBtn" type="button" aria-label="Cerrar menú">&times;</button>
+    </div>
+    <ul class="drawer-list">
+      <li><a href="index.html" class="drawer-link">Inicio</a></li>
+      <li><a href="destinos.html" class="drawer-link">Destinos</a></li>
+      <li><a href="experiencias.html" class="drawer-link">Experiencias</a></li>
+      <li><a href="mapa.html" class="drawer-link">Mapa</a></li>
+      <li><a href="ruta.html" class="drawer-link">Rutas</a></li>
+      <li><a href="cultura.html" class="drawer-link">Cultura</a></li>
+      <li><a href="informacion.html" class="drawer-link">Información</a></li>
+      <li><a href="contacto.html" class="drawer-link">Contacto</a></li>
+    </ul>
+    <div class="drawer-footer">
+      <p>Turismo sustentable en La Araucanía.</p>
+      <p>Proyecto académico · ICINF1107</p>
+    </div>
+  </nav>
+
+  <main id="contenido">
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Planifica tu visita</span>
+        <h1>Información para tu visita</h1>
+        <p>Consejos sencillos para planificar un recorrido responsable y disfrutar La Araucanía con seguridad.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <figure class="page-banner">
+          <img src="imagenes/icalma-araucarias.jpg" alt="Laguna de Icalma rodeada de araucarias">
+          <figcaption>Foto: Paula Misle, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a></figcaption>
+        </figure>
+
+        <div class="section-head">
+          <span class="eyebrow">Antes de salir</span>
+          <h2 class="section-title">Consejos prácticos</h2>
+          <p class="section-lead">Revisa estos puntos para que tu experiencia sea más cómoda, segura y respetuosa con el entorno.</p>
         </div>
-        <ul class="drawer-list">
-            <li><a href="index.html" class="drawer-link">Inicio</a></li>
-            <li><a href="destinos.html" class="drawer-link">Destinos</a></li>
-            <li><a href="experiencias.html" class="drawer-link">Experiencias</a></li>
-            <li><a href="mapa.html" class="drawer-link">Mapa</a></li>
-            <li><a href="ruta.html" class="drawer-link">Ruta</a></li>
-            <li><a href="cultura.html" class="drawer-link">Cultura</a></li>
-            <li><a href="informacion.html" class="drawer-link">Información</a></li>
-            <li><a href="contacto.html" class="drawer-link">Contacto</a></li>
-        </ul>
-    </nav>
-    <main>
-      <section>
-        <h1>
-          Información para tu visita
-        </h1>
-        <p>
-          Consejos sencillos para planificar un recorrido responsable.
-        </p>
 
-        <!-- Contenedor para cargar los datos dinámicos de MockAPI -->
-        <div id="resultado-api"></div>
+        <div class="info-practica">
+          <article>
+            <h3>¿Cuándo viajar?</h3>
+            <p>El clima y las actividades disponibles cambian según la temporada. Revisa las condiciones antes de salir y consulta por alertas meteorológicas.</p>
+          </article>
+          <article>
+            <h3>¿Qué llevar?</h3>
+            <p>Usa ropa cómoda y adecuada al clima. Para una caminata, lleva agua, abrigo, protector solar y calzado apropiado.</p>
+          </article>
+          <article>
+            <h3>Cuida el entorno</h3>
+            <p>Respeta los senderos, no dejes basura y sigue las indicaciones de cada lugar. La flora y la fauna son parte del patrimonio de la región.</p>
+          </article>
+          <article>
+            <h3>Emergencias</h3>
+            <p>Ante una emergencia, contacta a Carabineros (133), Bomberos (132) o SAMU (131). Informa siempre tu ubicación y el nombre de la ruta.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <article>
-          <h2>
-            ¿Cuándo viajar?
-          </h2>
-          <p>
-            El clima y las actividades disponibles cambian según la temporada. Revisa las condiciones antes de salir.
-          </p>
-        </article>
-        <article>
-          <h2>
-            ¿Qué llevar?
-          </h2>
-          <p>
-            Usa ropa cómoda y adecuada al clima. Para una caminata, lleva agua y calzado apropiado.
-          </p>
-        </article>
-        <article>
-          <figure>
-            <img src="imagenes/icalma-araucarias.jpg" alt="Laguna de Icalma rodeada de araucarias">
-            <figcaption>Foto: Paula Misle, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.</figcaption>
-          </figure>
-          <h2>
-            Cuida el entorno
-          </h2>
-          <p>
-            Respeta los senderos, no dejes basura y sigue las indicaciones de cada lugar.
-          </p>
-        </article>
-      </section>
-    </main>
-    <footer>
-      <p>
-        EcoRuta Temuco · Proyecto académico de turismo en La Araucanía.
-      </p>
-    </footer>
-<!-- Script de interactividad para abrir y cerrar el menú lateral -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const menuBtn = document.getElementById("menuBtn");
-            const closeBtn = document.getElementById("closeBtn");
-            const sideDrawer = document.getElementById("sideDrawer");
-            const navOverlay = document.getElementById("navOverlay");
+    <section class="section section--alt" id="accesibilidad">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Accesibilidad</span>
+          <h2 class="section-title">Un sitio cómodo para todas las personas</h2>
+          <p class="section-lead">Puedes activar estas opciones desde los botones del encabezado. Tu preferencia se guarda para tu próxima visita.</p>
+        </div>
+        <div class="info-grid info-grid--tres">
+          <article class="info-card info-card--clima">
+            <div class="info-card__body">
+              <div class="info-card__icono">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z"/>
+                </svg>
+              </div>
+              <span class="info-card__eyebrow">Confort visual</span>
+              <h3>Modo oscuro</h3>
+              <p>Reduce el brillo de la pantalla y mejora la lectura en ambientes con poca luz. Se activa con el botón “Modo oscuro”.</p>
+            </div>
+          </article>
+          <article class="info-card info-card--recomendaciones">
+            <div class="info-card__body">
+              <div class="info-card__icono">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 6.5C10.4 4.9 8.2 4 5.5 4H3v14h2.5c2.7 0 4.9.9 6.5 2.5 1.6-1.6 3.8-2.5 6.5-2.5H21V4h-2.5c-2.7 0-4.9.9-6.5 2.5Z"/>
+                  <path d="M12 6.5V20.5"/>
+                </svg>
+              </div>
+              <span class="info-card__eyebrow">Lectura clara</span>
+              <h3>Lectura fácil</h3>
+              <p>Aumenta el espaciado y usa una tipografía más amigable para personas con dislexia. Se activa con el botón “Lectura fácil”.</p>
+            </div>
+          </article>
+          <article class="info-card info-card--sustentabilidad">
+            <div class="info-card__body">
+              <div class="info-card__icono">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9"/><path d="M12 8v5l3 2"/>
+                </svg>
+              </div>
+              <span class="info-card__eyebrow">Preferencias</span>
+              <h3>Se recuerdan</h3>
+              <p>Las opciones de accesibilidad quedan guardadas en tu navegador, así no tienes que activarlas en cada página.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-            function openMenu() {
-                sideDrawer.classList.add("open");
-                navOverlay.classList.add("open");
-            }
+    <section class="section">
+      <div class="container">
+        <div class="cta-card">
+          <div>
+            <span class="eyebrow">¿Necesitas ayuda?</span>
+            <h2>Estamos para orientarte</h2>
+            <p>Si tienes dudas sobre rutas, accesibilidad o condiciones del terreno, escríbenos y te responderemos a la brevedad.</p>
+          </div>
+          <a class="btn btn--accent" href="contacto.html">Contactar</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-            function closeMenu() {
-                sideDrawer.classList.remove("open");
-                navOverlay.classList.remove("open");
-            }
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="EcoRuta Temuco, ir al inicio">
+            <span class="brand-logo" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12l9-9 9 9M5 10v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V10"/>
+                <path d="M9 17c0-1.5.5-3 3-4.5C14.5 14 15 15.5 15 17"/>
+              </svg>
+            </span>
+            <span class="brand-text">
+              <span class="brand-name">EcoRuta</span>
+              <span class="brand-sub">Temuco</span>
+            </span>
+          </a>
+          <p>Descubre y conecta con la naturaleza de La Araucanía. Turismo sustentable, cultura local y experiencias auténticas.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explorar</h4>
+          <ul>
+            <li><a href="ruta.html">Rutas</a></li>
+            <li><a href="experiencias.html">Actividades</a></li>
+            <li><a href="contacto.html">Emprendimientos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Información</h4>
+          <ul>
+            <li><a href="index.html#sobre">Nosotros</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="informacion.html#accesibilidad">Accesibilidad</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Síguenos</h4>
+          <ul>
+            <li><span>Instagram</span></li>
+            <li><span>Facebook</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <p>© 2026 EcoRuta Temuco. Todos los derechos reservados.</p>
+        <div class="footer-legal-links">
+          <a href="#">Política de privacidad</a>
+          <a href="#">Términos de uso</a>
+          <a href="informacion.html">Aviso legal</a>
+        </div>
+      </div>
+      <p class="footer-aviso">Los contenidos de este sitio —textos, imágenes y datos— son de carácter ilustrativo y pertenecen a sus respectivos autores. Su uso tiene fines exclusivamente educativos y no comerciales. Desarrollado con fines académicos · Universidad · ICINF1107.</p>
+    </div>
+  </footer>
 
-            if (menuBtn) menuBtn.addEventListener("click", openMenu);
-            if (closeBtn) closeBtn.addEventListener("click", closeMenu);
-            if (navOverlay) navOverlay.addEventListener("click", closeMenu);
-        });
-    </script>
-    <!-- Script conectado a MockAPI -->
-    <script src="script.js?v=2"></script>
-  </body>
+  <script src="menu.js?v=3"></script>
+</body>
 </html>
