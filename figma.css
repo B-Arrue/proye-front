@@ -720,14 +720,6 @@ main {
   color: #fff;
 }
 
-.footer-aviso {
-  max-width: 980px;
-  margin-top: 14px;
-  color: var(--eco-footer-muted-2);
-  font-size: 12px;
-  line-height: 1.65;
-}
-
 @media (max-width: 900px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
